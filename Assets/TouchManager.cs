@@ -10,6 +10,9 @@ public class TouchManager : MonoBehaviour
     private List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     public GameObject targetObj;
+    public GameObject bomb;
+
+    int count = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +37,21 @@ public class TouchManager : MonoBehaviour
                 if (raycastManager.Raycast(touch.position, hits, UnityEngine.XR.ARSubsystems.TrackableType.PlaneWithinPolygon))
                 {
                     //Instantiate(skill, hits[0].pose.position, hits[0].pose.rotation);
-                    Instantiate(skill, hits[0].pose.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                    if (count == 0)
+                    {
+                        Instantiate(skill, hits[0].pose.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                        Instantiate(skill, hits[0].pose.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                        Instantiate(skill, hits[0].pose.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                        Instantiate(skill, hits[0].pose.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                        Instantiate(skill, hits[0].pose.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                        Instantiate(skill, hits[0].pose.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                        Instantiate(skill, hits[0].pose.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                        count++;
+                    }
+                    else
+                    {
+                        Instantiate(bomb, hits[0].pose.position + Vector3.up, Quaternion.identity);
+                    }
                 }
             }
         }
