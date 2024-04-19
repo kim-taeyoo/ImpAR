@@ -7,14 +7,18 @@ public class EnemyActionController : MonoBehaviour
 {
     private GameObject goal;
     private NavMeshAgent agent;
+    private Rigidbody rb;
 
     private EnemyAnimationController animationController;
+
+    private int healthPoints = 10;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animationController = GetComponent<EnemyAnimationController>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -22,7 +26,9 @@ public class EnemyActionController : MonoBehaviour
     {
         if (animationController.IsDeath)
         {
-            agent.speed = 0;
+            agent.enabled = false;
+            rb.isKinematic = true;
+            ResetGoal();
             animationController.DoRun(false);
             animationController.DoAttack(false);
             return;
@@ -36,7 +42,7 @@ public class EnemyActionController : MonoBehaviour
         }
 
 
-        if (goal != null && !animationController.IsSpawnning && !animationController.IsAttacking)
+        if (goal != null && !animationController.IsSpawnning && !animationController.IsAttackAnimation)
         {
             agent.destination = goal.transform.position;
             agent.speed = 5;
@@ -44,19 +50,25 @@ public class EnemyActionController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void GetHit(int damage)
     {
-        if (collision.collider.gameObject == goal)
+        healthPoints -= damage;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject == goal)
         {
             transform.LookAt(agent.destination);
             animationController.DoAttack(true);
-            agent.speed = 1;
+            agent.speed = 0;
+            animationController.IsAttackAnimation = true;
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.collider.gameObject == goal)
+        if (other.gameObject == goal)
         {
             animationController.DoAttack(false);
         }

@@ -15,6 +15,10 @@ public class EnemyAnimationController : MonoBehaviour
     bool isDeath;
     bool isSpawnning;
 
+    bool attackAnimation;
+
+    private GameManager gm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +27,9 @@ public class EnemyAnimationController : MonoBehaviour
         isAttackingHash = Animator.StringToHash("isAttacking");
         isDeathHash = Animator.StringToHash("isDeath");
         isSpawnHash = Animator.StringToHash("isSpawnning");
+
+        gm = transform.parent.GetComponent<EnemyManager>().gm;
+
     }
 
     // Update is called once per frame
@@ -32,12 +39,28 @@ public class EnemyAnimationController : MonoBehaviour
         isAttacking = animator.GetBool(isAttackingHash);
         isDeath = animator.GetBool(isDeathHash);
         isSpawnning = animator.GetBool(isSpawnHash);
-
-        if (!isDeath && Input.GetMouseButton(1))
-        {
-            DoDeath(true);
-        }
         
+    }
+
+    public void AnimationObserver(string message)
+    {
+        if (message.Equals("SpawnEnded"))
+        {
+            animator.SetBool(isSpawnHash, false);
+        }
+
+        if (message.Equals("AttackEnded"))
+        {
+            DoAttack(false);
+            attackAnimation = false;
+        }
+
+        if (message.Equals("DeathEnded"))
+        {
+            //Debug.Log(gm);
+            gm.SendMessage("EnemyDead",animator.gameObject);
+            Debug.Log(gameObject.name + "said dead");
+        }
     }
 
     public void DoRun(bool b)
@@ -59,4 +82,5 @@ public class EnemyAnimationController : MonoBehaviour
     public bool IsAttacking { get { return isAttacking; } }
     public bool IsDeath { get { return isDeath; } }
     public bool IsSpawnning { get { return isSpawnning; } }
+    public bool IsAttackAnimation { get { return attackAnimation; } set { attackAnimation = value;} }
 }

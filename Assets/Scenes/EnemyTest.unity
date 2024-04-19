@@ -293,6 +293,7 @@ MonoBehaviour:
     type: 3}
   goalPrefab: {fileID: 2741677099959812007, guid: bbbfe74485d408e48a96a3e08c64b10b,
     type: 3}
+  p: {fileID: 1320608408}
 --- !u!4 &990193399
 Transform:
   m_ObjectHideFlags: 0
@@ -500,8 +501,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1320608409}
+  - component: {fileID: 1320608410}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,6 +524,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1320608410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320608408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad601a2a3717814aa6c8d119c7288a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 990193398}
 --- !u!1 &1577570155
 GameObject:
   m_ObjectHideFlags: 0
