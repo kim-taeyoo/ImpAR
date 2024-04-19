@@ -6,19 +6,26 @@ using UnityEngine.AI;
 public class EnemyActionController : MonoBehaviour
 {
     private GameObject goal;
+    private Vector3 goalPosition;
     private NavMeshAgent agent;
-    private Rigidbody rb;
+    private Collider c;
 
     private EnemyAnimationController animationController;
 
     private int healthPoints = 10;
+
+    [SerializeField]
+    private Transform rayPosition;
+
+    public float attackDistance;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animationController = GetComponent<EnemyAnimationController>();
-        rb = GetComponent<Rigidbody>();
+        c = GetComponent<Collider>();
+        c.enabled = false;
     }
 
     // Update is called once per frame
@@ -27,8 +34,8 @@ public class EnemyActionController : MonoBehaviour
         if (animationController.IsDeath)
         {
             agent.enabled = false;
-            rb.isKinematic = true;
             ResetGoal();
+            c.enabled = false;
             animationController.DoRun(false);
             animationController.DoAttack(false);
             return;
@@ -41,43 +48,55 @@ public class EnemyActionController : MonoBehaviour
             agent.destination = transform.position;
         }
 
+        if (!animationController.IsSpawnning && c.enabled == false)
+        {
+            c.enabled = true;
+        }
 
         if (goal != null && !animationController.IsSpawnning && !animationController.IsAttackAnimation)
         {
-            agent.destination = goal.transform.position;
-            agent.speed = 5;
+            agent.destination = goalPosition;
             animationController.DoRun(true);
         }
-    }
 
-    void GetHit(int damage)
-    {
-        healthPoints -= damage;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject == goal)
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackDistance);
+        foreach (Collider c in hitColliders)
         {
-            transform.LookAt(agent.destination);
-            animationController.DoAttack(true);
-            agent.speed = 0;
-            animationController.IsAttackAnimation = true;
+            if (c.gameObject == goal)
+            {
+                transform.LookAt(goalPosition);
+                animationController.DoAttack(true);
+                agent.destination = transform.position;
+                animationController.IsAttackAnimation = true;
+                break;
+            } else
+            {
+                animationController.DoAttack(false);
+            }
+            
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    bool GoalCheckRay()
     {
-        if (other.gameObject == goal)
-        {
-            animationController.DoAttack(false);
-        }
-    }
+        Ray ray = new Ray(rayPosition.position,goalPosition);
+        RaycastHit hit;
 
+        if (Physics.Raycast(ray, out hit, attackDistance))
+        {
+            if (hit.collider.gameObject == goal)
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
 
     public void GetGoal(GameObject g)
     {
         goal = g;
+        goalPosition = new Vector3(g.transform.position.x,transform.position.y, g.transform.position.z);
     }
 
     public void ResetGoal() { goal = null; }

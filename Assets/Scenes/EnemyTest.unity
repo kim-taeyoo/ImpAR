@@ -289,11 +289,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ad18c7e5601d144d956bc4a36151eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 180378833658358991, guid: 54c4c6d7c07763d4085fc65c4f1c6c8b,
-    type: 3}
   goalPrefab: {fileID: 2741677099959812007, guid: bbbfe74485d408e48a96a3e08c64b10b,
     type: 3}
+  WarriorPrefab: {fileID: 180378833658358991, guid: 54c4c6d7c07763d4085fc65c4f1c6c8b,
+    type: 3}
+  ArcherPrefab: {fileID: 1407336474004385582, guid: ab7d981bbafdef94088de32214854aa4,
+    type: 3}
+  MagePrefab: {fileID: 1037525073470194367, guid: 9a2b0667bf424e5418e164e6cae0000a,
+    type: 3}
   p: {fileID: 1320608408}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!4 &990193399
 Transform:
   m_ObjectHideFlags: 0

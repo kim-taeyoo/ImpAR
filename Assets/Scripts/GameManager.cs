@@ -5,16 +5,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemyPrefab;
-    [SerializeField]
     private GameObject goalPrefab;
+
+    public GameObject WarriorPrefab;
+    public GameObject ArcherPrefab;
+    public GameObject MagePrefab;
+
 
     public GameObject p; //parent
 
     private List<GameObject> enemy = new List<GameObject>();
     private GameObject goal;
 
-    float enemySpawnTime = 5f;
+    float enemySpawnTime = 7f;
     float firstSpawnTime = 1f;
 
     //For test
@@ -33,8 +36,9 @@ public class GameManager : MonoBehaviour
     {
         if (enemy.Count == 0) { return; }
         if (goal == null)
-        { foreach(GameObject e in enemy)
-            e.SendMessage("ResetGoal");
+        {
+            foreach (GameObject e in enemy)
+                e.SendMessage("ResetGoal");
         }
         foreach (GameObject e in enemy)
         {
@@ -61,10 +65,11 @@ public class GameManager : MonoBehaviour
 
         if (mousePressed && Physics.Raycast(ray, out hit))
         {
-
+            Debug.Log(hit.collider.name);
             if (hit.collider.tag == "Enemy")
             {
-                hit.collider.SendMessage("DoDeath",true);
+                hit.collider.SendMessage("DoDeath", true);
+                Debug.Log("Hit");
             }
 
             mousePressed = false;
@@ -75,8 +80,8 @@ public class GameManager : MonoBehaviour
     private Vector3 RandomSpawnPostion(Vector3 originPos)
     {
         Vector3 pos = new Vector3();
-        pos.x = originPos.x + Random.Range(-5f, 5f);
-        pos.z = originPos.z + Random.Range(-5f, 5f);
+        pos.x = originPos.x + Random.Range(-1f, 1f);
+        pos.z = originPos.z + Random.Range(-1f, 1f);
 
         return pos;
     }
@@ -99,16 +104,26 @@ public class GameManager : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(firstSpawnTime);
-            for (int i = 0; i < Random.Range(3, 5); ++i)
+            for (int i = 0; i < Random.Range(1, 3); ++i)
             {
                 Vector3 pos = new Vector3(Random.Range(-30f, 30f), 2.5f, Random.Range(-30f, 30f));
-                GameObject e = Instantiate(enemyPrefab, RandomSpawnPostion(pos), Quaternion.identity);
+                GameObject e = Instantiate(WarriorPrefab, RandomSpawnPostion(pos), Quaternion.identity);
+                GameObject e2 = Instantiate(ArcherPrefab, RandomSpawnPostion(pos), Quaternion.identity);
+                GameObject e45 = Instantiate(MagePrefab, RandomSpawnPostion(pos), Quaternion.identity);
                 e.transform.parent = p.transform;
+                e2.transform.parent = p.transform;
+                e45.transform.parent = p.transform;
+
+
                 enemy.Add(e);
+                enemy.Add(e2);
+                enemy.Add(e45);
 
             }
             yield return new WaitForSeconds(enemySpawnTime);
         }
         
     }
+
+ 
 }
