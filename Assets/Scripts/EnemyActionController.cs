@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class EnemyActionController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class EnemyActionController : MonoBehaviour
 
     private EnemyAnimationController animationController;
 
-    private int healthPoints = 10;
+    public int healthPoints = 10;
 
     [SerializeField]
     private Transform rayPosition;
@@ -25,6 +26,12 @@ public class EnemyActionController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animationController = GetComponent<EnemyAnimationController>();
         c = GetComponent<Collider>();
+
+        goal = transform.parent.GetComponent<EnemyManager>().SetGoal(); // 고정된 하나의 goal
+        goalPosition = new Vector3(goal.transform.position.x,transform.position.y,goal.transform.position.z);
+        
+        //transform.LookAt(goalPosition);
+
         c.enabled = false;
     }
 
@@ -33,11 +40,7 @@ public class EnemyActionController : MonoBehaviour
     {
         if (animationController.IsDeath)
         {
-            agent.enabled = false;
-            ResetGoal();
-            c.enabled = false;
-            animationController.DoRun(false);
-            animationController.DoAttack(false);
+            EnemyDead();
             return;
         }
 
@@ -56,13 +59,20 @@ public class EnemyActionController : MonoBehaviour
         if (goal != null && !animationController.IsSpawnning && !animationController.IsAttackAnimation)
         {
             agent.destination = goalPosition;
-            animationController.DoRun(true);
+            if (agent.velocity.magnitude > 0)
+            {
+                animationController.DoRun(true);
+
+            } else
+            {
+                animationController.DoRun(false);
+            }
         }
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackDistance);
         foreach (Collider c in hitColliders)
         {
-            if (c.gameObject == goal)
+            if (c.gameObject == goal && GoalCheckRay())
             {
                 transform.LookAt(goalPosition);
                 animationController.DoAttack(true);
@@ -77,9 +87,10 @@ public class EnemyActionController : MonoBehaviour
         }
     }
 
+    //check there is no obstacles between enemy and goal
     bool GoalCheckRay()
     {
-        Ray ray = new Ray(rayPosition.position,goalPosition);
+        Ray ray = new Ray(rayPosition.position,rayPosition.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, attackDistance))
@@ -93,11 +104,17 @@ public class EnemyActionController : MonoBehaviour
 
     }
 
-    public void GetGoal(GameObject g)
+    private void EnemyDead()
     {
-        goal = g;
-        goalPosition = new Vector3(g.transform.position.x,transform.position.y, g.transform.position.z);
+        agent.enabled = false;
+        c.enabled = false;
+        animationController.DoRun(false);
+        animationController.DoAttack(false);
     }
 
-    public void ResetGoal() { goal = null; }
+    private void GetHit()
+    {
+        // get hit
+    }
+
 }

@@ -17,7 +17,6 @@ public class NavigationBaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        plane.RemoveData();
         plane.BuildNavMesh();
     }
 }

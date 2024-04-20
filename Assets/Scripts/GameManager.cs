@@ -1,23 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject goalPrefab;
-
-    public GameObject WarriorPrefab;
-    public GameObject ArcherPrefab;
-    public GameObject MagePrefab;
-
-
-    public GameObject p; //parent
-
-    private List<GameObject> enemy = new List<GameObject>();
     private GameObject goal;
 
-    float enemySpawnTime = 7f;
+    public Collider plane;
+
+    public EnemyManager enemyManager;
+
+    float enemySpawnTime = 10f;
     float firstSpawnTime = 1f;
 
     //For test
@@ -27,24 +20,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        goal = Instantiate(goalPrefab, new Vector3(0, 2.5f, 0), Quaternion.identity);
         StartCoroutine(SpawnWaves());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemy.Count == 0) { return; }
-        if (goal == null)
-        {
-            foreach (GameObject e in enemy)
-                e.SendMessage("ResetGoal");
-        }
-        foreach (GameObject e in enemy)
-        {
-            e.SendMessage("GetGoal", goal);
-        }
-
         //For test
         if (Input.GetMouseButtonDown(0))
         {
@@ -77,28 +58,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private Vector3 RandomSpawnPostion(Vector3 originPos)
+    public GameObject GetGoal()
     {
-        Vector3 pos = new Vector3();
-        pos.x = originPos.x + Random.Range(-1f, 1f);
-        pos.z = originPos.z + Random.Range(-1f, 1f);
-
-        return pos;
+        return goal;
     }
 
-    public void EnemyDead(GameObject g)
-    {
-        foreach (GameObject e in enemy)
-        {
-            if (e == g)
-            {
-                enemy.Remove(e);
-                Destroy(e, 3);
-                break;
-            }
-        }
-    }
-
+    
     IEnumerator SpawnWaves()
     {
         while(true)
@@ -106,19 +71,21 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(firstSpawnTime);
             for (int i = 0; i < Random.Range(1, 3); ++i)
             {
-                Vector3 pos = new Vector3(Random.Range(-30f, 30f), 2.5f, Random.Range(-30f, 30f));
-                GameObject e = Instantiate(WarriorPrefab, RandomSpawnPostion(pos), Quaternion.identity);
-                GameObject e2 = Instantiate(ArcherPrefab, RandomSpawnPostion(pos), Quaternion.identity);
-                GameObject e45 = Instantiate(MagePrefab, RandomSpawnPostion(pos), Quaternion.identity);
-                e.transform.parent = p.transform;
-                e2.transform.parent = p.transform;
-                e45.transform.parent = p.transform;
+                float range_X = plane.bounds.size.x / 2;
+                float range_Z = plane.bounds.size.z / 2;
+                float range = Mathf.Min(range_X, range_Z);
 
+                int deg = Random.Range(0, 360);
+                float rad = Random.Range(range - 10f, range);
 
-                enemy.Add(e);
-                enemy.Add(e2);
-                enemy.Add(e45);
+                float x = Mathf.Cos(deg * Mathf.Deg2Rad) * rad;
+                float z = Mathf.Sin(deg * Mathf.Deg2Rad) * rad;
 
+                Vector3 pos = new Vector3(x, 2.5f, z);
+                Vector3 targetDir = goal.transform.position - pos;
+                float angle = Vector3.SignedAngle(targetDir, transform.forward, Vector3.up);
+
+                enemyManager.InstantiateEnemy(pos, angle);
             }
             yield return new WaitForSeconds(enemySpawnTime);
         }
