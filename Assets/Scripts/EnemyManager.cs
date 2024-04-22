@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.GraphicsBuffer;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -142,5 +139,9 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void TargetDamage(int damage)
+    {
+        gm.GoalDamaged(damage);
+    }
 
 }

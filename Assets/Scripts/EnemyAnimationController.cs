@@ -21,6 +21,8 @@ public class EnemyAnimationController : MonoBehaviour
     bool hitAnimation;
     float temp = 0.7f;
 
+    private EnemyActionController enemyActionController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,8 @@ public class EnemyAnimationController : MonoBehaviour
         isDeathHash = Animator.StringToHash("isDeath");
         isSpawnHash = Animator.StringToHash("isSpawnning");
         isHitHash = Animator.StringToHash("isHit");
+
+        enemyActionController = GetComponent<EnemyActionController>();
 
     }
 
@@ -42,19 +46,14 @@ public class EnemyAnimationController : MonoBehaviour
         isSpawnning = animator.GetBool(isSpawnHash);
         isHit = animator.GetBool(isHitHash);
 
-        if (animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 0.5f)
+        if (IsHitAnimation)
         {
-            if (temp >= 0)
+            if (temp > 0)
             {
-                temp -= Time.deltaTime;
+                temp -= (0.7f/animator.GetCurrentAnimatorStateInfo(1).length)*Time.deltaTime;
             }
             animator.SetLayerWeight(1, temp);
             
-        }
-
-        if (temp < 0)
-        {
-            temp = 0.7f;
         }
 
     }
@@ -68,8 +67,7 @@ public class EnemyAnimationController : MonoBehaviour
 
         if (message.Equals("Attacked"))
         {
-            //Tower got damage
-            Debug.Log("Tower get damage");
+            enemyActionController.AttackTower();
         }
 
         if (message.Equals("AttackEnded"))
@@ -82,6 +80,7 @@ public class EnemyAnimationController : MonoBehaviour
         {
             DoHit(false);
             hitAnimation = false;
+            temp = 0.7f;
         }
 
         if (message.Equals("DeathEnded"))

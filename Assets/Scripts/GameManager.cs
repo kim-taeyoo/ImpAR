@@ -46,11 +46,10 @@ public class GameManager : MonoBehaviour
 
         if (mousePressed && Physics.Raycast(ray, out hit))
         {
-            Debug.Log(hit.collider.name);
+            //Debug.Log(hit.collider.name);
             if (hit.collider.tag == "Enemy")
             {
-                hit.collider.SendMessage("GetHit", 1);
-                Debug.Log("Hit");
+                hit.collider.GetComponent<EnemyActionController>().GetHit(1);
             }
 
             mousePressed = false;
@@ -61,6 +60,11 @@ public class GameManager : MonoBehaviour
     public GameObject GetGoal()
     {
         return goal;
+    }
+
+    public void GoalDamaged(int damage)
+    {
+        //goal got damage
     }
 
     

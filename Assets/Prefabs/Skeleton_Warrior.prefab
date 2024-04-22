@@ -448,6 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2deef663f44dfee4ab11e415c51ab802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthPoints: 20
   rayPosition: {fileID: 2795444893108408877}
   attackDistance: 1.5
 --- !u!195 &2172400115095519503

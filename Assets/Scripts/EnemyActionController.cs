@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using System;
 
 public class EnemyActionController : MonoBehaviour
 {
@@ -11,9 +10,11 @@ public class EnemyActionController : MonoBehaviour
     private NavMeshAgent agent;
     private Collider c;
 
+    private EnemyManager enemyManager;
     private EnemyAnimationController animationController;
 
     public int healthPoints = 10;
+    public int attackPower = 2;
 
     [SerializeField]
     private Transform rayPosition;
@@ -26,8 +27,9 @@ public class EnemyActionController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animationController = GetComponent<EnemyAnimationController>();
         c = GetComponent<Collider>();
+        enemyManager = GetComponent<EnemyManager>();
 
-        goal = transform.parent.GetComponent<EnemyManager>().SetGoal(); // 고정된 하나의 goal
+        goal = enemyManager.SetGoal(); // 고정된 하나의 goal
         goalPosition = new Vector3(goal.transform.position.x,transform.position.y,goal.transform.position.z);
         
         //transform.LookAt(goalPosition);
@@ -113,7 +115,7 @@ public class EnemyActionController : MonoBehaviour
         animationController.DoHit(false);
     }
 
-    private void GetHit(int damage)
+    public void GetHit(int damage)
     {
         healthPoints -= damage;
 
@@ -127,6 +129,11 @@ public class EnemyActionController : MonoBehaviour
         {
             animationController.DoDeath(true);
         }
+    }
+
+    public void AttackTower()
+    {
+        enemyManager.TargetDamage(attackPower);
     }
 
 }
