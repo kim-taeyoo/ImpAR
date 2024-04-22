@@ -110,11 +110,23 @@ public class EnemyActionController : MonoBehaviour
         c.enabled = false;
         animationController.DoRun(false);
         animationController.DoAttack(false);
+        animationController.DoHit(false);
     }
 
-    private void GetHit()
+    private void GetHit(int damage)
     {
-        // get hit
+        healthPoints -= damage;
+
+        if (!animationController.IsHitAnimation)
+        {
+            animationController.DoHit(true);
+            animationController.IsHitAnimation = true;
+        }
+
+        if (!(healthPoints > 0))
+        {
+            animationController.DoDeath(true);
+        }
     }
 
 }

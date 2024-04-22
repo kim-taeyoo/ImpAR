@@ -9,13 +9,17 @@ public class EnemyAnimationController : MonoBehaviour
     int isAttackingHash;
     int isDeathHash;
     int isSpawnHash;
+    int isHitHash;
 
     bool isRunning;
     bool isAttacking;
     bool isDeath;
     bool isSpawnning;
+    bool isHit;
 
     bool attackAnimation;
+    bool hitAnimation;
+    float temp = 0.7f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +29,8 @@ public class EnemyAnimationController : MonoBehaviour
         isAttackingHash = Animator.StringToHash("isAttacking");
         isDeathHash = Animator.StringToHash("isDeath");
         isSpawnHash = Animator.StringToHash("isSpawnning");
+        isHitHash = Animator.StringToHash("isHit");
+
     }
 
     // Update is called once per frame
@@ -34,7 +40,23 @@ public class EnemyAnimationController : MonoBehaviour
         isAttacking = animator.GetBool(isAttackingHash);
         isDeath = animator.GetBool(isDeathHash);
         isSpawnning = animator.GetBool(isSpawnHash);
-        
+        isHit = animator.GetBool(isHitHash);
+
+        if (animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= 0.5f)
+        {
+            if (temp >= 0)
+            {
+                temp -= Time.deltaTime;
+            }
+            animator.SetLayerWeight(1, temp);
+            
+        }
+
+        if (temp < 0)
+        {
+            temp = 0.7f;
+        }
+
     }
 
     public void AnimationObserver(string message)
@@ -56,6 +78,12 @@ public class EnemyAnimationController : MonoBehaviour
             attackAnimation = false;
         }
 
+        if (message.Equals("HitEnded"))
+        {
+            DoHit(false);
+            hitAnimation = false;
+        }
+
         if (message.Equals("DeathEnded"))
         {
             //Debug.Log(gm);
@@ -74,6 +102,11 @@ public class EnemyAnimationController : MonoBehaviour
         animator.SetBool(isAttackingHash, b);
     }
 
+    public void DoHit(bool b)
+    {
+        animator.SetBool(isHitHash, b);
+    }
+
     public void DoDeath(bool b)
     {
         animator.SetBool(isDeathHash, b);
@@ -84,4 +117,6 @@ public class EnemyAnimationController : MonoBehaviour
     public bool IsDeath { get { return isDeath; } }
     public bool IsSpawnning { get { return isSpawnning; } }
     public bool IsAttackAnimation { get { return attackAnimation; } set { attackAnimation = value;} }
+    public bool IsHitAnimation { get { return hitAnimation; } set { hitAnimation = value; } }
+
 }

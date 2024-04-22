@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
             Debug.Log(hit.collider.name);
             if (hit.collider.tag == "Enemy")
             {
-                hit.collider.SendMessage("DoDeath", true);
+                hit.collider.SendMessage("GetHit", 1);
                 Debug.Log("Hit");
             }
 
