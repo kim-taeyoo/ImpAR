@@ -325,13 +325,15 @@ public class UIInterface : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         if (!RaycastWithoutTriggers(ray, out hit)) return;
-        
-        if (hit.collider.gameObject.CompareTag("platform") && hit.normal.Equals(new Vector3(0, 1, 0)))
+        Debug.Log("실행2");
+        if (hit.collider.gameObject.CompareTag("platform") && Vector3.Distance(hit.normal, Vector3.up) < 0.01f)
         {
-            Debug.Log("실행2");
+            Debug.Log("실행3");
             Destroy(focusObs);
             Vector3 startPosition = hit.collider.gameObject.transform.position + new Vector3(0, -0.09f, 0); // 시작 위치 조정
             focusObs = Instantiate(tower, startPosition, Quaternion.Euler(0, -Camera.main.transform.eulerAngles.y, 0));
+            Debug.Log("Camera Y Rotation: " + Camera.main.transform.eulerAngles.y);
+            Debug.Log("Applied Rotation: " + Quaternion.Euler(0, -Camera.main.transform.eulerAngles.y, 0));
             hit.collider.gameObject.tag = "Occupied";
 
             // 파티클 시스템 생성 및 재생
@@ -357,8 +359,12 @@ public class UIInterface : MonoBehaviour
                 cancelBtn.SetActive(false);
             }
         }
+        else if (hit.collider.gameObject.CompareTag("platform")){
+            Debug.Log("실패2");
+        }
         else
         {
+            Debug.Log("실패");
             Destroy(focusObs);
         }
         focusObs = null;
