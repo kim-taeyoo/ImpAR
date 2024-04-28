@@ -66,6 +66,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9cf6dd7fe2ac5c041acd0f9a4a87f970,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cf6dd7fe2ac5c041acd0f9a4a87f970,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cf6dd7fe2ac5c041acd0f9a4a87f970,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cf6dd7fe2ac5c041acd0f9a4a87f970,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -113,6 +128,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9cf6dd7fe2ac5c041acd0f9a4a87f970,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8309345695219228954, guid: 9cf6dd7fe2ac5c041acd0f9a4a87f970,
         type: 3}
@@ -449,8 +469,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 20
+  attackPower: 2
   rayPosition: {fileID: 2795444893108408877}
-  attackDistance: 1.5
+  attackDistance: 0.01
 --- !u!195 &2172400115095519503
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -461,7 +482,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.7
-  m_Speed: 3
+  m_Speed: 0.05
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 240

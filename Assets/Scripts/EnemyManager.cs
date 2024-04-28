@@ -35,11 +35,11 @@ public class EnemyManager : MonoBehaviour
         List<GameObject> temp = new List<GameObject>();
 
         Vector3 pos = new Vector3();
-        pos.z = originPos.z + 1f;
+        pos.z = originPos.z + 0.01f;
 
         for (int i = 0; i < enemyNum; i++)
         {
-            pos.x = originPos.x - 1f * (enemyNum/2) + i;
+            pos.x = originPos.x - 0.01f * (enemyNum/2) + (i * 0.01f);
             GameObject e = Instantiate(WarriorPrefab, pos, Quaternion.identity);
             e.transform.parent = transform;
 
@@ -52,7 +52,7 @@ public class EnemyManager : MonoBehaviour
         {
             foreach (GameObject e in temp)
             {
-                e.transform.position += new Vector3(0, 0, 0.5f);
+                e.transform.position += new Vector3(0, 0, 0.005f);
             }
         }
 
@@ -65,11 +65,11 @@ public class EnemyManager : MonoBehaviour
         List<GameObject> temp = new List<GameObject>();
 
         Vector3 pos = new Vector3();
-        pos.z = originPos.z - 1f;
+        pos.z = originPos.z - 0.01f;
 
         for (int i = 0; i < enemyNum; i++)
         {
-            pos.x = originPos.x - 1f * (enemyNum / 2) + i;
+            pos.x = originPos.x - 0.01f * (enemyNum / 2) + (i*0.01f);
             GameObject e = Instantiate(ArcherPrefab, pos, Quaternion.identity);
             e.transform.parent = transform;
 
@@ -82,7 +82,7 @@ public class EnemyManager : MonoBehaviour
         {
             foreach (GameObject e in temp)
             {
-                e.transform.position += new Vector3(0, 0, 0.5f);
+                e.transform.position += new Vector3(0, 0, 0.005f);
             }
         }
 
@@ -99,7 +99,7 @@ public class EnemyManager : MonoBehaviour
 
         for (int i = 0; i < enemyNum; i++)
         {
-            pos.x = originPos.x - 1f * (enemyNum / 2) + i;
+            pos.x = originPos.x - 0.01f * (enemyNum / 2) + (i * 0.01f);
             GameObject e = Instantiate(MagePrefab, pos, Quaternion.identity);
             e.transform.parent = transform;
 
@@ -112,7 +112,7 @@ public class EnemyManager : MonoBehaviour
         {
             foreach (GameObject e in temp)
             {
-                e.transform.position += new Vector3(0, 0, 0.5f);
+                e.transform.position += new Vector3(0, 0, 0.005f);
             }
         }
 

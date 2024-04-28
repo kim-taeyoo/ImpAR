@@ -27,7 +27,7 @@ public class EnemyActionController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animationController = GetComponent<EnemyAnimationController>();
         c = GetComponent<Collider>();
-        enemyManager = GetComponent<EnemyManager>();
+        enemyManager = transform.parent.GetComponent<EnemyManager>();
 
         goal = enemyManager.SetGoal(); // 고정된 하나의 goal
         goalPosition = new Vector3(goal.transform.position.x,transform.position.y,goal.transform.position.z);
@@ -61,7 +61,7 @@ public class EnemyActionController : MonoBehaviour
         if (goal != null && !animationController.IsSpawnning && !animationController.IsAttackAnimation)
         {
             agent.destination = goalPosition;
-            if (agent.velocity.magnitude > 0)
+            if (agent.velocity.magnitude > 0.001)
             {
                 animationController.DoRun(true);
 

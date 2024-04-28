@@ -80,12 +80,12 @@ public class GameManager : MonoBehaviour
                 float range = Mathf.Min(range_X, range_Z);
 
                 int deg = Random.Range(0, 360);
-                float rad = Random.Range(range - 10f, range);
+                float rad = Random.Range(range - (range/2f), range-0.04f);
 
                 float x = Mathf.Cos(deg * Mathf.Deg2Rad) * rad;
                 float z = Mathf.Sin(deg * Mathf.Deg2Rad) * rad;
 
-                Vector3 pos = new Vector3(x, 2.5f, z);
+                Vector3 pos = new Vector3(x, 0.0f, z);
                 Vector3 targetDir = goal.transform.position - pos;
                 float angle = Vector3.SignedAngle(targetDir, transform.forward, Vector3.up);
 
