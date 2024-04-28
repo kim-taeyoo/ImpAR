@@ -9,6 +9,7 @@ TagManager:
   - Occupied
   - Turret
   - WizzardTower
+  - WizzardAttackRange
   layers:
   - Default
   - TransparentFX

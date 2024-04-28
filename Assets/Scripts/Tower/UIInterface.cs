@@ -473,14 +473,12 @@ public class UIInterface : MonoBehaviour
     //스폰할 타워 설정
     public void setTurret()
     {
-        focusObs = Instantiate(turret, Vector3.zero, Quaternion.identity);
         curType = TowerType.Turret;
         TowerSpawn();
     }
 
     public void setWizzardTower()
     {
-        focusObs = Instantiate(wizzardTower, Vector3.zero, Quaternion.identity);
         curType = TowerType.WizzardTower;
         TowerSpawn();
     }
