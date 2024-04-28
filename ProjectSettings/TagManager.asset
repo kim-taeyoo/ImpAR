@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Occupied
   - Turret
+  - WizzardTower
   layers:
   - Default
   - TransparentFX
