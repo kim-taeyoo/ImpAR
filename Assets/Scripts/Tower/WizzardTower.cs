@@ -167,6 +167,21 @@ public class WizzardTower : MonoBehaviour
             yield return null;
         }
 
+        float colorTransitionDuration = 2f;
+        float colorTransitionTime = 0;
+
+        while (colorTransitionTime < colorTransitionDuration)
+        {
+            float t = colorTransitionTime / colorTransitionDuration;
+            Color currentColor = Color.Lerp(initialColor * targetIntensity, finalColor * targetIntensity, t);
+            renderer.GetPropertyBlock(propBlock);
+            propBlock.SetColor("_EmissionColor", currentColor);
+            renderer.SetPropertyBlock(propBlock);
+
+            colorTransitionTime += Time.deltaTime;
+            yield return null;
+        }
+
         renderer.GetPropertyBlock(propBlock);
         propBlock.SetColor("_EmissionColor", finalColor * targetIntensity);
         renderer.SetPropertyBlock(propBlock);

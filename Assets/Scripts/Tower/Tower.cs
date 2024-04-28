@@ -21,6 +21,15 @@ public class Tower : MonoBehaviour
     public int turretLevel;
     private bool isReloading = false;
 
+    //오디오
+    private AudioSource audioSource;
+    public AudioClip fireSoundClip;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -114,26 +123,39 @@ public class Tower : MonoBehaviour
                 GameObject projectile = Instantiate(projectilePrefab, firePoint1.position, Quaternion.identity);
                 projectile.GetComponent<Projectile>().SetDamage(10);
                 projectile.GetComponent<Rigidbody>().velocity = firePoint1.forward * 24f;
+                PlayFireSound();
             }
             if (turretLevel >= 2)
             {
                 GameObject projectile = Instantiate(projectilePrefab, firePoint2.position, Quaternion.identity);
                 projectile.GetComponent<Projectile>().SetDamage(10);
                 projectile.GetComponent<Rigidbody>().velocity = firePoint2.forward * 24f;
+                PlayFireSound();
             }
             if (turretLevel >= 3)
             {
                 GameObject projectile = Instantiate(projectilePrefab, firePoint3.position, Quaternion.identity);
                 projectile.GetComponent<Projectile>().SetDamage(10);
                 projectile.GetComponent<Rigidbody>().velocity = firePoint3.forward * 24f;
+                PlayFireSound();
             }
             if (turretLevel >= 4)
             {
                 GameObject projectile = Instantiate(projectilePrefab, firePoint4.position, Quaternion.identity);
                 projectile.GetComponent<Projectile>().SetDamage(10);
                 projectile.GetComponent<Rigidbody>().velocity = firePoint4.forward * 24f;
+                PlayFireSound();
             }
             StartCoroutine(Reload());
+        }
+    }
+
+    // 사운드 재생 함수
+    private void PlayFireSound()
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(fireSoundClip);
         }
     }
 
