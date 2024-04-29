@@ -472,7 +472,7 @@ MonoBehaviour:
   healthPoints: 5
   attackPower: 2
   rayPosition: {fileID: 4326548321281683282}
-  attackDistance: 0.12
+  attackDistance: 0.16
 --- !u!195 &3900203248218454650
 NavMeshAgent:
   m_ObjectHideFlags: 0

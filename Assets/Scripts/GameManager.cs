@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
                 float range = Mathf.Min(range_X, range_Z);
 
                 int deg = Random.Range(0, 360);
-                float rad = Random.Range(range - (range/2f), range-0.04f);
+                float rad = Random.Range(range - 0.08f, range-0.04f);
 
                 float x = Mathf.Cos(deg * Mathf.Deg2Rad) * rad;
                 float z = Mathf.Sin(deg * Mathf.Deg2Rad) * rad;
