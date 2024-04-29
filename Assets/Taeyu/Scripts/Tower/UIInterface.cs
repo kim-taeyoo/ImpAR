@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
 public class UIInterface : MonoBehaviour
 {
@@ -163,14 +164,17 @@ public class UIInterface : MonoBehaviour
 
         obj.transform.position = targetPosition; // 최종 위치 보정
 
-        // 모든 이동이 완료된 후 Rigidbody와 BoxCollider 추가
-        /* Rigidbody rb = obj.AddComponent<Rigidbody>();
-         rb.interpolation = RigidbodyInterpolation.Extrapolate;
+         /*rb.interpolation = RigidbodyInterpolation.Extrapolate;
          rb.collisionDetectionMode = CollisionDetectionMode.Continuous;*/
 
         //콜라이더 넣기
         if (curType == TowerType.Turret)
         {
+            // 모든 이동이 완료된 후 Rigidbody와 BoxCollider 추가
+            Rigidbody rb = obj.AddComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.isKinematic = true;
+
             BoxCollider boxCollider = obj.AddComponent<BoxCollider>();
             boxCollider.size = new Vector3(0.033f, 0.085f, 0.033f);
             boxCollider.center = new Vector3(0f, 0.0425f, 0f);
@@ -197,6 +201,12 @@ public class UIInterface : MonoBehaviour
         if (spawnBtn != null)
         {
             spawnBtn.SetActive(true);
+        }
+
+        //태그주기
+        if (curType == TowerType.Turret)
+        {
+            obj.tag = "Turret";
         }
     }
 
@@ -464,12 +474,10 @@ public class UIInterface : MonoBehaviour
         // 주변 8개 블럭 모두가 특정 태그를 가졌는지 확인
         if (sameTagCount == 8)
         {
-            Debug.Log(sameTagCount);
             return true;
         }
         else
         {
-            Debug.Log(sameTagCount);
             return false;
         }
     }
@@ -513,7 +521,7 @@ public class UIInterface : MonoBehaviour
             focusObs = null;
             Destroy(focusObs);
             Destroy(selectObj);
-            select = null;
+            selectObj = null;
 
         }
     }

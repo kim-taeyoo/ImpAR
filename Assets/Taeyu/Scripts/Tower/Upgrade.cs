@@ -29,34 +29,40 @@ public class Upgrade : MonoBehaviour
     {
         if (turretUpgrade)
         {
-            
+
             RaycastHit hit;
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
             if (!RaycastWithoutTriggers(ray, out hit)) return;
 
             GameObject hitObject = hit.collider.gameObject;
-
+            //터렛이 아닐때
             if (!hitObject.CompareTag("Turret"))
             {
-                // 레이를 hit한 오브젝트의 바로 아래로 발사 (예를 들어, y축으로 -1)
+                // 레이를 hit한 오브젝트의 바로 아래로 발사
                 Ray downRay = new Ray(hitObject.transform.position, -Vector3.up);
                 RaycastHit[] hits = Physics.RaycastAll(downRay, Mathf.Infinity);
+                //아래에 아무것도 없으면
                 if (hits.Length == 0)
                 {
+                    //범위 보정으로 근처에 turret 있는지 찾고 있으면 그 터렛으로 지정
                     GameObject closeTurret;
                     if (findSurrounding("Turret", hit, out closeTurret))
                     {
+                        //선택파티클이랑 지정 파티클 사용
                         selectPaticle.transform.position = closeTurret.transform.position + new Vector3(0, 0.005f, 0);
                         catchPaticle.transform.position = closeTurret.transform.position + new Vector3(0, 0.005f, 0);
                         catchPaticle.Play();
                     }
+                    //없으면
                     else
                     {
-                        selectPaticle.transform.position = hit.point + new Vector3(0, 0.005f, 0);
+                        /*selectPaticle.transform.position = hit.point + new Vector3(0, 0.005f, 0);*/
                         catchPaticle.Stop();
                     }
                 }
-                else {
+                else
+                {
+                    //아래에 오브젝트가 있으면 전부 검사
                     foreach (var floorHit in hits)
                     {
                         //Turret이면
@@ -79,13 +85,14 @@ public class Upgrade : MonoBehaviour
                             }
                             else
                             {
-                                selectPaticle.transform.position = hit.point + new Vector3(0, 0.005f, 0);
+                                /*selectPaticle.transform.position = hit.point + new Vector3(0, 0.005f, 0);*/
                                 catchPaticle.Stop();
                             }
                         }
                     }
                 }
             }
+            //터렛이면
             else
             {
                 selectPaticle.transform.position = hit.collider.gameObject.transform.position + new Vector3(0, 0.005f, 0);
@@ -105,6 +112,7 @@ public class Upgrade : MonoBehaviour
             yield return null;
         }
 
+        //콜라이더 주기
         BoxCollider boxCollider = obj.AddComponent<BoxCollider>();
         boxCollider.size = new Vector3(0.033f, 0.085f, 0.033f);
         boxCollider.center = new Vector3(0f, 0.0425f, 0f);
@@ -145,11 +153,12 @@ public class Upgrade : MonoBehaviour
         {
             RaycastHit hit;
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-
             if (!RaycastWithoutTriggers(ray, out hit)) return;
+
+            //선택 파티클이랑 지정 파티클 인스턴스
             selectPaticle = Instantiate(select, hit.point + new Vector3(0, 0.005f, 0), select.transform.rotation);
             selectPaticle.Play();
-            catchPaticle = Instantiate(catchTurretEffect, hit.point + new Vector3(0, 0.005f, 0), select.transform.rotation); 
+            catchPaticle = Instantiate(catchTurretEffect, hit.point + new Vector3(0, 0.005f, 0), select.transform.rotation);
 
             turretUpgrade = true;
 
@@ -160,16 +169,16 @@ public class Upgrade : MonoBehaviour
                 cancelBtn.SetActive(true);
             }
         }
+        //취소버튼 눌렀을때
         else
         {
             turretUpgrade = false;
-            Destroy(selectPaticle);
+
+            Destroy(selectPaticle.gameObject);
             selectPaticle = null;
-            if (catchPaticle != null)
-            {
-                Destroy(catchPaticle);
-                catchPaticle = null;
-            }
+
+            Destroy(catchPaticle.gameObject);
+            catchPaticle = null;
 
             if (upgradeBtn != null && selectBtn != null && cancelBtn != null)
             {
@@ -181,21 +190,19 @@ public class Upgrade : MonoBehaviour
     }
     public void ConfirmSelect()
     {
-
         // Canvas 내에서 SpawnTurretButton 이름을 가진 오브젝트 찾기
         GameObject upgradeBtn = FindObject(canvas, "UpgradeTurretButton");
-        GameObject selectBtn = FindObject(canvas, "ConfirmSpawnButton");
-        GameObject cancelBtn = FindObject(canvas, "CancelButton");
+        GameObject selectBtn = FindObject(canvas, "UpgradeConfirmButton");
+        GameObject cancelBtn = FindObject(canvas, "UpgradeCancelButton");
+
         RaycastHit hit;
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         if (!RaycastWithoutTriggers(ray, out hit)) return;
 
         GameObject closeTurret;
+        //근처에 있는 터렛체크
         if (findSurrounding("Turret", hit, out closeTurret))
         {
-            Destroy(selectPaticle);
-            Destroy(catchPaticle);
-
             if (closeTurret.name == "Turret_v1(Clone)")
             {
                 focusObs = Instantiate(turretV2, closeTurret.transform.position, closeTurret.transform.rotation);
@@ -217,9 +224,26 @@ public class Upgrade : MonoBehaviour
             else
             {
                 Debug.Log("최고레벨 도달");
+                return;
             }
+
+            closeTurret = null;
+
             void isUpgrade()
             {
+                Destroy(selectPaticle.gameObject);
+                selectPaticle = null;
+                Destroy(catchPaticle.gameObject);
+                catchPaticle = null;
+
+                if (upgradeBtn != null && selectBtn != null && cancelBtn != null)
+                {
+                    upgradeBtn.SetActive(true);
+                    selectBtn.SetActive(false);
+                    cancelBtn.SetActive(false);
+                }
+                turretUpgrade = false;
+
                 // 파티클 시스템 생성 및 재생
                 ParticleSystem particleSystemInstance = Instantiate(particlePrefab, closeTurret.transform.position + new Vector3(0, 0.001f, 0), particlePrefab.transform.rotation);
                 particleSystemInstance.Play();
@@ -231,19 +255,14 @@ public class Upgrade : MonoBehaviour
                 }
                 // 파티클 시스템 인스턴스를 코루틴으로 전달
                 StartCoroutine(MoveObjectToPosition(focusObs, 2, particleSystemInstance)); // 3초 동안 목표 위치로 이동
+
+                //focus 오브젝트 회수
+                focusObs = null;
             }
-            if (upgradeBtn != null && selectBtn != null && cancelBtn != null)
-            {
-                upgradeBtn.SetActive(true);
-                selectBtn.SetActive(false);
-                cancelBtn.SetActive(false);
-            }
-            else
-            {
-                Destroy(selectPaticle);
-            }
-            selectPaticle = null;
-            turretUpgrade = false;
+        }
+        else
+        {
+            return;
         }
     }
 

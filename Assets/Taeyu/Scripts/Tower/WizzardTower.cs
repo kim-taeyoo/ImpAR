@@ -11,21 +11,22 @@ public class WizzardTower : MonoBehaviour
     int spawnCount = 20; // 생성할 이펙트 개수
     float spawnRadius = 0.1f; // 중앙점으로부터의 최대 거리
 
+    //실제 공격범위
     public GameObject attackRangePrefab;
-    private GameObject attackRange;
+    public GameObject attackRange;
 
 
-    bool isAttack = false;
-    bool seeAttackRange = false;
+    public bool isAttack = false;
+    public bool seeAttackRange = false;
 
-    private GameObject attackRangeObject;
+    //공격 가능 범위
+    public GameObject attackRangeObject;
 
     private Camera mainCamera;
 
     //쿨타임 타워 색상관련
     private Renderer renderer;
     private MaterialPropertyBlock propBlock;
-
 
     void Start()
     {
@@ -39,28 +40,6 @@ public class WizzardTower : MonoBehaviour
 
     void Update()
     {
-        // 터치 입력이 있고, 첫 번째 터치의 상태가 화면에 처음 닿은 상태인지 확인
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            // 첫 번째 터치 정보 가져오기
-            Touch touch = Input.GetTouch(0);
-
-            // 터치 위치로부터 Ray 생성
-            Ray ray = mainCamera.ScreenPointToRay(touch.position);
-            RaycastHit hit;
-
-            // Ray 발사
-            if (Physics.Raycast(ray, out hit))
-            {;
-                if (hit.collider.CompareTag("WizzardTower") && isAttack) // 'AttackRange' 태그를 가진 오브젝트에 닿았는지 확인
-                {
-                    ToggleAttackRange();
-                    /*StartCoroutine(SpawnEffectsAt(hit.point)); // 이펙트 생성 코루틴 시작
-                    DisplayCylinderAt(hit.point); // 터치 위치에 실린더 표시*/
-                }
-            }
-        }
-
         if (isAttack && seeAttackRange)
         {
             RaycastHit hit;
@@ -150,7 +129,7 @@ public class WizzardTower : MonoBehaviour
     }
 
     //공격 쿨타팀, 타워 색상
-    IEnumerator IncreaseEmissionIntensityAndChangeColor(float targetIntensity, float duration)
+    public IEnumerator IncreaseEmissionIntensityAndChangeColor(float targetIntensity, float duration)
     {
         Color initialColor = new Color(255f / 255f, 13f / 255f, 0f / 255f);
         Color finalColor = new Color(0f / 255f, 15f / 255f, 191f / 255f);
@@ -190,7 +169,7 @@ public class WizzardTower : MonoBehaviour
     }
 
     //번개
-    IEnumerator SpawnEffectsAt(Vector3 center)
+    public IEnumerator SpawnEffectsAt(Vector3 center)
     {
         for (int i = 0; i < spawnCount; i++)
         {
@@ -211,6 +190,8 @@ public class WizzardTower : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval); // 다음 이펙트 생성까지 대기
         }
         Destroy(attackRange);
+        attackRangeObject.SetActive(false);
+        seeAttackRange = false;
     }
 
     IEnumerator PlaySoundWithDelay(AudioSource audioSource, float delay)
@@ -222,13 +203,28 @@ public class WizzardTower : MonoBehaviour
 
     public void ToggleAttackRange()
     {
-        if (attackRangeObject != null) // AttackRange 오브젝트가 존재하는지 확인
+        if (attackRangeObject != null && isAttack) // AttackRange 오브젝트가 존재하는지 확인
         {
             Destroy(attackRange);
+            attackRange = null;
+
             attackRangeObject.SetActive(!attackRangeObject.activeSelf); // 현재 활성화 상태의 반대로 설정
             seeAttackRange = attackRangeObject.activeSelf;
 
-            attackRange = Instantiate(attackRangePrefab, attackRangeObject.transform.position, Quaternion.identity);
+            if (seeAttackRange)
+            {
+                attackRange = Instantiate(attackRangePrefab, attackRangeObject.transform.position, Quaternion.identity);     
+            }
         }
+    }
+
+    void OnEnable()
+    {
+        FindObjectOfType<WizzardTowerSystem>().RegisterWizzardTower(this);
+    }
+
+    void OnDisable()
+    {
+        FindObjectOfType<WizzardTowerSystem>().UnregisterWizzardTower(this);
     }
 }
