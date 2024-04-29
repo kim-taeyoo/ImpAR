@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\\uAE40\uD0DC\uC720\\documents\\github\\impar\\assets\\scripts\\taptoplaceone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\taptoplaceone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\\uAE40\uD0DC\uC720\\documents\\github\\impar\\assets\\scripts\\tower\\uiinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tower\\uiinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\\uAE40\uD0DC\uC720\\documents\\github\\impar\\assets\\scripts\\tower\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tower\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\\uAE40\uD0DC\uC720\\documents\\github\\impar\\assets\\scripts\\map\\createplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\map\\createplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\\uAE40\uD0DC\uC720\\documents\\github\\impar\\assets\\scripts\\tower\\wizzardtower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tower\\wizzardtower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\\uAE40\uD0DC\uC720\\documents\\github\\impar\\assets\\taeyu\\scripts\\map\\createplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\map\\createplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,63 +19,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "TapToPlaceOne.cs",
-              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Scripts\\TapToPlaceOne.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\TapToPlaceOne.cs",
-              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Scripts\\TapToPlaceOne.cs",
-              "RelativeToolTip": "Assets\\Scripts\\TapToPlaceOne.cs",
-              "ViewState": "AQIAAIMAAAAAAAAAAAAswI4AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T04:19:43.319Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "CreatePlane.cs",
-              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Scripts\\Map\\CreatePlane.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Map\\CreatePlane.cs",
-              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Scripts\\Map\\CreatePlane.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Map\\CreatePlane.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
+              "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
+              "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T04:19:30.361Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "WizzardTower.cs",
-              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Scripts\\Tower\\WizzardTower.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Tower\\WizzardTower.cs",
-              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Scripts\\Tower\\WizzardTower.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Tower\\WizzardTower.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T03:21:04.264Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Upgrade.cs",
-              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Scripts\\Tower\\Upgrade.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Tower\\Upgrade.cs",
-              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Scripts\\Tower\\Upgrade.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Tower\\Upgrade.cs",
-              "ViewState": "AQIAANwAAAAAAAAAAAAAAPkAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T03:21:00.176Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UIInterface.cs",
-              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Scripts\\Tower\\UIInterface.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Tower\\UIInterface.cs",
-              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Scripts\\Tower\\UIInterface.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Tower\\UIInterface.cs",
-              "ViewState": "AQIAAOcBAAAAAAAAAAASwPwBAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-29T03:20:51.452Z"
+              "WhenOpened": "2024-04-29T08:35:20.348Z",
+              "EditorCaption": ""
             }
           ]
         }

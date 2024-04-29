@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{BFA8134E-E81D-4DB2-C151-19E75300A072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponents", "NavMeshComponents.csproj", "{383EACD9-648D-0467-8359-3E94CBBC44F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.XR.Interaction.Toolkit.Samples.ARStarterAssets", "Unity.XR.Interaction.Toolkit.Samples.ARStarterAssets.csproj", "{7CF38349-8A3C-EC90-F819-DAC6C9A5BDA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavMeshComponentsEditor", "NavMeshComponentsEditor.csproj", "{2A5A2925-A7FB-EA00-CB7B-A4F684AA2545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.XR.Interaction.Toolkit.Samples.ARStarterAssets.Editor", "Unity.XR.Interaction.Toolkit.Samples.ARStarterAssets.Editor.csproj", "{F2E16FC3-B8AF-FE3D-0AD0-4311B9E13D9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARFoundationRemote.Installer.Editor", "ARFoundationRemote.Installer.Editor.csproj", "{5EAF2870-201E-902B-9CC9-040AF517A505}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.XR.Interaction.Toolkit.Samples.StarterAssets", "Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj", "{07E5666F-6F68-9900-23B7-C5274F7C60ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFA8134E-E81D-4DB2-C151-19E75300A072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFA8134E-E81D-4DB2-C151-19E75300A072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFA8134E-E81D-4DB2-C151-19E75300A072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFA8134E-E81D-4DB2-C151-19E75300A072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383EACD9-648D-0467-8359-3E94CBBC44F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383EACD9-648D-0467-8359-3E94CBBC44F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383EACD9-648D-0467-8359-3E94CBBC44F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383EACD9-648D-0467-8359-3E94CBBC44F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF38349-8A3C-EC90-F819-DAC6C9A5BDA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF38349-8A3C-EC90-F819-DAC6C9A5BDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF38349-8A3C-EC90-F819-DAC6C9A5BDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF38349-8A3C-EC90-F819-DAC6C9A5BDA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A5A2925-A7FB-EA00-CB7B-A4F684AA2545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A5A2925-A7FB-EA00-CB7B-A4F684AA2545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A5A2925-A7FB-EA00-CB7B-A4F684AA2545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A5A2925-A7FB-EA00-CB7B-A4F684AA2545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E16FC3-B8AF-FE3D-0AD0-4311B9E13D9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E16FC3-B8AF-FE3D-0AD0-4311B9E13D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E16FC3-B8AF-FE3D-0AD0-4311B9E13D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E16FC3-B8AF-FE3D-0AD0-4311B9E13D9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EAF2870-201E-902B-9CC9-040AF517A505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EAF2870-201E-902B-9CC9-040AF517A505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EAF2870-201E-902B-9CC9-040AF517A505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EAF2870-201E-902B-9CC9-040AF517A505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E5666F-6F68-9900-23B7-C5274F7C60ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E5666F-6F68-9900-23B7-C5274F7C60ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E5666F-6F68-9900-23B7-C5274F7C60ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E5666F-6F68-9900-23B7-C5274F7C60ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
