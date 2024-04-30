@@ -18,11 +18,11 @@ public class MoneyTextAnimation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            PlusMoney(100);
+            PlusMoney(Random.Range(0, 301));
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            PlusMoney(-100);
+            PlusMoney(Random.Range(0, -301));
         }
     }
 
@@ -32,7 +32,7 @@ public class MoneyTextAnimation : MonoBehaviour
         money += inputMoney;
         if (inputMoney > 0)
         {
-            StartCoroutine(InputMoneyAnim(Color.blue, inputMoney));
+            StartCoroutine(InputMoneyAnim(Color.white, inputMoney));
         }
         else
         {
@@ -55,7 +55,7 @@ public class MoneyTextAnimation : MonoBehaviour
         {
             timer += Time.deltaTime * 3;
             curMoney = (int)Mathf.Lerp(preMoney, goalMoney, timer);
-            text.text = "Money: " + curMoney;
+            text.text = "" + curMoney;
 
             yield return null;
         }
@@ -68,8 +68,8 @@ public class MoneyTextAnimation : MonoBehaviour
         RectTransform inputRT = inputMoneyObj.GetComponent<RectTransform>();
         inputMoneyObj.transform.parent = transform;
         inputText.font = text.font;
-        inputText.fontSize = text.fontSize;
-        inputText.alignment = TextAnchor.MiddleRight;
+        inputText.fontSize = text.fontSize * 2;
+        inputText.alignment = TextAnchor.MiddleCenter;
         inputText.horizontalOverflow = HorizontalWrapMode.Overflow;
         inputText.verticalOverflow = VerticalWrapMode.Overflow;
         inputRT.anchoredPosition = Vector3.zero;
@@ -84,7 +84,7 @@ public class MoneyTextAnimation : MonoBehaviour
         while (timer > 0)
         {
             timer -= Time.deltaTime * 2;
-            inputRT.anchoredPosition += Vector2.down / 2;
+            inputRT.anchoredPosition += Vector2.down * 1.5f;
             inputColor.a = timer;
             inputText.color = inputColor;
             yield return null;
