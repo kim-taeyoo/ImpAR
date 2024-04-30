@@ -16,6 +16,8 @@ public class EnemyActionController : MonoBehaviour
     public int healthPoints = 10;
     public int attackPower = 2;
 
+    public bool isDead = false; //적 죽는 함수가 너무 많이 실행돼서 한번만 실행되도록 bool 변수 만듦. //이규빈
+
     [SerializeField]
     private Transform rayPosition;
 
@@ -24,12 +26,13 @@ public class EnemyActionController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
         agent = GetComponent<NavMeshAgent>();
         animationController = GetComponent<EnemyAnimationController>();
         c = GetComponent<Collider>();
         enemyManager = transform.parent.GetComponent<EnemyManager>();
 
-        goal = enemyManager.SetGoal(); // ������ �ϳ��� goal
+        goal = enemyManager.SetGoal(); // 고정된 하나의 goal
         goalPosition = new Vector3(goal.transform.position.x,transform.position.y,goal.transform.position.z);
         
         //transform.LookAt(goalPosition);
@@ -106,16 +109,21 @@ public class EnemyActionController : MonoBehaviour
 
     }
 
-    private void EnemyDead()
+    private void EnemyDead() //적 죽음. 뭐임 이거 왜 ㅈㄴ많이 실행됨?? 디버그 찍어보면 너무 많이 실행되는데
     {
-        agent.enabled = false;
-        c.enabled = false;
-        animationController.DoRun(false);
-        animationController.DoAttack(false);
-        animationController.DoHit(false);
+        if (!isDead)
+        {
+            agent.enabled = false;
+            c.enabled = false;
+            animationController.DoRun(false);
+            animationController.DoAttack(false);
+            animationController.DoHit(false);
+
+            isDead = true;
+        }
     }
 
-    public void GetHit(int damage)
+    public void GetHit(int damage) //대미지 받음
     {
         healthPoints -= damage;
 

@@ -37,11 +37,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ChangeStageNum(int stage)
+    public void ChangeStageNum(int stage) //Stage를 표시하는 UI 글자를 변경하고 싶을 때 실행, 매개변수는 스테이지 번호
     {
         stageText.text = "STAGE " + stage;
     }
-    public void ChangeMoneyNum(int originMoney, int inputMoney)
+    public void ChangeMoneyNum(int originMoney, int inputMoney) //돈을 표시하는 UI 숫자를 변경하고 싶을 때 실행. 매개변수는 (원래 돈, 추가된 돈). 1000원에서 100원을 얻어서 1100원이 된다면 (1000, 100) 
     {
         StartCoroutine(CountMoney(originMoney, originMoney + inputMoney));
         if (inputMoney > 0)
@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
             StartCoroutine(InputMoneyAnim(Color.red, inputMoney));
         }
     }
-    private IEnumerator CountMoney(int preMoney, int goalMoney)
+    private IEnumerator CountMoney(int preMoney, int goalMoney)  //ChangeMoneyNum 함수에서 자동으로 실행되는 코루틴. 돈이 올라가는 애니메이션
     {
         float timer = 0;
         int curMoney;
@@ -66,7 +66,7 @@ public class UIManager : MonoBehaviour
             yield return null;
         }
     }
-    private IEnumerator InputMoneyAnim(Color inputColor, int inputMoney)
+    private IEnumerator InputMoneyAnim(Color inputColor, int inputMoney) //ChangeMoneyNum 함수에서 자동으로 실행되는 코루틴. 추가된 돈이 표시되는 애니메이션
     {
         GameObject inputMoneyObj = new GameObject();
         Text inputText = inputMoneyObj.AddComponent<Text>();
@@ -77,6 +77,7 @@ public class UIManager : MonoBehaviour
         inputText.alignment = TextAnchor.MiddleCenter;
         inputText.horizontalOverflow = HorizontalWrapMode.Overflow;
         inputText.verticalOverflow = VerticalWrapMode.Overflow;
+        inputRT.parent = moneyText.transform;
         inputRT.anchoredPosition = Vector3.zero;
         inputRT.sizeDelta = GetComponent<RectTransform>().sizeDelta;
         if (inputMoney > 0)
@@ -98,12 +99,12 @@ public class UIManager : MonoBehaviour
         Destroy(inputMoneyObj);
     }
 
-    public void changeEnemyNum()
+    public void changeEnemyNum() //적의 숫자가 변동될때 호출. EnemyManager의 enemy 리스트의 갯수로 자동으로 변경된다. 적 생성 시나 죽을 때마다 호출.
     {
         enemyText.text = "" + GameManager.gm.enemyManager.enemy.Count;
     }
 
-    public void changeTimer(int timer)
+    public void changeTimer(int timer) //플레이어 준비 턴일 때 표시되는 타이머 숫자를 바꾸는 함수. GameManager의 코루틴에서 실행되고 있다.
     {
         timerText.text = "" + timer;
     }

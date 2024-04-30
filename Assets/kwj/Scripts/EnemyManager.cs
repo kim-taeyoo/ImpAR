@@ -46,7 +46,6 @@ public class EnemyManager : MonoBehaviour
             e.transform.RotateAround(originPos, transform.up, -angle);
 
             temp.Add(e);
-            UIManager.um.changeEnemyNum();
         }
 
         if (enemyNum%2 == 0)
@@ -58,7 +57,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         enemy.AddRange(temp);
-        
+        UIManager.um.changeEnemyNum();
     }
 
     private void ArcherSpawn(Vector3 originPos, float angle)
@@ -79,7 +78,6 @@ public class EnemyManager : MonoBehaviour
             e.transform.RotateAround(originPos, transform.up, -angle);
 
             temp.Add(e);
-            UIManager.um.changeEnemyNum();
 
         }
 
@@ -92,6 +90,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         enemy.AddRange(temp);
+        UIManager.um.changeEnemyNum();
     }
 
     private void MageSpawn(Vector3 originPos, float angle)
@@ -110,8 +109,6 @@ public class EnemyManager : MonoBehaviour
             e.transform.RotateAround(originPos, transform.up, -angle);
 
             temp.Add(e);
-            UIManager.um.changeEnemyNum();
-
         }
 
         if (enemyNum % 2 == 0)
@@ -123,7 +120,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         enemy.AddRange(temp);
-
+        UIManager.um.changeEnemyNum();
     }
 
     public void InstantiateEnemy(Vector3 pos, float angle)
@@ -142,6 +139,11 @@ public class EnemyManager : MonoBehaviour
             {
                 enemy.Remove(e);
                 UIManager.um.changeEnemyNum();
+
+                int getMoney = Random.Range(200, 300); //적을 죽임으로써 얻을 돈을 랜덤으로 설정 (임시)
+                UIManager.um.ChangeMoneyNum(GameManager.gm.money, getMoney); //돈 표시하는 UI의 숫자를 변경.
+                GameManager.gm.money += getMoney; //GameManager의 Money 값에 추가. 돈을 얻거나 쓸 때, UI를 반드시 먼저 변경시킨 후 GameManager의 money값을 반영할 것.
+                
                 Destroy(e, 3);
                 if(GameManager.gm.enemySpawn == false && enemy.Count == 0) //만약 적 소환이 끊긴 상태에서 적이 전부 죽었다면
                 {

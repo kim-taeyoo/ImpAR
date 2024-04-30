@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public GameObject core; //�¿�
-    public GameObject gun; //����
+    public GameObject core; //좌우
+    public GameObject gun; //상하
     public float turningSpeed = 10;
     public float angleTurningAccuracy = 80;
 
-    private List<GameObject> enemiesInRange = new List<GameObject>();
-    private GameObject currentTarget;
+    public List<GameObject> enemiesInRange = new List<GameObject>();
+    public GameObject currentTarget;
 
     public GameObject projectilePrefab;
     public Transform firePoint1;
@@ -21,7 +21,7 @@ public class Tower : MonoBehaviour
     public int turretLevel;
     private bool isReloading = false;
 
-    //�����
+    //오디오
     private AudioSource audioSource;
     public AudioClip fireSoundClip;
 
@@ -30,26 +30,32 @@ public class Tower : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //적이 트리거에 닿으면 적 목록에 추가하는거
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             enemiesInRange.Add(other.gameObject);
-            UpdateTarget();
+            if (enemiesInRange.Count > 0) //범위 내에 들어온 다른 적이 있으면
+            {
+                UpdateTarget();
+            }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other) //적이 트리거에서 나가면 목록에서 제거
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
             enemiesInRange.Remove(other.gameObject);
             currentTarget = null;
-            UpdateTarget();
+            if (enemiesInRange.Count > 0) //범위 내에 들어온 다른 적이 있으면
+            {
+                UpdateTarget();
+            }
         }
     }
 
-    private void UpdateTarget()
+    private void UpdateTarget() //현재 타겟이 설정이 안돼있으면 사정거리 안의 가장 가까운 적을 타겟팅
     {
         if (currentTarget != null)
         {
@@ -60,9 +66,10 @@ public class Tower : MonoBehaviour
 
         foreach (GameObject enemy in enemiesInRange)
         {
-            if(enemy == null)
+            if(enemy == null || enemy.GetComponent<EnemyActionController>().isDead) //적이 죽은 뒤에도 계속 쏘고 있어서 적이 죽으면 바로 타겟팅 옮기도록 수정.
             {
-                return;
+                enemiesInRange.Remove(enemy);
+                //return;
             }
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if(distanceToEnemy < closestDistance)
@@ -82,10 +89,15 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void Update() //머리 돌아가면서 타겟팅하는거
     {
         if(currentTarget != null)
         {
+            if (currentTarget.GetComponent<EnemyActionController>().isDead) //만약 현재 타겟중인 놈이 죽었으면 바로 타겟 체인지
+            {
+                UpdateTarget();
+            }
+
             Vector3 aimAt = new Vector3(currentTarget.transform.position.x, core.transform.position.y, currentTarget.transform.position.z);
             float distToTarget = Vector3.Distance(aimAt, gun.transform.position);
 
@@ -103,9 +115,17 @@ public class Tower : MonoBehaviour
                 Fire();
             }
         }
+        else //만약 타겟팅 하던 적이 사라지면
+        {
+            if(enemiesInRange.Count > 0) //범위 내에 들어온 다른 적이 있으면
+            {
+                Debug.Log("범위내에 다른 적 있어용");
+                UpdateTarget(); 
+            }
+        }
     }
 
-    public void EnemyDestroyed(GameObject enemy)
+    public void EnemyDestroyed(GameObject enemy)  //이렇게 수동으로 삭제해주면, 두 개 이상의 타워가 타겟팅 하던 도중에 사라지면 어케함? 모든 타워에 EnemyDestroyed를 박아야하나
     {
         if(enemiesInRange.Contains(enemy))
         {
@@ -114,7 +134,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private void Fire()
+    private void Fire() 
     {
         if (!isReloading)
         {
@@ -124,6 +144,7 @@ public class Tower : MonoBehaviour
                 projectile.GetComponent<Projectile>().SetDamage(10);
                 projectile.GetComponent<Rigidbody>().velocity = firePoint1.forward * 24f;
                 PlayFireSound();
+                currentTarget.GetComponent<EnemyActionController>().GetHit(10);
             }
             if (turretLevel >= 2)
             {
@@ -150,7 +171,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    // ���� ��� �Լ�
+    // 사운드 재생 함수
     private void PlayFireSound()
     {
         if (audioSource != null)
@@ -159,7 +180,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-    private IEnumerator Reload()
+    private IEnumerator Reload() //1.5초마다 나감
     {
         isReloading = true;
         yield return new WaitForSeconds(1.5f);

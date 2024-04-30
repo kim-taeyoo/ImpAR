@@ -37,16 +37,18 @@ public class GameManager : MonoBehaviour
             gm = gameObject.GetComponent<GameManager>();
             stage = 1;
             money = 1000;
+            UIManager.um.ChangeMoneyNum(0, 1000); //UI의 돈 숫자가 올라가는 애니메이션 실행
             enemyNum = 0;
+            UIManager.um.changeEnemyNum(); //UI의 적 숫자 변경
             wave = 0;
-            StartCoroutine(StartTimer(50));
+            StartCoroutine(StartTimer(50)); //G를 눌러서 남은 시간 무시하고 바로 시작 가능
         }
     }
 
 
     public void StartSpawn()  //스테이지의 시작
     {
-        isEnemyTurn = true;
+        isEnemyTurn = true; //적 턴중으로 표시
         enemySpawn = true;
         StartCoroutine(SpawnWaves());
     }
@@ -57,14 +59,16 @@ public class GameManager : MonoBehaviour
     }
     public void PlayerTurn()  //이번 스테이지의 적을 모두 해치웠을 때 호출됨
     {
-        isEnemyTurn = false;
+        isEnemyTurn = false; //적 턴이 끝남을 표시
         wave = 0;
         stage++;
-        StartCoroutine(StartTimer(5));
+        UIManager.um.ChangeStageNum(stage);
+        UIManager.um.ClearStageAnim(); //스테이지 클리어 애니메이션 작동
+        StartCoroutine(StartTimer(5)); //인자로 넣어주는 숫자 초만큼 기다린 후 다음 스테이지를 시작한다.
     }
 
-    IEnumerator StartTimer(int startTimer)
-    {
+    IEnumerator StartTimer(int startTimer) //타이머를 작동시키는 코루틴 함수. 매개변수로 받아온 시간만큼 기다린 후 다음 적 턴 실행
+    {  //참고로 G를 눌러서 기다리는 시간을 스킵할 수 있다. (디버그용)
         timer = startTimer;
         while(timer > 0)
         {
