@@ -1,9 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\",
+  "WorkspaceRootPath": "D:\\Programming\\Unity\\IMP\\ImpAR\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\\uAE40\uD0DC\uC720\\documents\\github\\impar\\assets\\taeyu\\scripts\\map\\createplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|d:\\programming\\unity\\imp\\impar\\assets\\kwj\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\kwj\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|d:\\programming\\unity\\imp\\impar\\assets\\kwj\\scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\kwj\\scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|d:\\programming\\unity\\imp\\impar\\assets\\taeyu\\scripts\\taptoplaceone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\taptoplaceone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|d:\\programming\\unity\\imp\\impar\\assets\\kwj\\scripts\\enemyactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\kwj\\scripts\\enemyactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|d:\\programming\\unity\\imp\\impar\\assets\\taeyu\\scripts\\map\\createplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\map\\createplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,17 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TapToPlaceOne.cs",
+              "DocumentMoniker": "D:\\Programming\\Unity\\IMP\\ImpAR\\Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
+              "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
+              "ToolTip": "D:\\Programming\\Unity\\IMP\\ImpAR\\Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
+              "RelativeToolTip": "Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
+              "ViewState": "AQIAALYAAAAAAAAAAADwv8gAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T11:32:19.96Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EnemyManager.cs",
+              "DocumentMoniker": "D:\\Programming\\Unity\\IMP\\ImpAR\\Assets\\kwj\\Scripts\\EnemyManager.cs",
+              "RelativeDocumentMoniker": "Assets\\kwj\\Scripts\\EnemyManager.cs",
+              "ToolTip": "D:\\Programming\\Unity\\IMP\\ImpAR\\Assets\\kwj\\Scripts\\EnemyManager.cs",
+              "RelativeToolTip": "Assets\\kwj\\Scripts\\EnemyManager.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAIwBMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T11:35:04.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "D:\\Programming\\Unity\\IMP\\ImpAR\\Assets\\kwj\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\kwj\\Scripts\\GameManager.cs",
+              "ToolTip": "D:\\Programming\\Unity\\IMP\\ImpAR\\Assets\\kwj\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\kwj\\Scripts\\GameManager.cs",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAmwGkAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T11:30:37.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EnemyActionController.cs",
+              "DocumentMoniker": "D:\\Programming\\Unity\\IMP\\ImpAR\\Assets\\kwj\\Scripts\\EnemyActionController.cs",
+              "RelativeDocumentMoniker": "Assets\\kwj\\Scripts\\EnemyActionController.cs",
+              "ToolTip": "D:\\Programming\\Unity\\IMP\\ImpAR\\Assets\\kwj\\Scripts\\EnemyActionController.cs",
+              "RelativeToolTip": "Assets\\kwj\\Scripts\\EnemyActionController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE0AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T11:30:26.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "CreatePlane.cs",
-              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
+              "DocumentMoniker": "D:\\Programming\\Unity\\IMP\\ImpAR\\Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
               "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
-              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
+              "ToolTip": "D:\\Programming\\Unity\\IMP\\ImpAR\\Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
               "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABUAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-29T08:35:20.348Z",
               "EditorCaption": ""

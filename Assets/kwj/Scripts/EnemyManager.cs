@@ -34,7 +34,7 @@ public class EnemyManager : MonoBehaviour
         int enemyNum = Random.Range(1, 3);
         List<GameObject> temp = new List<GameObject>();
 
-        Vector3 pos = new Vector3();
+        Vector3 pos = originPos;
         pos.z = originPos.z + 0.01f;
 
         for (int i = 0; i < enemyNum; i++)
@@ -64,8 +64,9 @@ public class EnemyManager : MonoBehaviour
         int enemyNum = Random.Range(3, 6);
         List<GameObject> temp = new List<GameObject>();
 
-        Vector3 pos = new Vector3();
+        Vector3 pos = originPos;
         pos.z = originPos.z - 0.01f;
+
 
         for (int i = 0; i < enemyNum; i++)
         {
@@ -94,8 +95,7 @@ public class EnemyManager : MonoBehaviour
         int enemyNum = Random.Range(2, 4);
         List<GameObject> temp = new List<GameObject>();
 
-        Vector3 pos = new Vector3();
-        pos.z = originPos.z;
+        Vector3 pos = originPos;
 
         for (int i = 0; i < enemyNum; i++)
         {
@@ -121,6 +121,7 @@ public class EnemyManager : MonoBehaviour
 
     public void InstantiateEnemy(Vector3 pos, float angle)
     {
+        //Debug.Log(pos);
         WarriorSpawn(pos, angle);
         ArcherSpawn(pos, angle);
         MageSpawn(pos, angle);

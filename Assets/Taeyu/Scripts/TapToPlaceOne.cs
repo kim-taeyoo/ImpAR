@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 
 using UnityEngine.XR.ARFoundation;
@@ -17,6 +18,8 @@ public class TapToPlaceOne : MonoBehaviour
     //선택영역표시 && 생성될 바닥
     [SerializeField] private GameObject prefabToInstantiate;
     [SerializeField] private GameObject prefabToPlaneInstantiate;
+    [SerializeField] private GameObject gameManager;
+
 
     private GameObject spawnedArea;
 
@@ -54,7 +57,7 @@ public class TapToPlaceOne : MonoBehaviour
             // 오브젝트를 처음 생성할 때
             if (spawnedArea != null)
             {
-                Debug.Log("테스트");
+                //Debug.Log("테스트");
                 spawnedArea.transform.position = hitResults[0].pose.position + new Vector3(0, 0.001f, 0);
                 // 카메라의 y축 회전 값을 가져옴
                 yRotation = Camera.main.transform.eulerAngles.y;
@@ -118,18 +121,30 @@ public class TapToPlaceOne : MonoBehaviour
                 }
             }
 
+            gameManager.GetComponent<GameManager>().SetPos(spawnedArea.GetComponent<CreatePlane>().GetPos());
+            gameManager.GetComponent<GameManager>().SetGoal(spawnedArea.GetComponent<CreatePlane>().GetGoal());
+            gameManager.GetComponent<GameManager>().SetPlane(spawnedArea.GetComponent<CreatePlane>().GetPlane());
+
+
             //버튼 관련
             GameObject makeMapBtn = FindObject(canvas, "MapButton");
             GameObject selectBtn = FindObject(canvas, "MapSelectButton");
             GameObject TowerListBtn = FindObject(canvas, "SpawnTurretButton");
             GameObject upgradeBtn = FindObject(canvas, "UpgradeTurretButton");
 
-            if (makeMapBtn != null && selectBtn != null && TowerListBtn != null && upgradeBtn != null)
+            GameObject startSpawnBtn = FindObject(canvas, "StartEnemySpawn");
+            GameObject stopeSpawnBtn = FindObject(canvas, "StopEnemySpawn");
+
+
+            if (makeMapBtn != null && selectBtn != null && TowerListBtn != null && upgradeBtn != null && startSpawnBtn != null && stopeSpawnBtn != null)
             {
                 makeMapBtn.SetActive(false);
                 selectBtn.SetActive(false);
                 TowerListBtn.SetActive(true);
                 upgradeBtn.SetActive(true);
+
+                startSpawnBtn.SetActive(true);
+                stopeSpawnBtn.SetActive(true);
             }
             else
             {
@@ -175,6 +190,15 @@ public class TapToPlaceOne : MonoBehaviour
             isSpawnMap = true;
             map++;
         }
+    }
+
+    public void isStartSpawn()
+    {
+        gameManager.GetComponent<GameManager>().StartSpawn();
+    }
+    public void isStopSpawn()
+    {
+        gameManager.GetComponent<GameManager>().StopSpawn();
     }
 
     //버튼 찾기 메서드

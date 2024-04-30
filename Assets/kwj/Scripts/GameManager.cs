@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
     private GameObject goal;
 
-    public Collider plane;
+    private Collider plane;
 
     public EnemyManager enemyManager;
 
     private Vector3 planePosition;
+
+    private bool enemySpawn = false;
 
     float enemySpawnTime = 10f;
     float firstSpawnTime = 1f;
@@ -19,11 +20,15 @@ public class GameManager : MonoBehaviour
     private bool mousePressed;
     private Vector3 mousePosition;
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartSpawn()
     {
+        enemySpawn = true;
         StartCoroutine(SpawnWaves());
-        planePosition = transform.position;
+    }
+    public void StopSpawn()
+    {
+        enemySpawn = false;
+        StopCoroutine(SpawnWaves());
     }
 
     // Update is called once per frame
@@ -60,9 +65,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetGoal(GameObject g)
+    {
+        goal = g;
+    }
+
     public GameObject GetGoal()
     {
         return goal;
+    }
+
+    public void SetPos(Vector3 pos)
+    {
+        planePosition = pos;
+    }
+
+    public void SetPlane(Collider p)
+    {
+        plane = p;
     }
 
     public void GoalDamaged(int damage)
@@ -73,7 +93,7 @@ public class GameManager : MonoBehaviour
     
     IEnumerator SpawnWaves()
     {
-        while(true)
+        while(enemySpawn)
         {
             yield return new WaitForSeconds(firstSpawnTime);
             for (int i = 0; i < Random.Range(1, 3); ++i)
@@ -83,15 +103,17 @@ public class GameManager : MonoBehaviour
                 float range = Mathf.Min(range_X, range_Z);
 
                 int deg = Random.Range(0, 360);
-                float rad = Random.Range(range - 0.08f, range-0.04f);
+                float rad = range - 0.08f;
 
                 float x = Mathf.Cos(deg * Mathf.Deg2Rad) * rad;
                 float z = Mathf.Sin(deg * Mathf.Deg2Rad) * rad;
 
                 Vector3 pos = planePosition +  new Vector3(x, 0.0f, z);
+                //Debug.Log(pos);
                 Vector3 targetDir = goal.transform.position - pos;
                 float angle = Vector3.SignedAngle(targetDir, transform.forward, Vector3.up);
 
+                Debug.Log("Spwan");
                 enemyManager.InstantiateEnemy(pos, angle);
             }
             yield return new WaitForSeconds(enemySpawnTime);
