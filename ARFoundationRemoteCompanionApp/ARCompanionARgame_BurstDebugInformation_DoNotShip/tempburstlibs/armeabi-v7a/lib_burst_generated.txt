@@ -13,7 +13,10 @@ Library: C:\Users\bini4\GitHubResi\ImpAR\Temp\BurstOutput\tempburstlibs\armeabi-
 --assembly-defines=ARFoundationRemote.Runtime.BugReports;
 --assembly-defines=ARFoundationRemote.Runtime;
 --assembly-defines=ARFoundationRemote.Singleton;
+--assembly-defines=Assembly-CSharp-firstpass;
 --assembly-defines=Assembly-CSharp;
+--assembly-defines=DOTween;
+--assembly-defines=DOTweenPro;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
 --assembly-defines=NavMeshComponents;
@@ -66,7 +69,10 @@ Library: C:\Users\bini4\GitHubResi\ImpAR\Temp\BurstOutput\tempburstlibs\armeabi-
 --assembly-defines=ARFoundationRemote.Runtime.BugReports;
 --assembly-defines=ARFoundationRemote.Runtime;
 --assembly-defines=ARFoundationRemote.Singleton;
+--assembly-defines=Assembly-CSharp-firstpass;
 --assembly-defines=Assembly-CSharp;
+--assembly-defines=DOTween;
+--assembly-defines=DOTweenPro;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
 --assembly-defines=NavMeshComponents;

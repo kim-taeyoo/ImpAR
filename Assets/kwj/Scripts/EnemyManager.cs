@@ -57,6 +57,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         enemy.AddRange(temp);
+        
     }
 
     private void ArcherSpawn(Vector3 originPos, float angle)
@@ -117,6 +118,7 @@ public class EnemyManager : MonoBehaviour
         }
 
         enemy.AddRange(temp);
+
     }
 
     public void InstantiateEnemy(Vector3 pos, float angle)

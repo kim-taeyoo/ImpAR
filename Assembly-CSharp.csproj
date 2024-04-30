@@ -68,7 +68,6 @@
     <Compile Include="Assets\kwj\Scripts\EnemyAnimationController.cs" />
     <Compile Include="Assets\MobileARTemplateAssets\Scripts\ARFeatheredPlaneMeshVisualizerCompanion.cs" />
     <Compile Include="Assets\lgb\Scripts\TextAnimation.cs" />
-    <Compile Include="Assets\lgb\A lot of useful icons_03\Scripts\UIManager.cs" />
     <Compile Include="Assets\lgb\A lot of useful icons_03\Scripts\dialogs\Inits\DialogInit.cs" />
     <Compile Include="Assets\kwj\Scripts\GameManager.cs" />
     <Compile Include="Assets\lgb\A lot of useful icons_03\Scripts\dialogs\Dialog.cs" />
@@ -86,6 +85,7 @@
     <Compile Include="Assets\Taeyu\Scripts\Projectile\AbstractProjectile.cs" />
     <Compile Include="Assets\Taeyu\Prefabs\StylizedAOEVFXwithIndicators\Scripts\PlayVFX.cs" />
     <Compile Include="Assets\Taeyu\Scripts\Tower\Upgrade.cs" />
+    <Compile Include="Assets\lgb\Scripts\UIManager.cs" />
     <Compile Include="Assets\Taeyu\Scripts\Tower\UIInterface.cs" />
     <Compile Include="Assets\Taeyu\Scripts\Tower\WizzardTower.cs" />
     <Compile Include="Assets\lgb\A lot of useful icons_03\Scripts\dialogs\DialogCall.cs" />
