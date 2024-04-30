@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     private Vector3 planePosition;
 
-    private bool enemySpawn = false;
+    public bool enemySpawn = false;
 
     float enemySpawnTime = 10f;
     float firstSpawnTime = 1f;
@@ -23,29 +23,56 @@ public class GameManager : MonoBehaviour
     
     // 이규빈 작성
     public static GameManager gm; //static 게임매니저
-    int stage; //몇번째 스테이지인지
-    int money; //가지고 있는 돈
-    int enemyNum; //이번 스테이지에서 남아있는 적의 수
+    public int stage; //몇번째 스테이지인지
+    public int money; //가지고 있는 돈
+    public int enemyNum; //이번 스테이지에서 남아있는 적의 수
+    public int wave; //몇번째 웨이브인지 (현재는 스테이지 수만큼 반복할 예정)
+    public bool isEnemyTurn = false; //적 턴인지 (true면 타워 개설 불가)
+    public int timer;
 
-    void Start()
+    private void Awake()
     {
         if (gm == null)
         {
             gm = gameObject.GetComponent<GameManager>();
             stage = 1;
             money = 1000;
+            enemyNum = 0;
+            wave = 0;
+            StartCoroutine(StartTimer(50));
         }
     }
 
-    public void StartSpawn()
+
+    public void StartSpawn()  //스테이지의 시작
     {
+        isEnemyTurn = true;
         enemySpawn = true;
         StartCoroutine(SpawnWaves());
     }
-    public void StopSpawn()
+    public void StopSpawn()  //소환 중지 (웨이브가 다 됨)
     {
         enemySpawn = false;
         StopCoroutine(SpawnWaves());
+    }
+    public void PlayerTurn()  //이번 스테이지의 적을 모두 해치웠을 때 호출됨
+    {
+        isEnemyTurn = false;
+        wave = 0;
+        stage++;
+        StartCoroutine(StartTimer(5));
+    }
+
+    IEnumerator StartTimer(int startTimer)
+    {
+        timer = startTimer;
+        while(timer > 0)
+        {
+            yield return new WaitForSeconds(1);
+            timer--;
+            UIManager.um.changeTimer(timer);
+        }
+        StartSpawn();
     }
 
     // Update is called once per frame
@@ -57,6 +84,11 @@ public class GameManager : MonoBehaviour
             mousePressed = true;
             mousePosition = Input.mousePosition;
             //Debug.Log("mouse pressed");
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            timer = 2;
         }
 
     }
@@ -132,6 +164,11 @@ public class GameManager : MonoBehaviour
 
                 Debug.Log("Spwan");
                 enemyManager.InstantiateEnemy(pos, angle);
+            }
+            wave++;
+            if(wave >= stage)
+            {
+                StopSpawn();
             }
             yield return new WaitForSeconds(enemySpawnTime);
         }

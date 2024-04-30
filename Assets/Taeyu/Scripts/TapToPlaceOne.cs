@@ -15,7 +15,7 @@ public class TapToPlaceOne : MonoBehaviour
 
     private ARRaycastManager raycastManager;
 
-    //¼±ÅÃ¿µ¿ªÇ¥½Ã && »ı¼ºµÉ ¹Ù´Ú
+    //ì„ íƒì˜ì—­í‘œì‹œ && ìƒì„±ë  ë°”ë‹¥
     [SerializeField] private GameObject prefabToInstantiate;
     [SerializeField] private GameObject prefabToPlaneInstantiate;
     [SerializeField] private GameObject gameManager;
@@ -26,7 +26,7 @@ public class TapToPlaceOne : MonoBehaviour
     // stores the results of ARRaycast
     private List<ARRaycastHit> hitResults = new List<ARRaycastHit>();
 
-    // ARPlaneManager ÂüÁ¶ Ãß°¡
+    // ARPlaneManager ì°¸ì¡° ì¶”ê°€
     private ARPlaneManager planeManager;
 
     private bool isSpawnMap = false;
@@ -54,28 +54,28 @@ public class TapToPlaceOne : MonoBehaviour
 
         if (raycastManager.Raycast(ray, hitResults, TrackableType.PlaneWithinPolygon) && hitResults.Count > 0)
         {
-            // ¿ÀºêÁ§Æ®¸¦ Ã³À½ »ı¼ºÇÒ ¶§
+            // ì˜¤ë¸Œì íŠ¸ë¥¼ ì²˜ìŒ ìƒì„±í•  ë•Œ
             if (spawnedArea != null)
             {
-                //Debug.Log("Å×½ºÆ®");
+                //Debug.Log("í…ŒìŠ¤íŠ¸");
                 spawnedArea.transform.position = hitResults[0].pose.position + new Vector3(0, 0.001f, 0);
-                // Ä«¸Ş¶óÀÇ yÃà È¸Àü °ªÀ» °¡Á®¿È
+                // ì¹´ë©”ë¼ì˜ yì¶• íšŒì „ ê°’ì„ ê°€ì ¸ì˜´
                 yRotation = Camera.main.transform.eulerAngles.y;
 
-                // ¿ÀºêÁ§Æ®ÀÇ È¸ÀüÀ» Ä«¸Ş¶óÀÇ yÃà È¸Àü °ªÀ¸·Î ¼³Á¤
+                // ì˜¤ë¸Œì íŠ¸ì˜ íšŒì „ì„ ì¹´ë©”ë¼ì˜ yì¶• íšŒì „ ê°’ìœ¼ë¡œ ì„¤ì •
                 spawnedArea.transform.rotation = Quaternion.Euler(0, yRotation, 0);
             }
         }
 
         /* if (raycastManager.Raycast(ray, hitResults, TrackableType.PlaneWithinPolygon))
          {
-             // ¿ÀºêÁ§Æ®¸¦ Ã³À½ »ı¼ºÇÒ ¶§
+             // ì˜¤ë¸Œì íŠ¸ë¥¼ ì²˜ìŒ ìƒì„±í•  ë•Œ
              if (spawnedObject == null)
              {
                  spawnedObject = Instantiate(prefabToInstantiate, hitResults[0].pose.position + new Vector3(0, 0.01f, 0),
                      hitResults[0].pose.rotation);
 
-                 // ARPlaneManager ÄÄÆ÷³ÍÆ®¸¦ ºñÈ°¼ºÈ­ÇÕ´Ï´Ù.
+                 // ARPlaneManager ì»´í¬ë„ŒíŠ¸ë¥¼ ë¹„í™œì„±í™”í•©ë‹ˆë‹¤.
                  if (planeManager != null)
                  {
                      planeManager.enabled = false;
@@ -96,13 +96,13 @@ public class TapToPlaceOne : MonoBehaviour
             if (raycastManager.Raycast(ray, hitResults, TrackableType.PlaneWithinPolygon) && hitResults.Count > 0)
             {
                 spawnedArea = Instantiate(prefabToPlaneInstantiate, hitResults[0].pose.position + new Vector3(0, 0.001f, 0), Quaternion.identity);
-                // CreatePlane ½ºÅ©¸³Æ®¿¡ Á¢±ÙÇÏ¿© Äİ¹é ¼³Á¤
+                // CreatePlane ìŠ¤í¬ë¦½íŠ¸ì— ì ‘ê·¼í•˜ì—¬ ì½œë°± ì„¤ì •
                 CreatePlane createPlaneScript = spawnedArea.GetComponent<CreatePlane>();
                 if (createPlaneScript != null)
                 {
                     createPlaneScript.onCreationComplete = () =>
                     {
-                        // Å¥ºê »ı¼ºÀÌ ¿Ï·áµÈ ÈÄ È¸Àü Àû¿ë
+                        // íë¸Œ ìƒì„±ì´ ì™„ë£Œëœ í›„ íšŒì „ ì ìš©
                         spawnedArea.transform.rotation = Quaternion.Euler(0, yRotation, 0);
                     };
                 }
@@ -110,7 +110,7 @@ public class TapToPlaceOne : MonoBehaviour
                 isSpawnMap = false;
             }
 
-            // ARPlaneManager ÄÄÆ÷³ÍÆ®¸¦ ºñÈ°¼ºÈ­ÇÕ´Ï´Ù.
+            // ARPlaneManager ì»´í¬ë„ŒíŠ¸ë¥¼ ë¹„í™œì„±í™”í•©ë‹ˆë‹¤.
             if (planeManager != null)
             {
                 planeManager.enabled = false;
@@ -121,12 +121,12 @@ public class TapToPlaceOne : MonoBehaviour
                 }
             }
 
-            gameManager.GetComponent<GameManager>().SetPos(spawnedArea.GetComponent<CreatePlane>().GetPos());
-            gameManager.GetComponent<GameManager>().SetGoal(spawnedArea.GetComponent<CreatePlane>().GetGoal());
-            gameManager.GetComponent<GameManager>().SetPlane(spawnedArea.GetComponent<CreatePlane>().GetPlane());
+            GameManager.gm.GetComponent<GameManager>().SetPos(spawnedArea.GetComponent<CreatePlane>().GetPos());
+            GameManager.gm.GetComponent<GameManager>().SetGoal(spawnedArea.GetComponent<CreatePlane>().GetGoal());
+            GameManager.gm.GetComponent<GameManager>().SetPlane(spawnedArea.GetComponent<CreatePlane>().GetPlane());
 
 
-            //¹öÆ° °ü·Ã
+            //ë²„íŠ¼ ê´€ë ¨
             GameObject makeMapBtn = FindObject(canvas, "MapButton");
             GameObject selectBtn = FindObject(canvas, "MapSelectButton");
             GameObject TowerListBtn = FindObject(canvas, "SpawnTurretButton");
@@ -148,7 +148,7 @@ public class TapToPlaceOne : MonoBehaviour
             }
             else
             {
-                Debug.Log("¹öÆ°À» Ã£À» ¼ö ¾øÀ½");
+                Debug.Log("ë²„íŠ¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŒ");
             }
         }
     }
@@ -159,7 +159,7 @@ public class TapToPlaceOne : MonoBehaviour
         {
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
-            // Ä«¸Ş¶óÀÇ yÃà È¸Àü °ªÀ» °¡Á®¿È
+            // ì¹´ë©”ë¼ì˜ yì¶• íšŒì „ ê°’ì„ ê°€ì ¸ì˜´
             yRotation = Camera.main.transform.eulerAngles.y;
 
             if (raycastManager.Raycast(ray, hitResults, TrackableType.PlaneWithinPolygon) && hitResults.Count > 0)
@@ -168,7 +168,7 @@ public class TapToPlaceOne : MonoBehaviour
             }
             else { return; }
 
-            //¹öÆ° °ü·Ã
+            //ë²„íŠ¼ ê´€ë ¨
             GameObject makeMapBtn = FindObject(canvas, "MapButton");
             GameObject selectBtn = FindObject(canvas, "MapSelectButton");
             GameObject TowerListBtn = FindObject(canvas, "SpawnTurretButton");
@@ -183,10 +183,10 @@ public class TapToPlaceOne : MonoBehaviour
             }
             else
             {
-                Debug.Log("¹öÆ°À» Ã£À» ¼ö ¾øÀ½");
+                Debug.Log("ë²„íŠ¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŒ");
             }
 
-            // 1È¸¼ºÀ¸·Î¸¸ ¸Ê »ı¼º
+            // 1íšŒì„±ìœ¼ë¡œë§Œ ë§µ ìƒì„±
             isSpawnMap = true;
             map++;
         }
@@ -201,7 +201,7 @@ public class TapToPlaceOne : MonoBehaviour
         gameManager.GetComponent<GameManager>().StopSpawn();
     }
 
-    //¹öÆ° Ã£±â ¸Ş¼­µå
+    //ë²„íŠ¼ ì°¾ê¸° ë©”ì„œë“œ
     GameObject FindObject(GameObject parent, string name)
     {
         if (parent.name == name) return parent;

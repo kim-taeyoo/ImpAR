@@ -10,7 +10,7 @@ public class EnemyManager : MonoBehaviour
     public GameObject ArcherPrefab;
     public GameObject MagePrefab;
 
-    private List<GameObject> enemy = new List<GameObject>();
+    public List<GameObject> enemy = new List<GameObject>();
 
     /*
     void Update()
@@ -46,6 +46,7 @@ public class EnemyManager : MonoBehaviour
             e.transform.RotateAround(originPos, transform.up, -angle);
 
             temp.Add(e);
+            UIManager.um.changeEnemyNum();
         }
 
         if (enemyNum%2 == 0)
@@ -78,6 +79,8 @@ public class EnemyManager : MonoBehaviour
             e.transform.RotateAround(originPos, transform.up, -angle);
 
             temp.Add(e);
+            UIManager.um.changeEnemyNum();
+
         }
 
         if (enemyNum % 2 == 0)
@@ -107,6 +110,8 @@ public class EnemyManager : MonoBehaviour
             e.transform.RotateAround(originPos, transform.up, -angle);
 
             temp.Add(e);
+            UIManager.um.changeEnemyNum();
+
         }
 
         if (enemyNum % 2 == 0)
@@ -136,7 +141,12 @@ public class EnemyManager : MonoBehaviour
             if (e == g)
             {
                 enemy.Remove(e);
+                UIManager.um.changeEnemyNum();
                 Destroy(e, 3);
+                if(GameManager.gm.enemySpawn == false && enemy.Count == 0) //만약 적 소환이 끊긴 상태에서 적이 전부 죽었다면
+                {
+                    GameManager.gm.PlayerTurn();
+                }
                 break;
             }
         }

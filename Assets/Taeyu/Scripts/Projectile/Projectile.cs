@@ -20,6 +20,6 @@ public class Projectile : AbstractProjectile
     }
     void Start()
     {
-        Destroy(gameObject, 3f); // 3ÃÊ ÈÄ¿¡ ÀÚµ¿À¸·Î ÇÁ·ÎÁ§Å¸ÀÏ ÆÄ±«
+        Destroy(gameObject, 3f); // 3ì´ˆ í›„ì— ìë™ìœ¼ë¡œ í”„ë¡œì íƒ€ì¼ íŒŒê´´
     }
 }

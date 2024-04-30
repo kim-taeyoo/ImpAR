@@ -7,27 +7,27 @@ using UnityEngine.Rendering;
 
 public class UIInterface : MonoBehaviour
 {
-    //ÇÁ¸®ÆÕµé
+    //í”„ë¦¬íŒ¹ë“¤
     public GameObject turret;
     public GameObject wizzardTower;
     public GameObject select;
 
-    //¼³Ä¡µÉ ¿ÀºêÁ§Æ®¶û, ¹üÀ§Ç¥½Ã ¿ÀºêÁ§Æ®
+    //ì„¤ì¹˜ë  ì˜¤ë¸Œì íŠ¸ë‘, ë²”ìœ„í‘œì‹œ ì˜¤ë¸Œì íŠ¸
     GameObject focusObs;
     GameObject selectObj;
 
-    //¹öÆ° ÀÖ´Â canvas °¡Á®¿À±â
+    //ë²„íŠ¼ ìˆëŠ” canvas ê°€ì ¸ì˜¤ê¸°
     public GameObject canvas;
 
     private bool turretSpawn = false;
 
-    //¼³Ä¡µÉ¶§ ÀÌÆåÆ®
+    //ì„¤ì¹˜ë ë•Œ ì´í™íŠ¸
     public ParticleSystem particlePrefab;
     public ParticleSystem particlePrefab2;
 
     public AudioClip spawnSound;
 
-    //Å¸¿ö Á¾·ù
+    //íƒ€ì›Œ ì¢…ë¥˜
     enum TowerType { Turret, WizzardTower };
     TowerType curType;
 
@@ -40,41 +40,41 @@ public class UIInterface : MonoBehaviour
             if (!RaycastWithoutTriggers(ray, out hit)) return;
 
             GameObject hitObject = hit.collider.gameObject;
-            //ray°¡ ´êÀº ºÎºĞÀÌ ÇÃ·§ÆûÀÌ³ª ÀÌ¹Ì ¼³Ä¡µÈ ÇÃ·§ÆûÀÌ ¾Æ´Ò¶§(´Ù¸¥ ¿ÀºêÁ§Æ®ÀÏ¶§)
+            //rayê°€ ë‹¿ì€ ë¶€ë¶„ì´ í”Œë«í¼ì´ë‚˜ ì´ë¯¸ ì„¤ì¹˜ëœ í”Œë«í¼ì´ ì•„ë‹ë•Œ(ë‹¤ë¥¸ ì˜¤ë¸Œì íŠ¸ì¼ë•Œ)
             if (!hitObject.CompareTag("platform") && !hitObject.CompareTag("Occupied"))
             {
-                // ·¹ÀÌ¸¦ hitÇÑ ¿ÀºêÁ§Æ®ÀÇ ¹Ù·Î ¾Æ·¡·Î ¹ß»ç
+                // ë ˆì´ë¥¼ hití•œ ì˜¤ë¸Œì íŠ¸ì˜ ë°”ë¡œ ì•„ë˜ë¡œ ë°œì‚¬
                 Ray downRay = new Ray(hitObject.transform.position, -Vector3.up);
                 RaycastHit[] hits = Physics.RaycastAll(downRay, Mathf.Infinity);
-                //¾Æ·¡·Î ½ğ ray°¡ ´êÀº ¸ğµç ¿ÀºêÁ§Æ®¸¦ °Ë»ç
+                //ì•„ë˜ë¡œ ìœ rayê°€ ë‹¿ì€ ëª¨ë“  ì˜¤ë¸Œì íŠ¸ë¥¼ ê²€ì‚¬
                 foreach (var floorHit in hits)
                 {
-                    // 'platform' ¶Ç´Â 'Occupied' ÅÂ±×¸¦ °¡Áø ¿ÀºêÁ§Æ®°¡ ÀÖÀ»¶§
+                    // 'platform' ë˜ëŠ” 'Occupied' íƒœê·¸ë¥¼ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ê°€ ìˆì„ë•Œ
                     if (floorHit.collider.gameObject.CompareTag("platform") || floorHit.collider.gameObject.CompareTag("Occupied"))
                     {
                         Renderer rend = selectObj.GetComponent<Renderer>();
-                        // ¼³Ä¡¹üÀ§ ¿ÀºêÁ§Æ®¸¦ ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ À§Ä¡·Î ÀÌµ¿
+                        // ì„¤ì¹˜ë²”ìœ„ ì˜¤ë¸Œì íŠ¸ë¥¼ í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì˜ ìœ„ì¹˜ë¡œ ì´ë™
                         selectObj.transform.position = hit.collider.gameObject.transform.position + new Vector3(0, 0.005f, 0);
 
-                        //ÇÃ·§Æû ¿ÀºêÁ§Æ®ÀÇ ºÎ¸ğ°¡ plane ÀÌ´Ï±ñ ÇØ´ç ¿ÀºêÁ§Æ®ÀÇ È¸ÀüÀ» Àû¿ë
+                        //í”Œë«í¼ ì˜¤ë¸Œì íŠ¸ì˜ ë¶€ëª¨ê°€ plane ì´ë‹ˆê¹ í•´ë‹¹ ì˜¤ë¸Œì íŠ¸ì˜ íšŒì „ì„ ì ìš©
                         if (floorHit.collider.gameObject.transform.parent != null)
                         {
                             selectObj.transform.rotation = floorHit.collider.gameObject.transform.parent.rotation;
                         }
 
-                        //ÅÍ·¿ÀÏ¶§ ½ºÆù¹üÀ§ Ã¼Å©(»ö»óº¯°æ)
+                        //í„°ë ›ì¼ë•Œ ìŠ¤í°ë²”ìœ„ ì²´í¬(ìƒ‰ìƒë³€ê²½)
                         if (curType == TowerType.Turret)
                         {
                             Color newColor = floorHit.collider.gameObject.CompareTag("platform") ?
-                            new Color(107f / 255f, 249f / 255f, 121f / 255f) : // platformÀÏ °æ¿ì
-                            new Color(238f / 255f, 74f / 255f, 88f / 255f);  // OccupiedÀÏ °æ¿ì
+                            new Color(107f / 255f, 249f / 255f, 121f / 255f) : // platformì¼ ê²½ìš°
+                            new Color(238f / 255f, 74f / 255f, 88f / 255f);  // Occupiedì¼ ê²½ìš°
                             rend.material.color = newColor;
                             break;
                         }
-                        //À§ÀÚµå Å¸¿öÀÏ¶§ ½ºÆù¹üÀ§ Ã¼Å©
+                        //ìœ„ìë“œ íƒ€ì›Œì¼ë•Œ ìŠ¤í°ë²”ìœ„ ì²´í¬
                         else if (curType == TowerType.WizzardTower)
                         {
-                            //platformÀÏ¶§
+                            //platformì¼ë•Œ
                             if (floorHit.collider.gameObject.CompareTag("platform"))
                             {
                                 if (CheckSurroundingBlocks("platform", hit, 0.045f))
@@ -88,7 +88,7 @@ public class UIInterface : MonoBehaviour
                                     rend.material.color = newColor;
                                 }
                             }
-                            //OcuppiedÀÏ¶§
+                            //Ocuppiedì¼ë•Œ
                             else if (floorHit.collider.gameObject.CompareTag("Occupied"))
                             {
                                 Color newColor = new Color(238f / 255f, 74f / 255f, 88f / 255f);
@@ -100,7 +100,7 @@ public class UIInterface : MonoBehaviour
             }
             else
             {
-                // hitÇÑ ¿ÀºêÁ§Æ®°¡ 'platform' ¶Ç´Â 'Occupied'ÀÎ °æ¿ìÀÇ Ã³¸®
+                // hití•œ ì˜¤ë¸Œì íŠ¸ê°€ 'platform' ë˜ëŠ” 'Occupied'ì¸ ê²½ìš°ì˜ ì²˜ë¦¬
                 selectObj.transform.position = hit.collider.gameObject.transform.position + new Vector3(0, 0.005f, 0);
 
                 if (hit.collider.gameObject.transform.parent != null)
@@ -110,7 +110,7 @@ public class UIInterface : MonoBehaviour
 
                 Renderer rend = selectObj.GetComponent<Renderer>();
 
-                //ÅÍ·¿ÀÏ¶§ ½ºÆù¹üÀ§ Ã¼Å©
+                //í„°ë ›ì¼ë•Œ ìŠ¤í°ë²”ìœ„ ì²´í¬
                 if (curType == TowerType.Turret)
                 {
                     if (hit.collider.gameObject.CompareTag("platform"))
@@ -124,7 +124,7 @@ public class UIInterface : MonoBehaviour
                         rend.material.color = newColor;
                     }
                 }
-                //À§ÀÚµå Å¸¿öÀÏ¶§ ½ºÆù¹üÀ§ Ã¼Å©
+                //ìœ„ìë“œ íƒ€ì›Œì¼ë•Œ ìŠ¤í°ë²”ìœ„ ì²´í¬
                 else if (curType == TowerType.WizzardTower)
                 {
                     if (hit.collider.gameObject.CompareTag("platform"))
@@ -162,15 +162,15 @@ public class UIInterface : MonoBehaviour
             yield return null;
         }
 
-        obj.transform.position = targetPosition; // ÃÖÁ¾ À§Ä¡ º¸Á¤
+        obj.transform.position = targetPosition; // ìµœì¢… ìœ„ì¹˜ ë³´ì •
 
          /*rb.interpolation = RigidbodyInterpolation.Extrapolate;
          rb.collisionDetectionMode = CollisionDetectionMode.Continuous;*/
 
-        //Äİ¶óÀÌ´õ ³Ö±â
+        //ì½œë¼ì´ë” ë„£ê¸°
         if (curType == TowerType.Turret)
         {
-            // ¸ğµç ÀÌµ¿ÀÌ ¿Ï·áµÈ ÈÄ Rigidbody¿Í BoxCollider Ãß°¡
+            // ëª¨ë“  ì´ë™ì´ ì™„ë£Œëœ í›„ Rigidbodyì™€ BoxCollider ì¶”ê°€
             Rigidbody rb = obj.AddComponent<Rigidbody>();
             rb.useGravity = false;
             rb.isKinematic = true;
@@ -188,22 +188,22 @@ public class UIInterface : MonoBehaviour
         }
 
 
-        // ÆÄÆ¼Å¬ ½Ã½ºÅÛ Á¤Áö ¹× Á¦°Å
+        // íŒŒí‹°í´ ì‹œìŠ¤í…œ ì •ì§€ ë° ì œê±°
         ParticleSystem particleSystem = particleSystemInstance;
         particleSystem.Stop();
         ParticleSystem particleSystem2 = particleSystemInstance2;
         particleSystem2.Stop();
-        Destroy(particleSystemInstance.gameObject, particleSystem.main.startLifetime.constantMax); // ¸ğµç ÆÄÆ¼Å¬ÀÌ »ç¶óÁø ÈÄ¿¡ ÆÄÆ¼Å¬ ½Ã½ºÅÛ °´Ã¼ Á¦°Å
-        Destroy(particleSystemInstance2.gameObject, particleSystem.main.startLifetime.constantMax); // ¸ğµç ÆÄÆ¼Å¬ÀÌ »ç¶óÁø ÈÄ¿¡ ÆÄÆ¼Å¬ ½Ã½ºÅÛ °´Ã¼ Á¦°Å
+        Destroy(particleSystemInstance.gameObject, particleSystem.main.startLifetime.constantMax); // ëª¨ë“  íŒŒí‹°í´ì´ ì‚¬ë¼ì§„ í›„ì— íŒŒí‹°í´ ì‹œìŠ¤í…œ ê°ì²´ ì œê±°
+        Destroy(particleSystemInstance2.gameObject, particleSystem.main.startLifetime.constantMax); // ëª¨ë“  íŒŒí‹°í´ì´ ì‚¬ë¼ì§„ í›„ì— íŒŒí‹°í´ ì‹œìŠ¤í…œ ê°ì²´ ì œê±°
 
-        //¿ÀºêÁ§Æ® »ı¼ºÀÌ ³¡³ª¸é ¹öÆ° ´Ù½Ã »ı±è
+        //ì˜¤ë¸Œì íŠ¸ ìƒì„±ì´ ëë‚˜ë©´ ë²„íŠ¼ ë‹¤ì‹œ ìƒê¹€
         GameObject spawnBtn = FindObject(canvas, "SpawnTurretButton");
         if (spawnBtn != null)
         {
             spawnBtn.SetActive(true);
         }
 
-        //ÅÂ±×ÁÖ±â
+        //íƒœê·¸ì£¼ê¸°
         if (curType == TowerType.Turret)
         {
             obj.tag = "Turret";
@@ -218,7 +218,7 @@ public class UIInterface : MonoBehaviour
     {
         SetCollidersEnable(true);
     }
-    //¼±ÅÃ¹Ú½ºÀÇ Äİ¶óÀÌ´õµéÀ» »©´Â ¿ªÇÒ
+    //ì„ íƒë°•ìŠ¤ì˜ ì½œë¼ì´ë”ë“¤ì„ ë¹¼ëŠ” ì—­í• 
     private void SetCollidersEnable(bool v)
     {
         Collider[] childColliders = selectObj.GetComponentsInChildren<Collider>(true);
@@ -255,7 +255,7 @@ public class UIInterface : MonoBehaviour
 
     public void TowerSpawn()
     {
-        // Canvas ³»¿¡¼­ SpawnTurretButton ÀÌ¸§À» °¡Áø ¿ÀºêÁ§Æ® Ã£±â
+        // Canvas ë‚´ì—ì„œ SpawnTurretButton ì´ë¦„ì„ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ ì°¾ê¸°
         GameObject listPanel = FindObject(canvas, "TowerSpawnPanel");
         GameObject selectBtn = FindObject(canvas, "ConfirmSpawnButton");
         GameObject cancelBtn = FindObject(canvas, "CancelButton");
@@ -269,25 +269,25 @@ public class UIInterface : MonoBehaviour
 
             selectObj = Instantiate(select, hit.collider.gameObject.transform.position + new Vector3(0, 0.005f, 0), select.transform.rotation);
 
-            //ÅÍ·¿ÀÏ¶§ ¼±ÅÃ¹Ú½º ¼³Á¤
+            //í„°ë ›ì¼ë•Œ ì„ íƒë°•ìŠ¤ ì„¤ì •
             if (curType == TowerType.Turret)
             {
-                //±×´ë·Î
+                //ê·¸ëŒ€ë¡œ
             }
-            //À§ÀÚµå Å¸¿öÀÏ¶§ ¼±ÅÃ¹Ú½º ¼³Á¤
+            //ìœ„ìë“œ íƒ€ì›Œì¼ë•Œ ì„ íƒë°•ìŠ¤ ì„¤ì •
             else if (curType == TowerType.WizzardTower)
             {
-                //3¹è Å°¿ò
+                //3ë°° í‚¤ì›€
                 Vector3 currentScale = selectObj.transform.localScale;
                 selectObj.transform.localScale = new Vector3(currentScale.x * 3, currentScale.y, currentScale.z * 3);
             }
 
             DisableColliders();
 
-            //¼±ÅÃ¹Ú½º »ö»ó
+            //ì„ íƒë°•ìŠ¤ ìƒ‰ìƒ
             Renderer rend = selectObj.GetComponent<Renderer>();
 
-            //ÅÍ·¿ÀÏ¶§ ½ºÆù¹üÀ§ Ã¼Å©ÇØ¼­ »ö»ó º¯°æ
+            //í„°ë ›ì¼ë•Œ ìŠ¤í°ë²”ìœ„ ì²´í¬í•´ì„œ ìƒ‰ìƒ ë³€ê²½
             if (curType == TowerType.Turret)
             {
                 if (!hit.collider.gameObject.CompareTag("platform"))
@@ -301,7 +301,7 @@ public class UIInterface : MonoBehaviour
                     rend.material.color = newColor;
                 }
             }
-            //À§ÀÚµå Å¸¿öÀÏ¶§ ½ºÆù¹üÀ§ Ã¼Å©
+            //ìœ„ìë“œ íƒ€ì›Œì¼ë•Œ ìŠ¤í°ë²”ìœ„ ì²´í¬
             else if (curType == TowerType.WizzardTower)
             {
                 if (CheckSurroundingBlocks("platform", hit, 0.045f))
@@ -318,7 +318,7 @@ public class UIInterface : MonoBehaviour
 
             turretSpawn = true;
 
-            //Å¸¿ö ¸ñ·Ï²ô°í ¼³Ä¡, Ãë¼Ò ¹öÆ° È°¼ºÈ­
+            //íƒ€ì›Œ ëª©ë¡ë„ê³  ì„¤ì¹˜, ì·¨ì†Œ ë²„íŠ¼ í™œì„±í™”
             if (listPanel != null && selectBtn != null && cancelBtn != null)
             {
                 listPanel.SetActive(false);
@@ -342,7 +342,7 @@ public class UIInterface : MonoBehaviour
     }
     public void ConfirmSelect()
     {
-        // Canvas ¹öÆ°Ã£±â
+        // Canvas ë²„íŠ¼ì°¾ê¸°
         GameObject spawnBtn = FindObject(canvas, "SpawnTurretButton");
         GameObject selectBtn = FindObject(canvas, "ConfirmSpawnButton");
         GameObject cancelBtn = FindObject(canvas, "CancelButton");
@@ -351,62 +351,62 @@ public class UIInterface : MonoBehaviour
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         if (!RaycastWithoutTriggers(ray, out hit)) return;
 
-        //ray°¡ ´êÀº ºÎºĞÀÌ platformÀÏ¶§
+        //rayê°€ ë‹¿ì€ ë¶€ë¶„ì´ platformì¼ë•Œ
         if (hit.collider.gameObject.CompareTag("platform") && Vector3.Distance(hit.normal, Vector3.up) < 0.01f)
         {
-            //ÅÍ·¿ÀÏ¶§
+            //í„°ë ›ì¼ë•Œ
             if (curType == TowerType.Turret)
             {
                 focusObs = Instantiate(turret, Vector3.zero, Quaternion.Euler(0, -Camera.main.transform.eulerAngles.y, 0));
             }
-            //À§ÀÚµå Å¸¿öÀÏ¶§
+            //ìœ„ìë“œ íƒ€ì›Œì¼ë•Œ
             else if (curType == TowerType.WizzardTower)
             {
-                //ÁøÂ¥¼³Ä¡ °¡´ÉÇÑ ºÎºĞÀÌ¸é
+                //ì§„ì§œì„¤ì¹˜ ê°€ëŠ¥í•œ ë¶€ë¶„ì´ë©´
                 if (CheckSurroundingBlocks("platform", hit, 0.045f))
                 {
                     focusObs = Instantiate(wizzardTower, Vector3.zero, Quaternion.Euler(0, -Camera.main.transform.eulerAngles.y, 0));
                 }
-                //¼³Ä¡ ºÒ°¡´ÉÇÑ ºÎºĞ
+                //ì„¤ì¹˜ ë¶ˆê°€ëŠ¥í•œ ë¶€ë¶„
                 else
                 {
                     return;
                 }
             }
-            //Á¤»óÀûÀ¸·Î ¼³Ä¡ ÁØºñ°¡ µÇ¸é
+            //ì •ìƒì ìœ¼ë¡œ ì„¤ì¹˜ ì¤€ë¹„ê°€ ë˜ë©´
             Destroy(selectObj);
 
-            // ÆÄÆ¼Å¬ ½Ã½ºÅÛ »ı¼º ¹× Àç»ı
+            // íŒŒí‹°í´ ì‹œìŠ¤í…œ ìƒì„± ë° ì¬ìƒ
             ParticleSystem particleSystemInstance = Instantiate(particlePrefab, hit.collider.gameObject.transform.position + new Vector3(0, 0.001f, 0), particlePrefab.transform.rotation);
             particleSystemInstance.Play();
             ParticleSystem particleSystemInstance2 = Instantiate(particlePrefab2, hit.collider.gameObject.transform.position + new Vector3(0, 0.001f, 0), particlePrefab2.transform.rotation);
             particleSystemInstance2.Play();
 
-            // ¼Ò¸® Àç»ı
+            // ì†Œë¦¬ ì¬ìƒ
             AudioSource audioSource = focusObs.GetComponent<AudioSource>();
             if (audioSource != null && spawnSound != null)
             {
                 audioSource.PlayOneShot(spawnSound);
             }
 
-            //ÅÍ·¿ÀÏ¶§
+            //í„°ë ›ì¼ë•Œ
             if (curType == TowerType.Turret)
             {
                 hit.collider.gameObject.tag = "Occupied";
 
-                Vector3 startPosition = hit.collider.gameObject.transform.position + new Vector3(0, -0.09f, 0); // ½ÃÀÛ À§Ä¡ Á¶Á¤
+                Vector3 startPosition = hit.collider.gameObject.transform.position + new Vector3(0, -0.09f, 0); // ì‹œì‘ ìœ„ì¹˜ ì¡°ì •
                 focusObs.transform.position = startPosition;
 
-                // ÆÄÆ¼Å¬ ½Ã½ºÅÛ ÀÎ½ºÅÏ½º¸¦ ÄÚ·çÆ¾À¸·Î Àü´Ş
-                StartCoroutine(MoveObjectToPosition(focusObs, hit.collider.gameObject.transform.position, 11, particleSystemInstance, particleSystemInstance2)); // 3ÃÊ µ¿¾È ¸ñÇ¥ À§Ä¡·Î ÀÌµ¿
+                // íŒŒí‹°í´ ì‹œìŠ¤í…œ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì½”ë£¨í‹´ìœ¼ë¡œ ì „ë‹¬
+                StartCoroutine(MoveObjectToPosition(focusObs, hit.collider.gameObject.transform.position, 11, particleSystemInstance, particleSystemInstance2)); // 3ì´ˆ ë™ì•ˆ ëª©í‘œ ìœ„ì¹˜ë¡œ ì´ë™
             }
-            //À§ÀÚµå Å¸¿öÀÏ¶§
+            //ìœ„ìë“œ íƒ€ì›Œì¼ë•Œ
             else if (curType == TowerType.WizzardTower)
             {
                 Vector3 centerPosition = hit.collider.gameObject.transform.position;
-                //hitÇÑ ºÎºĞ¿¡ ÀÖ´Â ÇÃ·§ÆûÀ» ÁßÁ¡À¸·Î ±¸ »ı¼º
+                //hití•œ ë¶€ë¶„ì— ìˆëŠ” í”Œë«í¼ì„ ì¤‘ì ìœ¼ë¡œ êµ¬ ìƒì„±
                 Collider[] hitColliders = Physics.OverlapSphere(centerPosition, 0.04f);
-                //±¸¿¡ ´ê´Â ¸ğµç ¿ÀºêÁ§Æ®¸¦ Ã¼Å©
+                //êµ¬ì— ë‹¿ëŠ” ëª¨ë“  ì˜¤ë¸Œì íŠ¸ë¥¼ ì²´í¬
                 foreach (var hitCollider in hitColliders)
                 {
                     if (hitCollider.gameObject.tag == "platform")
@@ -415,17 +415,17 @@ public class UIInterface : MonoBehaviour
                     }
                 }
 
-                Vector3 startPosition = hit.collider.gameObject.transform.position + new Vector3(0, -0.35f, 0); // ½ÃÀÛ À§Ä¡ Á¶Á¤
+                Vector3 startPosition = hit.collider.gameObject.transform.position + new Vector3(0, -0.35f, 0); // ì‹œì‘ ìœ„ì¹˜ ì¡°ì •
                 focusObs.transform.position = startPosition;
 
                 particleSystemInstance.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
                 particleSystemInstance2.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 
-                // ÆÄÆ¼Å¬ ½Ã½ºÅÛ ÀÎ½ºÅÏ½º¸¦ ÄÚ·çÆ¾À¸·Î Àü´Ş
-                StartCoroutine(MoveObjectToPosition(focusObs, hit.collider.gameObject.transform.position, 11, particleSystemInstance, particleSystemInstance2)); // 3ÃÊ µ¿¾È ¸ñÇ¥ À§Ä¡·Î ÀÌµ¿
+                // íŒŒí‹°í´ ì‹œìŠ¤í…œ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì½”ë£¨í‹´ìœ¼ë¡œ ì „ë‹¬
+                StartCoroutine(MoveObjectToPosition(focusObs, hit.collider.gameObject.transform.position, 11, particleSystemInstance, particleSystemInstance2)); // 3ì´ˆ ë™ì•ˆ ëª©í‘œ ìœ„ì¹˜ë¡œ ì´ë™
             }
 
-            //Á¤»óÀûÀ¸·Î 
+            //ì •ìƒì ìœ¼ë¡œ 
             if (spawnBtn != null && selectBtn != null && cancelBtn != null)
             {
                 selectBtn.SetActive(false);
@@ -436,14 +436,14 @@ public class UIInterface : MonoBehaviour
             focusObs = null;
             turretSpawn = false;
         }
-        //ray°¡ ´êÀº ºÎºĞÀÌ platformÀÌ ¾Æ´Ï¸é
+        //rayê°€ ë‹¿ì€ ë¶€ë¶„ì´ platformì´ ì•„ë‹ˆë©´
         else
         {
             return;
         }
     }
 
-    // Àç±ÍÀûÀ¸·Î ¿ÀºêÁ§Æ®¸¦ Ã£´Â ÇÔ¼ö
+    // ì¬ê·€ì ìœ¼ë¡œ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ëŠ” í•¨ìˆ˜
     GameObject FindObject(GameObject parent, string name)
     {
         if (parent.name == name) return parent;
@@ -455,23 +455,23 @@ public class UIInterface : MonoBehaviour
         return null;
     }
 
-    //½ºÆù¹üÀ§ Ã¼Å© ÇÔ¼ö
+    //ìŠ¤í°ë²”ìœ„ ì²´í¬ í•¨ìˆ˜
     bool CheckSurroundingBlocks(string requiredTag, RaycastHit hit, float checkRadius)
     {
         Vector3 centerPosition = hit.collider.gameObject.transform.position;
         Collider[] hitColliders = Physics.OverlapSphere(centerPosition, checkRadius);
-        int sameTagCount = 0; // Æ¯Á¤ ÅÂ±×¸¦ °¡Áø ºí·°ÀÇ ¼ö
+        int sameTagCount = 0; // íŠ¹ì • íƒœê·¸ë¥¼ ê°€ì§„ ë¸”ëŸ­ì˜ ìˆ˜
 
         foreach (var hitCollider in hitColliders)
         {
-            // Áß¾Ó ºí·°À» Á¦¿ÜÇÑ ÁÖº¯ ºí·°ÀÌ Æ¯Á¤ ÅÂ±×¸¦ °¡Áö°í ÀÖ´ÂÁö È®ÀÎ
+            // ì¤‘ì•™ ë¸”ëŸ­ì„ ì œì™¸í•œ ì£¼ë³€ ë¸”ëŸ­ì´ íŠ¹ì • íƒœê·¸ë¥¼ ê°€ì§€ê³  ìˆëŠ”ì§€ í™•ì¸
             if (hitCollider.gameObject != hit.collider.gameObject && hitCollider.tag == requiredTag)
             {
                 sameTagCount++;
             }
         }
 
-        // ÁÖº¯ 8°³ ºí·° ¸ğµÎ°¡ Æ¯Á¤ ÅÂ±×¸¦ °¡Á³´ÂÁö È®ÀÎ
+        // ì£¼ë³€ 8ê°œ ë¸”ëŸ­ ëª¨ë‘ê°€ íŠ¹ì • íƒœê·¸ë¥¼ ê°€ì¡ŒëŠ”ì§€ í™•ì¸
         if (sameTagCount == 8)
         {
             return true;
@@ -482,7 +482,7 @@ public class UIInterface : MonoBehaviour
         }
     }
 
-    //¹öÆ°°ü·Ã Å¸¿ö¸ñ·ÏÀ» ¶ç¿ò
+    //ë²„íŠ¼ê´€ë ¨ íƒ€ì›Œëª©ë¡ì„ ë„ì›€
     public void GetTowerList()
     {
         if (!turretSpawn)
@@ -492,18 +492,18 @@ public class UIInterface : MonoBehaviour
 
             if (spawnBtn != null && listPanel != null)
             {
-                spawnBtn.SetActive(false);
+                //spawnBtn.SetActive(false); ì¼ë‹¨ ì£¼ì„ì²˜ë¦¬í•¨ (ì´ê·œë¹ˆ)
                 listPanel.SetActive(true);
             }
         }
         else { turretSpawn = false; }
     }
-    //¹öÆ°°ü·Ã
+    //ë²„íŠ¼ê´€ë ¨
     public void ResetButton()
     {
         if (turretSpawn)
         {
-            //°ü·Ã ¸ğµç ¹öÆ° °¡Á®¿À±â
+            //ê´€ë ¨ ëª¨ë“  ë²„íŠ¼ ê°€ì ¸ì˜¤ê¸°
             GameObject spawnBtn = FindObject(canvas, "SpawnTurretButton");
             GameObject listPanel = FindObject(canvas, "TowerSpawnPanel");
             GameObject spawnSelectBtn = FindObject(canvas, "ConfirmSpawnButton");
@@ -526,7 +526,7 @@ public class UIInterface : MonoBehaviour
         }
     }
 
-    //½ºÆùÇÒ Å¸¿ö ¼³Á¤
+    //ìŠ¤í°í•  íƒ€ì›Œ ì„¤ì •
     public void setTurret()
     {
         if (!turretSpawn)
