@@ -10,6 +10,8 @@ TagManager:
   - Turret
   - WizzardTower
   - WizzardAttackRange
+  - EnemyTarget
+  - Plane
   layers:
   - Default
   - TransparentFX

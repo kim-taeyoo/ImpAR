@@ -2451,7 +2451,7 @@ MonoBehaviour:
   canvas: {fileID: 1315548742}
   prefabToInstantiate: {fileID: 1821109065192077388, guid: 91825f34b5552dc4fbc49b46a647785a,
     type: 3}
-  prefabToPlaneInstantiate: {fileID: 1821109065192077388, guid: 72058d7d6bfebfe4c830aae1dd679ddc,
+  prefabToPlaneInstantiate: {fileID: 1185957977106912471, guid: 1cf0b2de8d894d54bb4dadc2ea8ac18e,
     type: 3}
 --- !u!1 &1139693540
 GameObject:
