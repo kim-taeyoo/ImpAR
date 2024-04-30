@@ -115,11 +115,13 @@ Transform:
   m_Children:
   - {fileID: 484015359881944301}
   - {fileID: 1411452399272960598}
-  - {fileID: 5806911879374274984}
   - {fileID: 2355864781779930117}
   - {fileID: 4395865457369485466}
+<<<<<<< HEAD
   - {fileID: 465867009669018760}
   - {fileID: 1273882683524811311}
+=======
+>>>>>>> main
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4408523616569128932
@@ -136,6 +138,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cubePrefab: {fileID: 2439379827057701011, guid: 61f8161e1857cef4caccc0a151534cad,
     type: 3}
+  goal: {fileID: 2880758545250879683}
+  plane: {fileID: 1666836419483942576}
 --- !u!1 &1450090576622358079
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +175,7 @@ Transform:
   - {fileID: 6701242762823882943}
   m_Father: {fileID: 7835792588735449903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1642162449331698512
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +390,8 @@ MonoBehaviour:
   plane: {fileID: 1666836419483942576}
   enemyManager: {fileID: 5543921727309526269}
   spawnPoints: {fileID: 8617751092842287234}
+=======
+>>>>>>> main
 --- !u!1 &4831013095801964874
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 1839912542574496770}
+<<<<<<< HEAD
 --- !u!1 &6404696539111793497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,6 +1333,8 @@ MonoBehaviour:
     type: 3}
   MagePrefab: {fileID: 1037525073470194367, guid: 9a2b0667bf424e5418e164e6cae0000a,
     type: 3}
+=======
+>>>>>>> main
 --- !u!1001 &141553779416037220
 PrefabInstance:
   m_ObjectHideFlags: 0

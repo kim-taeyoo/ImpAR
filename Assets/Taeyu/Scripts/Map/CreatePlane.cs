@@ -10,6 +10,9 @@ public class CreatePlane : MonoBehaviour
     private int cubesPerLine = 50;
     public Action onCreationComplete; // 완료 콜백을 위한 액션 추가
 
+    public GameObject goal;
+    public Collider plane;
+
     void Start()
     {
         CreateCubes();
@@ -52,5 +55,20 @@ public class CreatePlane : MonoBehaviour
                 cube.tag = "Occupied";
             }
         }
+    }
+
+    public Vector3 GetPos()
+    {
+        return transform.position;
+    }
+
+    public GameObject GetGoal()
+    {
+        return goal;
+    }
+
+    public Collider GetPlane()
+    {
+        return plane;
     }
 }
