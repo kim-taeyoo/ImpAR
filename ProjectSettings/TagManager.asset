@@ -10,11 +10,13 @@ TagManager:
   - Turret
   - WizzardTower
   - WizzardAttackRange
+  - EnemyTarget
+  - Plane
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Goal
   - Water
   - UI
   - 

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public EnemyManager enemyManager;
 
+    private Vector3 planePosition;
+
     float enemySpawnTime = 10f;
     float firstSpawnTime = 1f;
 
@@ -21,6 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnWaves());
+        planePosition = transform.position;
     }
 
     // Update is called once per frame
@@ -85,7 +88,7 @@ public class GameManager : MonoBehaviour
                 float x = Mathf.Cos(deg * Mathf.Deg2Rad) * rad;
                 float z = Mathf.Sin(deg * Mathf.Deg2Rad) * rad;
 
-                Vector3 pos = new Vector3(x, 0.0f, z);
+                Vector3 pos = planePosition +  new Vector3(x, 0.0f, z);
                 Vector3 targetDir = goal.transform.position - pos;
                 float angle = Vector3.SignedAngle(targetDir, transform.forward, Vector3.up);
 
