@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2029243668156335193}
   - component: {fileID: 2849898087755570706}
   - component: {fileID: 4638856394923692313}
-  - component: {fileID: 7597806948142596574}
+  - component: {fileID: -7629370094782550422}
   m_Layer: 0
-  m_Name: "\uCD1D\uC54C"
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,7 +187,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.037729263
+        value: 0.001367569
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -208,7 +208,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.9914521, g: 1, b: 0, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -248,7 +248,7 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
---- !u!114 &7597806948142596574
+--- !u!114 &-7629370094782550422
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,4 +260,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115f542b81b8a664197bb88fc85a1860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spark: {fileID: 6222251034089382319, guid: 0191f509f0fa4be45a0bc10013927011, type: 3}
+  spark: {fileID: 6222251034089382319, guid: 384e8048230f72d4e81d6539458d20bb, type: 3}

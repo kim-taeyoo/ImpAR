@@ -7,7 +7,7 @@ public class WizzardTowerSystem : MonoBehaviour
 {
     private Camera mainCamera;
     private WizzardTower activeWizzardTower;
-    // WizzardTower °´Ã¼¸¦ ÀúÀåÇÒ ¸®½ºÆ®
+    // WizzardTower ê°ì²´ë¥¼ ì €ì¥í•  ë¦¬ìŠ¤íŠ¸
     private List<WizzardTower> wizzardTowers = new List<WizzardTower>();
 
     public GameObject canvas;
@@ -18,43 +18,43 @@ public class WizzardTowerSystem : MonoBehaviour
 
     void Update()
     {
-        // ÅÍÄ¡ ÀÔ·ÂÀÌ ÀÖ°í, Ã¹ ¹øÂ° ÅÍÄ¡ÀÇ »óÅÂ°¡ È­¸é¿¡ Ã³À½ ´êÀº »óÅÂÀÎÁö È®ÀÎ
+        // í„°ì¹˜ ì…ë ¥ì´ ìˆê³ , ì²« ë²ˆì§¸ í„°ì¹˜ì˜ ìƒíƒœê°€ í™”ë©´ì— ì²˜ìŒ ë‹¿ì€ ìƒíƒœì¸ì§€ í™•ì¸
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            // Ã¹ ¹øÂ° ÅÍÄ¡ Á¤º¸ °¡Á®¿À±â
+            // ì²« ë²ˆì§¸ í„°ì¹˜ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
             Touch touch = Input.GetTouch(0);
 
-            // ÅÍÄ¡ À§Ä¡·ÎºÎÅÍ Ray »ı¼º
+            // í„°ì¹˜ ìœ„ì¹˜ë¡œë¶€í„° Ray ìƒì„±
             Ray ray = mainCamera.ScreenPointToRay(touch.position);
             RaycastHit hit;
 
-            // Ray ¹ß»ç
+            // Ray ë°œì‚¬
             if (Physics.Raycast(ray, out hit))
             {
                 WizzardTower wizzardTower = hit.collider.GetComponent<WizzardTower>();
                 if (wizzardTower != null && wizzardTower.CompareTag("WizzardTower"))
                 {
-                    // ÀÌ¹Ì È°¼ºÈ­µÈ WizzardTower°¡ ÀÖ°í, ´Ù¸¥ WizzardTower°¡ Å¬¸¯µÇ¾ú´Ù¸é
+                    // ì´ë¯¸ í™œì„±í™”ëœ WizzardTowerê°€ ìˆê³ , ë‹¤ë¥¸ WizzardTowerê°€ í´ë¦­ë˜ì—ˆë‹¤ë©´
                     if (activeWizzardTower != null && activeWizzardTower != wizzardTower)
                     {
-                        // ÀÌÀü WizzardTowerÀÇ ToggleAttackRange¸¦ È£ÃâÇÏ¿© ºñÈ°¼ºÈ­
+                        // ì´ì „ WizzardTowerì˜ ToggleAttackRangeë¥¼ í˜¸ì¶œí•˜ì—¬ ë¹„í™œì„±í™”
                         if (activeWizzardTower.seeAttackRange)
                         {
                             activeWizzardTower.ToggleAttackRange();
                         }
                     }
 
-                    // »õ·Î Å¬¸¯µÈ WizzardTower¸¦ È°¼ºÈ­ÇÏ°í ÂüÁ¶ ¾÷µ¥ÀÌÆ®
+                    // ìƒˆë¡œ í´ë¦­ëœ WizzardTowerë¥¼ í™œì„±í™”í•˜ê³  ì°¸ì¡° ì—…ë°ì´íŠ¸
                     wizzardTower.ToggleAttackRange();
                     activeWizzardTower = wizzardTower;
                 }
             }
         }
 
-        UpdateAttackButtonStatus(); // AttackButton »óÅÂ ¾÷µ¥ÀÌÆ® ¸Ş¼­µå È£Ãâ
+        UpdateAttackButtonStatus(); // AttackButton ìƒíƒœ ì—…ë°ì´íŠ¸ ë©”ì„œë“œ í˜¸ì¶œ
     }
 
-    // WizzardTower °´Ã¼°¡ È°¼ºÈ­µÇ¾úÀ» ¶§ È£ÃâÇÒ ¸Ş¼­µå
+    // WizzardTower ê°ì²´ê°€ í™œì„±í™”ë˜ì—ˆì„ ë•Œ í˜¸ì¶œí•  ë©”ì„œë“œ
     public void RegisterWizzardTower(WizzardTower tower)
     {
         if (!wizzardTowers.Contains(tower))
@@ -63,7 +63,7 @@ public class WizzardTowerSystem : MonoBehaviour
         }
     }
 
-    // WizzardTower °´Ã¼°¡ ºñÈ°¼ºÈ­µÇ¾úÀ» ¶§ È£ÃâÇÒ ¸Ş¼­µå
+    // WizzardTower ê°ì²´ê°€ ë¹„í™œì„±í™”ë˜ì—ˆì„ ë•Œ í˜¸ì¶œí•  ë©”ì„œë“œ
     public void UnregisterWizzardTower(WizzardTower tower)
     {
         if (wizzardTowers.Contains(tower))
@@ -96,13 +96,13 @@ public class WizzardTowerSystem : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            // activeWizzardTower ÂüÁ¶¸¦ »ç¿ëÇÏ¿© ÇØ´ç °´Ã¼ÀÇ »óÅÂ¿Í ¸Ş¼­µå¿¡ Á¢±Ù
+            // activeWizzardTower ì°¸ì¡°ë¥¼ ì‚¬ìš©í•˜ì—¬ í•´ë‹¹ ê°ì²´ì˜ ìƒíƒœì™€ ë©”ì„œë“œì— ì ‘ê·¼
             if (activeWizzardTower.isAttack && activeWizzardTower.seeAttackRange)
             {
+                StartCoroutine(activeWizzardTower.SpawnEffectsAt(activeWizzardTower.attackRange.transform.position));
+
                 activeWizzardTower.isAttack = false;
                 activeWizzardTower.seeAttackRange = false;
-
-                StartCoroutine(activeWizzardTower.SpawnEffectsAt(activeWizzardTower.attackRange.transform.position));
                 activeWizzardTower.attackRangeObject.SetActive(false);
 
                 StartCoroutine(activeWizzardTower.IncreaseEmissionIntensityAndChangeColor(8, 20));

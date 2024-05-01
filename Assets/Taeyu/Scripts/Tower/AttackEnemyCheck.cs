@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class AttackEnemyCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //적 관련
+    public List<GameObject> enemiesInRange = new List<GameObject>();
+
+    // 트리거 적 추가
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            enemiesInRange.Add(other.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    // 트리거 적 삭제
+    private void OnTriggerExit(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            enemiesInRange.Remove(other.gameObject);
+        }
     }
 }
