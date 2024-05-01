@@ -19,10 +19,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject spawnPoints;
     public List<Vector3> spawnPos = new List<Vector3>();
-
-    //For test
-    private bool mousePressed;
-    private Vector3 mousePosition;
     
     // 이규빈 작성
     public static GameManager gm; //static 게임매니저
@@ -87,40 +83,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //For test
-        if (Input.GetMouseButtonDown(0))
-        {
-            mousePressed = true;
-            mousePosition = Input.mousePosition;
-            //Debug.Log("mouse pressed");
-        }
-
         if (Input.GetKeyDown(KeyCode.G))
         {
             timer = 2;
         }
 
-    }
-
-    private void FixedUpdate()
-    {
-        // do raycast to see if we hit any shootable object
-        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
-        RaycastHit hit;
-
-        //Debug.DrawRay(ray.origin, ray.direction * 20, Color.red, 5f);
-
-        if (mousePressed && Physics.Raycast(ray, out hit))
-        {
-            //Debug.Log(hit.collider.name);
-            if (hit.collider.tag == "Enemy")
-            {
-                hit.collider.GetComponent<EnemyActionController>().GetHit(1);
-            }
-
-            mousePressed = false;
-
-        }
     }
 
     public GameObject GetGoal()
