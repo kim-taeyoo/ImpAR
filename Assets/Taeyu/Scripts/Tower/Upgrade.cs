@@ -25,8 +25,11 @@ public class Upgrade : MonoBehaviour
 
     public AudioClip spawnSound;
 
+    GameObject finalTurret; //현재 선택중인 터렛
+
     void Update()
     {
+        finalTurret = null;
         if (turretUpgrade)
         {
 
@@ -59,6 +62,7 @@ public class Upgrade : MonoBehaviour
                         /*selectPaticle.transform.position = hit.point + new Vector3(0, 0.005f, 0);*/
                         catchPaticle.Stop();
                     }
+                    if(closeTurret != null) finalTurret = closeTurret;
                 }
                 else
                 {
@@ -71,7 +75,7 @@ public class Upgrade : MonoBehaviour
                             selectPaticle.transform.position = hit.collider.gameObject.transform.position + new Vector3(0, 0.005f, 0);
                             catchPaticle.transform.position = hit.point + new Vector3(0, 0.005f, 0);
                             catchPaticle.Play();
-
+                            finalTurret = floorHit.collider.gameObject;
                             break;
                         }
                         else
@@ -88,6 +92,8 @@ public class Upgrade : MonoBehaviour
                                 /*selectPaticle.transform.position = hit.point + new Vector3(0, 0.005f, 0);*/
                                 catchPaticle.Stop();
                             }
+                            if (closeTurret != null) finalTurret = closeTurret;
+
                         }
                     }
                 }
@@ -98,8 +104,15 @@ public class Upgrade : MonoBehaviour
                 selectPaticle.transform.position = hit.collider.gameObject.transform.position + new Vector3(0, 0.005f, 0);
                 catchPaticle.transform.position = hit.point + new Vector3(0, 0.005f, 0);
                 catchPaticle.Play();
+                finalTurret = hit.collider.gameObject;
             }
         }
+        
+        if(finalTurret != null)
+        {
+
+        }
+
     }
 
     IEnumerator MoveObjectToPosition(GameObject obj, float duration, ParticleSystem particleSystemInstance)

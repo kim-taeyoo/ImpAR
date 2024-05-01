@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\bini4\\githubresi\\impar\\assets\\kwj\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\kwj\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\taeyu\\scripts\\tower\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\tower\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\bini4\\githubresi\\impar\\assets\\taeyu\\scripts\\tower\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\tower\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\bini4\\githubresi\\impar\\assets\\kwj\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\kwj\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\taeyu\\scripts\\tower\\uiinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,30 +86,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\kwj\\Scripts\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\kwj\\Scripts\\GameManager.cs",
               "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\kwj\\Scripts\\GameManager.cs",
               "RelativeToolTip": "Assets\\kwj\\Scripts\\GameManager.cs",
-              "ViewState": "AQIAAEoAAAAAAAAAAAA0wGkAAAAlAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAuwDcAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-30T13:19:54.885Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Upgrade.cs",
               "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
               "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
               "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
               "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
-              "ViewState": "AQIAAJQAAAAAAAAAAAA0wBUAAAAYAAAA",
+              "ViewState": "AQIAAFAAAAAAAAAAAAA0wHAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-01T14:50:48.138Z",
               "EditorCaption": ""
@@ -124,8 +124,7 @@
               "RelativeToolTip": "Assets\\lgb\\Scripts\\SettingManager.cs",
               "ViewState": "AQIAACQAAAAAAAAAAAAUwDgAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T12:56:01.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-01T12:56:01.183Z"
             },
             {
               "$type": "Document",
@@ -173,8 +172,7 @@
               "RelativeToolTip": "Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
               "ViewState": "AQIAACAAAAAAAAAAAAAAAMEAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T13:19:54.768Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-30T13:19:54.768Z"
             },
             {
               "$type": "Document",
@@ -186,8 +184,7 @@
               "RelativeToolTip": "Assets\\kwj\\Scripts\\EnemyManager.cs",
               "ViewState": "AQIAAHgAAAAAAAAAAAA0wIkAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T13:19:54.794Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-30T13:19:54.794Z"
             },
             {
               "$type": "Document",
@@ -199,8 +196,7 @@
               "RelativeToolTip": "Assets\\lgb\\Scripts\\UIManager.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAA0wIUAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T14:20:39.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-30T14:20:39.982Z"
             },
             {
               "$type": "Document",
@@ -212,8 +208,7 @@
               "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Tower\\UIInterface.cs",
               "ViewState": "AQIAAAUCAAAAAAAAAAA0wA4CAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T15:48:10.918Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-30T15:48:10.918Z"
             },
             {
               "$type": "Document",

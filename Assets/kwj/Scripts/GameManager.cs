@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour
         {
             gm = gameObject.GetComponent<GameManager>();
             stage = 1;
-            money = 10000;
-            UIManager.um.ChangeMoneyNum(0, 10000); //UI의 돈 숫자가 올라가는 애니메이션 실행
+            money = 100000;
+            UIManager.um.ChangeMoneyNum(0, 100000); //UI의 돈 숫자가 올라가는 애니메이션 실행
             enemyNum = 0;
             UIManager.um.changeEnemyNum(); //UI의 적 숫자 변경
             wave = 0;
@@ -204,6 +204,7 @@ public class GameManager : MonoBehaviour
         hpSlider.value = goalHealthPoints;
 
         recoveryMoney = recoveryMoney * 2;
+        GameObject.Find("CastleHPRecovery").transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "$" + recoveryMoney;
     }
 
 
