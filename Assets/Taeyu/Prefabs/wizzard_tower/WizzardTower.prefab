@@ -131,7 +131,8 @@ AudioSource:
   m_GameObject: {fileID: 3670998789990019589}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f180e3b130d585742aa588c35c27ef72,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.7
@@ -234,6 +235,10 @@ MonoBehaviour:
     type: 3}
   attackRangePrefab: {fileID: 2757903451398979542, guid: 2a1e9c8b59ef34d4794492b8c20c0c60,
     type: 3}
+  attackRange: {fileID: 0}
+  isAttack: 0
+  seeAttackRange: 0
+  attackRangeObject: {fileID: 0}
 --- !u!1 &3859295977209123216
 GameObject:
   m_ObjectHideFlags: 0

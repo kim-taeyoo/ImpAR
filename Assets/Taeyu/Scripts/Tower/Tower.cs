@@ -148,31 +148,30 @@ public class Tower : MonoBehaviour
             if (turretLevel >= 1)
             {
                 GameObject projectile = Instantiate(projectilePrefab, firePoint1.position, Quaternion.identity);
-                projectile.GetComponent<Projectile>().SetDamage(10);
                 projectile.GetComponent<Rigidbody>().velocity = firePoint1.forward * 24f;
                 PlayFireSound();
-                currentTarget.GetComponent<EnemyActionController>().GetHit(10);
+                currentTarget.GetComponent<EnemyActionController>().GetHit(5);
             }
             if (turretLevel >= 2)
             {
                 GameObject projectile = Instantiate(projectilePrefab, firePoint2.position, Quaternion.identity);
-                projectile.GetComponent<Projectile>().SetDamage(10);
                 projectile.GetComponent<Rigidbody>().velocity = firePoint2.forward * 24f;
                 PlayFireSound();
+                currentTarget.GetComponent<EnemyActionController>().GetHit(6);
             }
             if (turretLevel >= 3)
             {
                 GameObject projectile = Instantiate(projectilePrefab, firePoint3.position, Quaternion.identity);
-                projectile.GetComponent<Projectile>().SetDamage(10);
                 projectile.GetComponent<Rigidbody>().velocity = firePoint3.forward * 24f;
                 PlayFireSound();
+                currentTarget.GetComponent<EnemyActionController>().GetHit(7);
             }
             if (turretLevel >= 4)
             {
                 GameObject projectile = Instantiate(projectilePrefab, firePoint4.position, Quaternion.identity);
-                projectile.GetComponent<Projectile>().SetDamage(10);
                 projectile.GetComponent<Rigidbody>().velocity = firePoint4.forward * 24f;
                 PlayFireSound();
+                currentTarget.GetComponent<EnemyActionController>().GetHit(8);
             }
             StartCoroutine(Reload());
         }

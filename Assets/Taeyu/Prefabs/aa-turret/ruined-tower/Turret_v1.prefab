@@ -179,7 +179,7 @@ MonoBehaviour:
   firePoint3: {fileID: 5072404365037046945}
   firePoint4: {fileID: 7952076205714170153}
   turretLevel: 1
-  fireSoundClip: {fileID: 0}
+  fireSoundClip: {fileID: 8300000, guid: 5624617d8f5cd6a4a89eb085366df81a, type: 3}
 --- !u!1001 &2883940917750435983
 PrefabInstance:
   m_ObjectHideFlags: 0
