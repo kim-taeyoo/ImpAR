@@ -19,7 +19,7 @@ public class Upgrade : MonoBehaviour
 
     public GameObject canvas;
 
-    private bool turretUpgrade = false;
+    public bool turretUpgrade = false;
 
     public ParticleSystem particlePrefab;
 

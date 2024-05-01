@@ -370,6 +370,7 @@ MonoBehaviour:
   plane: {fileID: 1666836419483942576}
   enemyManager: {fileID: 5543921727309526269}
   enemySpawn: 0
+  isGameOver: 0
   spawnPoints: {fileID: 8617751092842287234}
   spawnPos: []
   killingColiider: {fileID: 1322469584111639829}
@@ -400,9 +401,9 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

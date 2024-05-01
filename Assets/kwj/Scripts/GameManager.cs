@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     public AudioClip readyBGM;
     public AudioClip battleBGM;
     AudioSource audio;
+    GameObject buttonCanvas;
 
     private void Awake()
     {
@@ -64,6 +66,7 @@ public class GameManager : MonoBehaviour
             audio = GetComponent<AudioSource>();
             audio.clip = readyBGM;
             audio.Play();
+            buttonCanvas = GameObject.Find("Canvas");
         }
     }
 
@@ -75,6 +78,15 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnWaves());
         audio.clip = battleBGM;
         audio.Play();
+
+        GameObject gameManagerr = GameObject.Find("Game Manager");
+        if (gameManagerr.GetComponent<Upgrade>().turretUpgrade)
+        {
+            gameManagerr.GetComponent<Upgrade>().TurretUpgrade();
+        }
+        gameManagerr.GetComponent<UIInterface>().ResetButton();
+        buttonCanvas.SetActive(false);
+        
     }
     public void StopSpawn()  //소환 중지 (웨이브가 다 됨)
     {
@@ -91,6 +103,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(StartTimer(5)); //인자로 넣어주는 숫자 초만큼 기다린 후 다음 스테이지를 시작한다.
         audio.clip = readyBGM;
         audio.Play();
+        buttonCanvas.SetActive(true);
     }
 
     IEnumerator StartTimer(int startTimer) //타이머를 작동시키는 코루틴 함수. 매개변수로 받아온 시간만큼 기다린 후 다음 적 턴 실행
