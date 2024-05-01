@@ -68,6 +68,7 @@
     <Compile Include="Assets\kwj\Scripts\EnemyAnimationController.cs" />
     <Compile Include="Assets\MobileARTemplateAssets\Scripts\ARFeatheredPlaneMeshVisualizerCompanion.cs" />
     <Compile Include="Assets\lgb\Scripts\TextAnimation.cs" />
+    <Compile Include="Assets\lgb\Scripts\DestroyAfterSec.cs" />
     <Compile Include="Assets\lgb\A lot of useful icons_03\Scripts\dialogs\Inits\DialogInit.cs" />
     <Compile Include="Assets\kwj\Scripts\GameManager.cs" />
     <Compile Include="Assets\lgb\A lot of useful icons_03\Scripts\dialogs\Dialog.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\lgb\Scripts\MoneyTextAnimation.cs" />
     <Compile Include="Assets\kwj\Scripts\EnemyActionController.cs" />
     <Compile Include="Assets\Taeyu\Scripts\Tower\Tower.cs" />
+    <Compile Include="Assets\lgb\Scripts\ProjectileGyu.cs" />
     <Compile Include="Assets\kwj\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\lgb\Scripts\TurnManager.cs" />
     <Compile Include="Assets\Taeyu\Prefabs\StylizedAOEVFXwithIndicators\Scripts\EffectManager.cs" />

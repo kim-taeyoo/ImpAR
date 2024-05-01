@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     public int wave; //몇번째 웨이브인지 (현재는 스테이지 수만큼 반복할 예정)
     public bool isEnemyTurn = false; //적 턴인지 (true면 타워 개설 불가)
     public int timer;
+    public GameObject magicProjectile;
+    public GameObject arrowProjectile;
+    public GameObject enemyDeadEffect;
 
     private void Awake()
     {
@@ -75,7 +78,7 @@ public class GameManager : MonoBehaviour
         wave = 0;
         stage++;
         UIManager.um.ChangeStageNum(stage);
-        UIManager.um.ClearStageAnim(); //스테이지 클리어 애니메이션 작동
+        StartCoroutine(UIManager.um.ClearStageAnim()); //스테이지 클리어 애니메이션 작동
         StartCoroutine(StartTimer(5)); //인자로 넣어주는 숫자 초만큼 기다린 후 다음 스테이지를 시작한다.
     }
 
