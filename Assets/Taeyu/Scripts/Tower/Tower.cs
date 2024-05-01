@@ -66,10 +66,10 @@ public class Tower : MonoBehaviour
 
         foreach(GameObject enemy in enemiesInRange)
         {
-            if (enemy == null || enemy.GetComponent<EnemyActionController>().isDead) //적이 죽은 뒤에도 계속 쏘고 있어서 적이 죽으면 항목에서 삭제
+            if (enemy == null || (enemy != null && enemy.GetComponent<EnemyActionController>().isDead)) //적이 죽은 뒤에도 계속 쏘고 있어서 적이 죽으면 항목에서 삭제
             {
                 enemiesInRange.Remove(enemy);
-                Debug.Log("목록에서 적 삭제");
+                break;
             }
         }
 
@@ -86,7 +86,6 @@ public class Tower : MonoBehaviour
         if (closeEnemy != null)
         {
             currentTarget = closeEnemy;
-            Debug.Log("목표 적 체인지쓴");
         }
         else
         {
@@ -101,24 +100,26 @@ public class Tower : MonoBehaviour
             if (currentTarget.GetComponent<EnemyActionController>().isDead) //만약 현재 타겟중인 놈이 죽었으면 바로 타겟 체인지
             {
                 UpdateTarget();
-                Debug.Log("현재 타겟팅중인 적이 죽음");
             }
-
-            Vector3 aimAt = new Vector3(currentTarget.transform.position.x, core.transform.position.y, currentTarget.transform.position.z);
-            float distToTarget = Vector3.Distance(aimAt, gun.transform.position);
-
-            Vector3 relativeTargetPosition = gun.transform.position + (gun.transform.forward * distToTarget);
-
-            relativeTargetPosition = new Vector3(relativeTargetPosition.x, currentTarget.transform.position.y, relativeTargetPosition.z);
-
-            gun.transform.rotation = Quaternion.Slerp(gun.transform.rotation, Quaternion.LookRotation(relativeTargetPosition - gun.transform.position), Time.deltaTime * turningSpeed);
-            core.transform.rotation = Quaternion.Slerp(core.transform.rotation, Quaternion.LookRotation(aimAt - core.transform.position), Time.deltaTime * turningSpeed);
-
-            Vector3 directonToTarget = currentTarget.transform.position - gun.transform.position;
-
-            if(Vector3.Angle(directonToTarget, gun.transform.forward) < angleTurningAccuracy)
+            else
             {
-                Fire();
+
+                Vector3 aimAt = new Vector3(currentTarget.transform.position.x, core.transform.position.y, currentTarget.transform.position.z);
+                float distToTarget = Vector3.Distance(aimAt, gun.transform.position);
+
+                Vector3 relativeTargetPosition = gun.transform.position + (gun.transform.forward * distToTarget);
+
+                relativeTargetPosition = new Vector3(relativeTargetPosition.x, currentTarget.transform.position.y, relativeTargetPosition.z);
+
+                gun.transform.rotation = Quaternion.Slerp(gun.transform.rotation, Quaternion.LookRotation(relativeTargetPosition - gun.transform.position), Time.deltaTime * turningSpeed);
+                core.transform.rotation = Quaternion.Slerp(core.transform.rotation, Quaternion.LookRotation(aimAt - core.transform.position), Time.deltaTime * turningSpeed);
+
+                Vector3 directonToTarget = currentTarget.transform.position - gun.transform.position;
+
+                if (Vector3.Angle(directonToTarget, gun.transform.forward) < angleTurningAccuracy)
+                {
+                    Fire();
+                }
             }
         }
         else //만약 타겟팅 하던 적이 사라지면
