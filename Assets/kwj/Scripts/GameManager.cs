@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public EnemyManager enemyManager;
 
     public bool enemySpawn = false;
+    public bool isGameOver = false;
 
     float enemySpawnTime = 10f;
     float firstSpawnTime = 1f;
@@ -117,6 +118,11 @@ public class GameManager : MonoBehaviour
         if (goalHealthPoints < 0)
         {
             goalHealthPoints = 0;
+            if (!isGameOver)
+            {
+                StartCoroutine(UIManager.um.GameOverAnim());
+                isGameOver = true;
+            }
         }
 
         hpSlider.value = goalHealthPoints;
@@ -136,7 +142,7 @@ public class GameManager : MonoBehaviour
         while (enemySpawn)
         {
             yield return new WaitForSeconds(firstSpawnTime);
-            for (int i = 0; i < Random.Range(1, 3); ++i)
+            for (int i = 0; i < wave + 1; ++i)
             {
                 int temp = Random.Range(0, 15);
 

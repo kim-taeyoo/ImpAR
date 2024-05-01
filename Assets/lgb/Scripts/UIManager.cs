@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager um;
     RectTransform stageClear;
+    RectTransform gameOver;
 
     public Text stageText;
     public Text moneyText;
@@ -34,6 +36,8 @@ public class UIManager : MonoBehaviour
         }
 
         stageClear = transform.GetChild(4).GetComponent<RectTransform>();
+        gameOver = transform.GetChild(5).GetComponent<RectTransform>();
+
     }
     private void Update()
     {
@@ -124,4 +128,19 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         stageClear.DOAnchorPos(new Vector2(-700, 0), 0.3f).SetEase(Ease.OutQuad);
     }
+
+    public IEnumerator GameOverAnim() //When GameOver
+    {
+        gameOver.anchoredPosition = new Vector2(700, 0);
+        gameOver.DOAnchorPos(new Vector2(100, 0), 0.3f).SetEase(Ease.OutQuad);
+        yield return new WaitForSeconds(0.3f);
+        gameOver.DOAnchorPos(new Vector2(-100, 0), 0.7f).SetEase(Ease.InQuad);
+        yield return new WaitForSeconds(0.7f);
+        gameOver.DOAnchorPos(new Vector2(-700, 0), 0.3f).SetEase(Ease.OutQuad);
+        yield return new WaitForSeconds(0.7f);
+
+        SceneManager.LoadScene(0);
+
+    }
+
 }
