@@ -27,6 +27,7 @@ public class UIInterface : MonoBehaviour
 
     public AudioClip spawnSound;
 
+
     //타워 종류
     enum TowerType { Turret, WizzardTower };
     TowerType curType;
@@ -354,6 +355,29 @@ public class UIInterface : MonoBehaviour
         //ray가 닿은 부분이 platform일때
         if (hit.collider.gameObject.CompareTag("platform") && Vector3.Distance(hit.normal, Vector3.up) < 0.01f)
         {
+            //터렛일때 돈설정
+            if (curType == TowerType.Turret)
+            {
+                if (GameManager.gm.money < 2000)
+                {
+                    return;
+                }
+                int spendMoney = -2000;
+                UIManager.um.ChangeMoneyNum(GameManager.gm.money, spendMoney);
+                GameManager.gm.money += spendMoney;
+            }
+            //위자드 타워일때 돈설정
+            else if (curType == TowerType.WizzardTower)
+            {
+                if(GameManager.gm.money < 10000)
+                {
+                    return;
+                }
+                int spendMoney = -10000;
+                UIManager.um.ChangeMoneyNum(GameManager.gm.money, spendMoney);
+                GameManager.gm.money += spendMoney;
+            }
+
             //터렛일때
             if (curType == TowerType.Turret)
             {
@@ -371,7 +395,7 @@ public class UIInterface : MonoBehaviour
                 else
                 {
                     return;
-                }
+                }     
             }
             //정상적으로 설치 준비가 되면
             Destroy(selectObj);
