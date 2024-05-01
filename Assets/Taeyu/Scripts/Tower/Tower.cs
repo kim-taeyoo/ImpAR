@@ -57,20 +57,24 @@ public class Tower : MonoBehaviour
 
     private void UpdateTarget() //현재 타겟이 설정이 안돼있으면 사정거리 안의 가장 가까운 적을 타겟팅
     {
-        if (currentTarget != null)
+        if (currentTarget != null && !currentTarget.GetComponent<EnemyAnimationController>().IsDeath)
         {
             return;
         }
         GameObject closeEnemy = null;
         float closestDistance = float.MaxValue;
 
-        foreach (GameObject enemy in enemiesInRange)
+        foreach(GameObject enemy in enemiesInRange)
         {
-            if(enemy == null || enemy.GetComponent<EnemyActionController>().isDead) //적이 죽은 뒤에도 계속 쏘고 있어서 적이 죽으면 바로 타겟팅 옮기도록 수정.
+            if (enemy == null || enemy.GetComponent<EnemyActionController>().isDead) //적이 죽은 뒤에도 계속 쏘고 있어서 적이 죽으면 항목에서 삭제
             {
                 enemiesInRange.Remove(enemy);
-                //return;
+                Debug.Log("목록에서 적 삭제");
             }
+        }
+
+        foreach (GameObject enemy in enemiesInRange)
+        {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
             if(distanceToEnemy < closestDistance)
             {
@@ -82,6 +86,7 @@ public class Tower : MonoBehaviour
         if (closeEnemy != null)
         {
             currentTarget = closeEnemy;
+            Debug.Log("목표 적 체인지쓴");
         }
         else
         {
@@ -96,6 +101,7 @@ public class Tower : MonoBehaviour
             if (currentTarget.GetComponent<EnemyActionController>().isDead) //만약 현재 타겟중인 놈이 죽었으면 바로 타겟 체인지
             {
                 UpdateTarget();
+                Debug.Log("현재 타겟팅중인 적이 죽음");
             }
 
             Vector3 aimAt = new Vector3(currentTarget.transform.position.x, core.transform.position.y, currentTarget.transform.position.z);

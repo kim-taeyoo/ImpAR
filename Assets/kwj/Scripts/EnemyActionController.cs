@@ -111,16 +111,11 @@ public class EnemyActionController : MonoBehaviour
 
     private void EnemyDead() //적 죽음. 뭐임 이거 왜 ㅈㄴ많이 실행됨?? 디버그 찍어보면 너무 많이 실행되는데
     {
-        if (!isDead)
-        {
-            agent.enabled = false;
-            c.enabled = false;
-            animationController.DoRun(false);
-            animationController.DoAttack(false);
-            animationController.DoHit(false);
-
-            isDead = true;
-        }
+        agent.enabled = false;
+        c.enabled = false;
+        animationController.DoRun(false);
+        animationController.DoAttack(false);
+        animationController.DoHit(false);
     }
 
     public void GetHit(int damage) //대미지 받음
@@ -136,6 +131,7 @@ public class EnemyActionController : MonoBehaviour
         if (!(healthPoints > 0))
         {
             animationController.DoDeath(true);
+            isDead = true;
         }
     }
 

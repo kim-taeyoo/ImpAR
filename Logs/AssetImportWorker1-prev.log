@@ -15,7 +15,7 @@ C:/Users/bini4/GitHubResi/ImpAR
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-61961
+63561
 Successfully changed project path to: C:/Users/bini4/GitHubResi/ImpAR
 C:/Users/bini4/GitHubResi/ImpAR
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/bini4/GitHubResi/ImpAR
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [22372] Host "[IP] 192.168.45.252 [Port] 0 [Flags] 2 [Guid] 3943516489 [EditorId] 3943516489 [Version] 1048832 [Id] WindowsEditor(7,Lee) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [33272] Host "[IP] 192.168.45.252 [Port] 0 [Flags] 2 [Guid] 506595259 [EditorId] 506595259 [Version] 1048832 [Id] WindowsEditor(7,Lee) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [22372] Host "[IP] 192.168.45.252 [Port] 0 [Flags] 2 [Guid] 3943516489 [EditorId] 3943516489 [Version] 1048832 [Id] WindowsEditor(7,Lee) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [33272] Host "[IP] 192.168.45.252 [Port] 0 [Flags] 2 [Guid] 506595259 [EditorId] 506595259 [Version] 1048832 [Id] WindowsEditor(7,Lee) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 8.54 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 12.85 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.24f1 (334eb2a0b267)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/Resources/UnitySubsystems
@@ -70,47 +70,56 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56912
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56596
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.24f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003834 seconds.
-- Loaded All Assemblies, in  0.272 seconds
+Registered in 0.004387 seconds.
+- Loaded All Assemblies, in  0.328 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 213 ms
+CommandWithNoStdoutInvokationFailure: Unable to start ADB server. Please make sure the Android SDK is installed and is properly configured in the Editor. See the Console for more details.
+  at UnityEditor.Android.Command.RunWithShellExecute (System.String command, System.String args, System.String workingdir, System.String errorMsg) [0x00060] in <74587da87ecb464b9d2f2d3f5a32368e>:0 
+  at UnityEditor.Android.ADB.StartServer () [0x00013] in <74587da87ecb464b9d2f2d3f5a32368e>:0 
+  at UnityEditor.Android.ADB.Run (System.String[] command, UnityEditor.Android.Command+WaitingForProcessToExit waitingForProcessToExit, System.String errorMsg) [0x0000b] in <74587da87ecb464b9d2f2d3f5a32368e>:0 
+  at UnityEditor.Android.AndroidDeploymentTargetsExtension.GetKnownTargets (UnityEditor.DeploymentTargets.IDeploymentTargetsMainThreadContext context, UnityEditor.ProgressHandler progressHandler) [0x002ae] in <74587da87ecb464b9d2f2d3f5a32368e>:0 
+  at UnityEditor.Android.TargetScanWorker.ScanSync () [0x00039] in <74587da87ecb464b9d2f2d3f5a32368e>:0 
+  at UnityEditor.Android.TargetExtension.OnUsbDevicesChanged (UnityEditor.Hardware.UsbDevice[] usbDevices) [0x00081] in <74587da87ecb464b9d2f2d3f5a32368e>:0 
+  at UnityEditor.Android.TargetExtension.OnLoad () [0x000ad] in <74587da87ecb464b9d2f2d3f5a32368e>:0 
+  at UnityEditor.Modules.ModuleManager.InitializePlatformSupportModules () [0x0009d] in <fa3f61a6dce8479c85ca5d90a86ee19e>:0 
+
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.467 seconds
-Domain Reload Profiling: 739ms
-	BeginReloadAssembly (86ms)
+- Finished resetting the current domain, in  5.276 seconds
+Domain Reload Profiling: 5603ms
+	BeginReloadAssembly (94ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (24ms)
+	RebuildCommonClasses (34ms)
 	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (40ms)
-	LoadAllAssembliesAndSetupDomain (111ms)
-		LoadAssemblies (84ms)
+	initialDomainReloadingComplete (46ms)
+	LoadAllAssembliesAndSetupDomain (143ms)
+		LoadAssemblies (93ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (109ms)
-			TypeCache.Refresh (108ms)
-				TypeCache.ScanAssembly (98ms)
+		AnalyzeDomain (141ms)
+			TypeCache.Refresh (139ms)
+				TypeCache.ScanAssembly (128ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (468ms)
+	FinalizeReload (5276ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (418ms)
+		SetupLoadedEditorAssemblies (5225ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (297ms)
-			SetLoadedEditorAssemblies (3ms)
+			InitializePlatformSupportModulesInManaged (5063ms)
+			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (85ms)
-			ProcessInitializeOnLoadMethodAttributes (33ms)
+			ProcessInitializeOnLoadAttributes (115ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -118,8 +127,8 @@ Domain Reload Profiling: 739ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.669 seconds
-Refreshing native plugins compatible for Editor in 5.39 ms, found 5 plugins.
+- Loaded All Assemblies, in  0.736 seconds
+Refreshing native plugins compatible for Editor in 5.36 ms, found 5 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Package Manager log level set to [2]
@@ -136,329 +145,48 @@ Mono: successfully reloaded assembly
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  0.716 seconds
-Domain Reload Profiling: 1382ms
-	BeginReloadAssembly (114ms)
+- Finished resetting the current domain, in  1.119 seconds
+Domain Reload Profiling: 1853ms
+	BeginReloadAssembly (137ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
+		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (21ms)
-	RebuildCommonClasses (34ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (31ms)
-	LoadAllAssembliesAndSetupDomain (479ms)
-		LoadAssemblies (296ms)
+		CreateAndSetChildDomain (25ms)
+	RebuildCommonClasses (32ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (513ms)
+		LoadAssemblies (297ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (244ms)
-			TypeCache.Refresh (198ms)
-				TypeCache.ScanAssembly (181ms)
-			ScanForSourceGeneratedMonoScriptInfo (30ms)
-			ResolveRequiredComponents (15ms)
-	FinalizeReload (717ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (539ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (18ms)
-			SetLoadedEditorAssemblies (3ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (74ms)
-			ProcessInitializeOnLoadAttributes (371ms)
-			ProcessInitializeOnLoadMethodAttributes (69ms)
-			AfterProcessingInitializeOnLoad (3ms)
-			EditorAssembliesLoaded (1ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (5ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 6.46 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7559 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 101 unused Assets / (1.6 MB). Loaded Objects now: 8026.
-Memory consumption went from 288.9 MB to 287.3 MB.
-Total: 4.712300 ms (FindLiveObjects: 0.557500 ms CreateObjectMapping: 0.334400 ms MarkObjects: 3.078700 ms  DeleteObjects: 0.740700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 64083.428064 seconds.
-  path: Assets/Taeyu/Prefabs/test.prefab
-  artifactKey: Guid(1cf0b2de8d894d54bb4dadc2ea8ac18e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/test.prefab using Guid(1cf0b2de8d894d54bb4dadc2ea8ac18e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daa4f95bc910e8d74363a9b867c16926') in 0.297523 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1270
-========================================================================
-Received Import Request.
-  Time since last request: 63.803610 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/Turret_v2.prefab
-  artifactKey: Guid(5089557e158bcf246aff58b0c8195448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/Turret_v2.prefab using Guid(5089557e158bcf246aff58b0c8195448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3db301d08cbff13071ca3e10dbd179fe') in 0.248090 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 197
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/Turret_v3.prefab
-  artifactKey: Guid(159fe84677a74dd4ab7d494bc6075ea1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/Turret_v3.prefab using Guid(159fe84677a74dd4ab7d494bc6075ea1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '901746eb11031d261d3a845ee595486c') in 0.325793 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 203
-========================================================================
-Received Import Request.
-  Time since last request: 1.451589 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_AO.png
-  artifactKey: Guid(dd13852a13e4d414f812d6bbb6a639df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_AO.png using Guid(dd13852a13e4d414f812d6bbb6a639df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e505598ead27e0e66f29bc95d32d4ae9') in 0.063634 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_color.tga
-  artifactKey: Guid(95f0adbc2ab5beb448c47289174d4bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_color.tga using Guid(95f0adbc2ab5beb448c47289174d4bc7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f3750508ce97a68e94412f33f643fc3') in 0.039903 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_BaseColor_v2.png
-  artifactKey: Guid(6502df29e45b96247ab6c506dbed5586) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_BaseColor_v2.png using Guid(6502df29e45b96247ab6c506dbed5586) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85cea50f1c52ed9c5171b866b8b145d4') in 0.035979 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_nmap.tga
-  artifactKey: Guid(1b6aa9a4c2238a340ac5b699c4834f38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_nmap.tga using Guid(1b6aa9a4c2238a340ac5b699c4834f38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e30f23443ae14700b8e4b86f09a13a6') in 0.052902 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_Metallic.png
-  artifactKey: Guid(4baf1d831edc10641800035715ea03aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_Metallic.png using Guid(4baf1d831edc10641800035715ea03aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c88743788bc32ab8c2c7bd099d74f17a') in 0.036111 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_BaseColor.png
-  artifactKey: Guid(1f2a4b41d5a41df40b0d54da6627eabb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/source/Tower New UV/Tower New UV_Default_BaseColor.png using Guid(1f2a4b41d5a41df40b0d54da6627eabb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dab8c0d3a20d2278b28de883aa98174c') in 0.052645 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 1.001890 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/tower 1.mat
-  artifactKey: Guid(18b82cac120c95a4089bac0126ec928b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/tower 1.mat using Guid(18b82cac120c95a4089bac0126ec928b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1e3bc4c0bf436a56dfeddc21e21762b') in 0.127041 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 5
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_Metallic.png
-  artifactKey: Guid(5eb555f2c42e77f42946c842da556c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_Metallic.png using Guid(5eb555f2c42e77f42946c842da556c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a09799708853092fa48ffb257b8a4ada') in 0.036333 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_BaseColor_v2.png
-  artifactKey: Guid(2bc834c076342624d927479a61e84388) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_BaseColor_v2.png using Guid(2bc834c076342624d927479a61e84388) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f90211a53f8d53f191a0a61b160f30af') in 0.036685 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000037 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_Roughness.png
-  artifactKey: Guid(e1a086df8e43db946b791e6069eb5f6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_Roughness.png using Guid(e1a086df8e43db946b791e6069eb5f6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0cb5260d57976d7168d6170e865cd7e') in 0.035613 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_BaseColor_v3.png
-  artifactKey: Guid(406348537b87f1e4a99a6407f779bcf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_BaseColor_v3.png using Guid(406348537b87f1e4a99a6407f779bcf9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f3521d61fbc65b486fa0967367cb602') in 0.046988 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_Normal.png
-  artifactKey: Guid(c278e00fffe8df440a6645c575e7f0e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_Normal.png using Guid(c278e00fffe8df440a6645c575e7f0e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed480f397261939188a4195b00cdfa5d') in 0.067775 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/tower 4.mat
-  artifactKey: Guid(5d102976edc03e246a3c62786f151dcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/tower 4.mat using Guid(5d102976edc03e246a3c62786f151dcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a97b534f995350ea79de234327af0348') in 0.124074 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 5
-========================================================================
-Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_BaseColor_v1.png
-  artifactKey: Guid(a0aa79ab414a0f744bc04445fe130724) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/ruined-tower/textures/Tower New UV_Default_BaseColor_v1.png using Guid(a0aa79ab414a0f744bc04445fe130724) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fae924471f3139d72bc92633ed3f8ec') in 0.039972 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.452 seconds
-Refreshing native plugins compatible for Editor in 4.13 ms, found 5 plugins.
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-- Finished resetting the current domain, in  0.985 seconds
-Domain Reload Profiling: 1435ms
-	BeginReloadAssembly (143ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (41ms)
-	RebuildCommonClasses (24ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (21ms)
-	LoadAllAssembliesAndSetupDomain (253ms)
-		LoadAssemblies (252ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (62ms)
-			TypeCache.Refresh (12ms)
-				TypeCache.ScanAssembly (1ms)
+		AnalyzeDomain (288ms)
+			TypeCache.Refresh (225ms)
+				TypeCache.ScanAssembly (204ms)
 			ScanForSourceGeneratedMonoScriptInfo (37ms)
-			ResolveRequiredComponents (12ms)
-	FinalizeReload (986ms)
+			ResolveRequiredComponents (24ms)
+	FinalizeReload (1120ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (472ms)
+		SetupLoadedEditorAssemblies (873ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (19ms)
-			SetLoadedEditorAssemblies (4ms)
+			InitializePlatformSupportModulesInManaged (76ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (69ms)
-			ProcessInitializeOnLoadAttributes (291ms)
-			ProcessInitializeOnLoadMethodAttributes (84ms)
+			BeforeProcessingInitializeOnLoad (94ms)
+			ProcessInitializeOnLoadAttributes (586ms)
+			ProcessInitializeOnLoadMethodAttributes (106ms)
 			AfterProcessingInitializeOnLoad (4ms)
 			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (12ms)
-Refreshing native plugins compatible for Editor in 4.12 ms, found 5 plugins.
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 8.07 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 7355 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 62 unused Assets / (1.5 MB). Loaded Objects now: 8117.
-Memory consumption went from 255.2 MB to 253.7 MB.
-Total: 3.827000 ms (FindLiveObjects: 0.434300 ms CreateObjectMapping: 0.274900 ms MarkObjects: 2.468500 ms  DeleteObjects: 0.648200 ms)
+Unloading 7559 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 103 unused Assets / (1.6 MB). Loaded Objects now: 8024.
+Memory consumption went from 288.9 MB to 287.4 MB.
+Total: 9.933400 ms (FindLiveObjects: 0.966300 ms CreateObjectMapping: 0.640100 ms MarkObjects: 7.253000 ms  DeleteObjects: 1.071400 ms)
 
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 612.756984 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/textures/base.mat
-  artifactKey: Guid(587044295f16ed74390c0e258c602685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/textures/base.mat using Guid(587044295f16ed74390c0e258c602685) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bb955610bd0b1576bdfa9bbf3409a39') in 0.363083 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 23
-========================================================================
-Received Import Request.
-  Time since last request: 0.000041 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/textures/base_mat_Metallic.png
-  artifactKey: Guid(12f836b20a1e1f7438a4c4db9e4babda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/textures/base_mat_Metallic.png using Guid(12f836b20a1e1f7438a4c4db9e4babda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ba5496c770fbb13730d661c73b85208') in 0.049688 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/textures/turret_mat_Metallic.png
-  artifactKey: Guid(6985e3d34bbc2a94e96acc49b677778d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/textures/turret_mat_Metallic.png using Guid(6985e3d34bbc2a94e96acc49b677778d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '186a32ec4faa24859b003b15b5727536') in 0.036852 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/textures/base_mat_Roughness.png
-  artifactKey: Guid(9363dfea7954520499b0e006978ce1a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/textures/base_mat_Roughness.png using Guid(9363dfea7954520499b0e006978ce1a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fccb003956427a6ed46bb774aa1725b8') in 0.042094 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/textures/internal_ground_ao_texture.jpeg
-  artifactKey: Guid(8529c035557c36647bb637905cebc86d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/textures/internal_ground_ao_texture.jpeg using Guid(8529c035557c36647bb637905cebc86d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '123fc5f1a3523a083a5b158eebcfd0b3') in 0.013342 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Taeyu/Prefabs/aa-turret/textures/turret_mat_BaseColor.png
-  artifactKey: Guid(b909a6cb1a3a3ce4682144894c231894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Taeyu/Prefabs/aa-turret/textures/turret_mat_BaseColor.png using Guid(b909a6cb1a3a3ce4682144894c231894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d6a4019fdd7e5f3154485ffbd8ccc78') in 0.042248 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Prepare
-Refreshing native plugins compatible for Editor in 6.78 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 10 unused Assets / (1.4 MB). Loaded Objects now: 8202.
-Memory consumption went from 141.7 MB to 140.3 MB.
-Total: 7.182200 ms (FindLiveObjects: 0.647000 ms CreateObjectMapping: 0.481800 ms MarkObjects: 5.002200 ms  DeleteObjects: 1.049300 ms)
-
-Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 

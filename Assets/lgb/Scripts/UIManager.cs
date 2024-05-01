@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour
         while (timer > 0)
         {
             timer -= Time.deltaTime * 2;
-            inputRT.anchoredPosition += Vector2.down * 1.5f;
+            inputRT.anchoredPosition += Vector2.down * 2.5f;
             inputColor.a = timer;
             inputText.color = inputColor;
             yield return null;
