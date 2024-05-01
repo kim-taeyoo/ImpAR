@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Upgrade : MonoBehaviour
 {
@@ -26,13 +27,18 @@ public class Upgrade : MonoBehaviour
     public AudioClip spawnSound;
 
     GameObject finalTurret; //현재 선택중인 터렛
+    Text upgradeText;
+
+    private void Start()
+    {
+        upgradeText = GameObject.Find("UpgradeConfirmButton").transform.GetChild(1).GetChild(0).GetComponent<Text>();
+    }
 
     void Update()
     {
-        finalTurret = null;
         if (turretUpgrade)
         {
-
+            finalTurret = null;
             RaycastHit hit;
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
             if (!RaycastWithoutTriggers(ray, out hit)) return;
@@ -106,11 +112,27 @@ public class Upgrade : MonoBehaviour
                 catchPaticle.Play();
                 finalTurret = hit.collider.gameObject;
             }
-        }
-        
-        if(finalTurret != null)
-        {
 
+            if (finalTurret != null)
+            {
+                if (finalTurret.name == "Turret_v1(Clone)")
+                {
+                    upgradeText.text = "$" + 1000;
+                }
+                else if (finalTurret.name == "Turret_v2(Clone)")
+                {
+                    upgradeText.text = "$" + 2000;
+                }
+                else if (finalTurret.name == "Turret_v3(Clone)")
+                {
+                    upgradeText.text = "$" + 3000;
+                }
+                else
+                {
+                    upgradeText.text = "FULL UPGRADE";
+                }
+                
+            }
         }
 
     }
