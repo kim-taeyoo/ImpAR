@@ -189,11 +189,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void GoalHPRecovery()
+    public bool GoalHPRecovery()
     {
-        if (money < recoveryMoney)
+        if (money < recoveryMoney || goalHealthPoints >= 1000)
         {
-            return;
+            return false;
         }
 
         int spendMoney = -recoveryMoney;
@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
         hpSlider.value = goalHealthPoints;
 
         recoveryMoney = recoveryMoney * 2;
+
+        return true;
     }
-
-
 }

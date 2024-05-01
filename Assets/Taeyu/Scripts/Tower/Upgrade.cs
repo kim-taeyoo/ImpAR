@@ -335,6 +335,11 @@ public class Upgrade : MonoBehaviour
 
     public void GoalHPRecovery()
     {
-        GameManager.gm.GoalHPRecovery();
+        if (GameManager.gm.GoalHPRecovery())
+        {
+            GameObject recoveryBtn = FindObject(canvas, "CastleHPRecovery");
+            AudioSource audioSource = recoveryBtn.GetComponent<AudioSource>();
+            audioSource.Play();
+        }
     }
 }
