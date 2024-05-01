@@ -2663,6 +2663,7 @@ MonoBehaviour:
   middleSpeaker: {fileID: 21300000, guid: 3ed7a1ce2e8714240bbdee702ef65462, type: 3}
   lowSpeaker: {fileID: 21300000, guid: 627c35b73fac28048ac314cf27954fb3, type: 3}
   muteSpeaker: {fileID: 21300000, guid: 00578b3e059277840b89a993673689bc, type: 3}
+  mixer: {fileID: 24100000, guid: f180e3b130d585742aa588c35c27ef72, type: 2}
 --- !u!114 &1643916703
 MonoBehaviour:
   m_ObjectHideFlags: 0

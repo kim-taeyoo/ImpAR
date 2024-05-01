@@ -15,8 +15,14 @@ public class UIManager : MonoBehaviour
     public Text enemyText;
     public Text timerText;
 
-    void Start()
+    private void Awake()
     {
+        transform.parent.GetChild(2).gameObject.SetActive(true);
+    }
+
+    void Start()
+    { 
+
         if(um == null)
         {
             um = GetComponent<UIManager>();

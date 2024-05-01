@@ -16,7 +16,7 @@ public class SettingManager : MonoBehaviour
 
 
     int stage = 1; //몇번째 스테이지인지
-    int sound = 10; //음량 크기 몇인지
+    //int sound = 10; //음량 크기 몇인지     PlayerPrefs 로 대체
     Text soundText;
     Text stageText;
     Image speaker;
@@ -34,15 +34,20 @@ public class SettingManager : MonoBehaviour
     }
     void Start()
     {
-        sound = 10;
-        mixer.SetFloat("MasterVolume", sound * 8);
+        if (PlayerPrefs.GetInt("Sound") == null)
+        {
+            PlayerPrefs.SetInt("Sound", 10);
+        }
+        mixer.SetFloat("MasterVolume", PlayerPrefs.GetInt("Sound") * 8 - 80);
+        ChangeSpeakerImage();
+        gameObject.SetActive(false);
     }
 
     public void ActiveSetting() //세팅창 활성화
     {
         gameObject.SetActive(true);
         stageText.text = "STAGE " + stage;
-        soundText.text = "" + sound;
+        soundText.text = "" + PlayerPrefs.GetInt("Sound");
         ChangeSpeakerImage();
         settingUIs.localScale = Vector3.zero;
         transform.GetChild(0).GetComponent<RectTransform>().DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
@@ -68,34 +73,34 @@ public class SettingManager : MonoBehaviour
 
     public void SoundUp() //소리 1 올리기
     {
-        sound++;
-        if (sound > 10) sound = 10;
-        soundText.text = "" + sound;
+        PlayerPrefs.SetInt("Sound", PlayerPrefs.GetInt("Sound") + 1);
+        if (PlayerPrefs.GetInt("Sound") > 10) PlayerPrefs.SetInt("Sound", 10);
+        soundText.text = "" + PlayerPrefs.GetInt("Sound");
         ChangeSpeakerImage();
-        mixer.SetFloat("MasterVolume", sound * 8);
+        mixer.SetFloat("MasterVolume", PlayerPrefs.GetInt("Sound") * 8 - 80);
     }
     public void SoundDown() //소리 1 낮추기
     {
-        sound--;
-        if (sound < 0) sound = 0;
-        soundText.text = "" + sound;
+        PlayerPrefs.SetInt("Sound", PlayerPrefs.GetInt("Sound") - 1);
+        if (PlayerPrefs.GetInt("Sound") < 0) PlayerPrefs.SetInt("Sound", 0);
+        soundText.text = "" + PlayerPrefs.GetInt("Sound");
         ChangeSpeakerImage();
-        mixer.SetFloat("MasterVolume", sound * 8);
+        mixer.SetFloat("MasterVolume", PlayerPrefs.GetInt("Sound") * 8 - 80);
     }
 
     void ChangeSpeakerImage() //스피커 이미지 바꾸기
     {
         if (highSpeaker)
         {
-            if (sound > 7)
+            if (PlayerPrefs.GetInt("Sound") > 7)
             {
                 speaker.sprite = highSpeaker;
             }
-            else if (sound > 3)
+            else if (PlayerPrefs.GetInt("Sound") > 3)
             {
                 speaker.sprite = middleSpeaker;
             }
-            else if (sound > 0)
+            else if (PlayerPrefs.GetInt("Sound") > 0)
             {
                 speaker.sprite = lowSpeaker;
             }
