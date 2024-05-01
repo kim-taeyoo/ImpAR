@@ -125,14 +125,16 @@ public class TapToPlaceOne : MonoBehaviour
             GameObject selectBtn = FindObject(canvas, "MapSelectButton");
             GameObject TowerListPanel = FindObject(canvas, "TowerSpawnPanel");
             GameObject upgradeBtn = FindObject(canvas, "UpgradeTurretButton");
+            GameObject recoveryBtn = FindObject(canvas, "CastleHPRecovery");
 
 
-            if (makeMapBtn != null && selectBtn != null && TowerListPanel != null && upgradeBtn != null)
+            if (makeMapBtn != null && selectBtn != null && TowerListPanel != null && upgradeBtn != null && recoveryBtn != null)
             {
                 makeMapBtn.SetActive(false);
                 selectBtn.SetActive(false);
                 TowerListPanel.SetActive(true);
                 upgradeBtn.SetActive(true);
+                recoveryBtn.SetActive(true);
             }
             else
             {

@@ -332,4 +332,9 @@ public class Upgrade : MonoBehaviour
         closestTurret = closest; // 가장 가까운 터렛을 out 파라미터로 설정
         return closest != null; // 찾은 경우 true, 아니면 false 반환
     }
+
+    public void GoalHPRecovery()
+    {
+        GameManager.gm.GoalHPRecovery();
+    }
 }
