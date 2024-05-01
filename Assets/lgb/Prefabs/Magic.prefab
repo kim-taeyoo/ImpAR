@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2566494374103756921}
   - component: {fileID: 4742074466585846000}
   - component: {fileID: 2029243668156335193}
-  - component: {fileID: 6593463703287480557}
   - component: {fileID: 2849898087755570706}
   - component: {fileID: 4638856394923692313}
   - component: {fileID: -4571789528869069407}
@@ -33,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7579993, z: -0, w: 0.6522554}
   m_LocalPosition: {x: 0.506, y: 0.174, z: 1.688}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,23 +108,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6593463703287480557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6432814589983458559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a4f55096da8b32468deda4ef9a19eb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  speed: 10
-  rotateSpeed: 200
-  maxRotateAngle: 50
-  spark: {fileID: 6222251034089382319, guid: 0191f509f0fa4be45a0bc10013927011, type: 3}
 --- !u!54 &2849898087755570706
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -205,7 +187,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.037729263
+        value: 0.001367569
         inSlope: 0
         outSlope: 0
         tangentMode: 0

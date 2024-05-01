@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     public int timer;
     public GameObject magicProjectile;
     public GameObject arrowProjectile;
+    public GameObject enemyDeadEffect;
 
     private void Awake()
     {

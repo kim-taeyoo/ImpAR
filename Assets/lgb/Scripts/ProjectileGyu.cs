@@ -13,13 +13,13 @@ public class ProjectileGyu : MonoBehaviour
     {
         if (ismove)
         {
-            GetComponent<Rigidbody>().velocity = direction * 10;
+            GetComponent<Rigidbody>().velocity = direction;
             RaycastHit hit;
             if (Physics.Raycast(transform.position, direction, out hit))
             {
                 if (hit.collider.CompareTag("EnemyTarget"))
                 {
-                    Instantiate(spark, hit.point, Quaternion.identity);
+                    Instantiate(spark, hit.point - (direction * 0.01f), Quaternion.identity);
                     Destroy(gameObject);
                 }
             }

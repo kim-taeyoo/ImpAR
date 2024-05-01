@@ -382,6 +382,8 @@ MonoBehaviour:
     type: 3}
   arrowProjectile: {fileID: 6432814589983458559, guid: 4847cbeade0a9d44084b19e5ced0a371,
     type: 3}
+  enemyDeadEffect: {fileID: 6222251034089382319, guid: 0191f509f0fa4be45a0bc10013927011,
+    type: 3}
 --- !u!1 &4831013095801964874
 GameObject:
   m_ObjectHideFlags: 0
