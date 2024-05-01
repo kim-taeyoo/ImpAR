@@ -343,7 +343,7 @@ public class UIInterface : MonoBehaviour
     public void ConfirmSelect()
     {
         // Canvas 버튼찾기
-        GameObject spawnBtn = FindObject(canvas, "SpawnTurretButton");
+        GameObject listPanel = FindObject(canvas, "TowerSpawnPanel");
         GameObject selectBtn = FindObject(canvas, "ConfirmSpawnButton");
         GameObject cancelBtn = FindObject(canvas, "CancelButton");
 
@@ -426,8 +426,9 @@ public class UIInterface : MonoBehaviour
             }
 
             //정상적으로 
-            if (spawnBtn != null && selectBtn != null && cancelBtn != null)
+            if (listPanel != null && selectBtn != null && cancelBtn != null)
             {
+                listPanel.SetActive(true);
                 selectBtn.SetActive(false);
                 cancelBtn.SetActive(false);
             }
@@ -483,7 +484,7 @@ public class UIInterface : MonoBehaviour
     }
 
     //버튼관련 타워목록을 띄움
-    public void GetTowerList()
+   /* public void GetTowerList()
     {
         if (!turretSpawn)
         {
@@ -497,22 +498,20 @@ public class UIInterface : MonoBehaviour
             }
         }
         else { turretSpawn = false; }
-    }
+    }*/
     //버튼관련
     public void ResetButton()
     {
         if (turretSpawn)
         {
             //관련 모든 버튼 가져오기
-            GameObject spawnBtn = FindObject(canvas, "SpawnTurretButton");
             GameObject listPanel = FindObject(canvas, "TowerSpawnPanel");
             GameObject spawnSelectBtn = FindObject(canvas, "ConfirmSpawnButton");
             GameObject spawncancelBtn = FindObject(canvas, "CancelButton");
 
-            if (spawnBtn != null && listPanel != null && spawnSelectBtn != null && spawncancelBtn != null)
+            if (listPanel != null && spawnSelectBtn != null && spawncancelBtn != null)
             {
-                spawnBtn.SetActive(true);
-                listPanel.SetActive(false);
+                listPanel.SetActive(true);
                 spawnSelectBtn.SetActive(false);
                 spawncancelBtn.SetActive(false);
             }

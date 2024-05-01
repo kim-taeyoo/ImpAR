@@ -99,6 +99,7 @@
     <Compile Include="Assets\lgb\Scripts\TurnManager.cs" />
     <Compile Include="Assets\Taeyu\Prefabs\StylizedAOEVFXwithIndicators\Scripts\EffectManager.cs" />
     <Compile Include="Assets\Settings\Project Configuration\SceneTemplate_RotateCube.cs" />
+    <Compile Include="Assets\Taeyu\Scripts\Tower\AttackEnemyCheck.cs" />
     <Compile Include="Assets\Taeyu\Scripts\Tower\WizzardTowerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
