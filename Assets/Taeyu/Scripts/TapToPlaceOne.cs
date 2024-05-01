@@ -18,7 +18,6 @@ public class TapToPlaceOne : MonoBehaviour
     //선택영역표시 && 생성될 바닥
     [SerializeField] private GameObject prefabToInstantiate;
     [SerializeField] private GameObject prefabToPlaneInstantiate;
-    [SerializeField] private GameObject gameManager;
 
 
     private GameObject spawnedArea;
@@ -121,30 +120,19 @@ public class TapToPlaceOne : MonoBehaviour
                 }
             }
 
-            GameManager.gm.GetComponent<GameManager>().SetPos(spawnedArea.GetComponent<CreatePlane>().GetPos());
-            GameManager.gm.GetComponent<GameManager>().SetGoal(spawnedArea.GetComponent<CreatePlane>().GetGoal());
-            GameManager.gm.GetComponent<GameManager>().SetPlane(spawnedArea.GetComponent<CreatePlane>().GetPlane());
-
-
             //버튼 관련
             GameObject makeMapBtn = FindObject(canvas, "MapButton");
             GameObject selectBtn = FindObject(canvas, "MapSelectButton");
             GameObject TowerListBtn = FindObject(canvas, "SpawnTurretButton");
             GameObject upgradeBtn = FindObject(canvas, "UpgradeTurretButton");
 
-            GameObject startSpawnBtn = FindObject(canvas, "StartEnemySpawn");
-            GameObject stopeSpawnBtn = FindObject(canvas, "StopEnemySpawn");
 
-
-            if (makeMapBtn != null && selectBtn != null && TowerListBtn != null && upgradeBtn != null && startSpawnBtn != null && stopeSpawnBtn != null)
+            if (makeMapBtn != null && selectBtn != null && TowerListBtn != null && upgradeBtn != null)
             {
                 makeMapBtn.SetActive(false);
                 selectBtn.SetActive(false);
                 TowerListBtn.SetActive(true);
                 upgradeBtn.SetActive(true);
-
-                startSpawnBtn.SetActive(true);
-                stopeSpawnBtn.SetActive(true);
             }
             else
             {
@@ -190,15 +178,6 @@ public class TapToPlaceOne : MonoBehaviour
             isSpawnMap = true;
             map++;
         }
-    }
-
-    public void isStartSpawn()
-    {
-        gameManager.GetComponent<GameManager>().StartSpawn();
-    }
-    public void isStopSpawn()
-    {
-        gameManager.GetComponent<GameManager>().StopSpawn();
     }
 
     //버튼 찾기 메서드

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private GameObject goal;
+    public GameObject goal;
 
-    private Collider plane;
+    public Collider plane;
 
     public EnemyManager enemyManager;
 
@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
 
     float enemySpawnTime = 10f;
     float firstSpawnTime = 1f;
+
+    public GameObject spawnPoints;
+    public List<Vector3> spawnPos = new List<Vector3>();
 
     //For test
     private bool mousePressed;
@@ -42,6 +45,8 @@ public class GameManager : MonoBehaviour
             UIManager.um.changeEnemyNum(); //UI의 적 숫자 변경
             wave = 0;
             StartCoroutine(StartTimer(50)); //G를 눌러서 남은 시간 무시하고 바로 시작 가능
+
+            GetEnemySpawnPoints();
         }
     }
 
@@ -118,24 +123,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetGoal(GameObject g)
-    {
-        goal = g;
-    }
-
     public GameObject GetGoal()
     {
         return goal;
-    }
-
-    public void SetPos(Vector3 pos)
-    {
-        planePosition = pos;
-    }
-
-    public void SetPlane(Collider p)
-    {
-        plane = p;
     }
 
     public void GoalDamaged(int damage)
@@ -143,6 +133,13 @@ public class GameManager : MonoBehaviour
         //goal got damage
     }
 
+    private void GetEnemySpawnPoints()
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            spawnPos.Add(spawnPoints.transform.GetChild(i).transform.position);
+        }
+    }
     
     IEnumerator SpawnWaves()
     {
@@ -151,17 +148,10 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(firstSpawnTime);
             for (int i = 0; i < Random.Range(1, 3); ++i)
             {
-                float range_X = plane.bounds.size.x / 2;
-                float range_Z = plane.bounds.size.z / 2;
-                float range = Mathf.Min(range_X, range_Z);
+                int temp = Random.Range(0, 15);
 
-                int deg = Random.Range(0, 360);
-                float rad = range - 0.08f;
-
-                float x = Mathf.Cos(deg * Mathf.Deg2Rad) * rad;
-                float z = Mathf.Sin(deg * Mathf.Deg2Rad) * rad;
-
-                Vector3 pos = planePosition +  new Vector3(x, 0.0f, z);
+                Vector3 pos = planePosition + spawnPos[temp];
+                
                 //Debug.Log(pos);
                 Vector3 targetDir = goal.transform.position - pos;
                 float angle = Vector3.SignedAngle(targetDir, transform.forward, Vector3.up);
