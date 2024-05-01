@@ -50,20 +50,22 @@ public class SettingManager : MonoBehaviour
         soundText.text = "" + PlayerPrefs.GetInt("Sound");
         ChangeSpeakerImage();
         settingUIs.localScale = Vector3.zero;
-        transform.GetChild(0).GetComponent<RectTransform>().DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        settingUIs.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).SetUpdate(UpdateType.Normal,true);
+        Time.timeScale = 0;
     }
 
     public void InactiveSetting() //세팅창 비활성화
     {
         gameObject.SetActive(false);
         InactiveCredit();
+        Time.timeScale = 1.0f;
     }
 
     public void ActiveCredit() //크레딧 활성화
     {
         creditCard.parent.gameObject.SetActive(true);
         creditCard.anchoredPosition = new Vector3(0, -1500, 0);
-        creditCard.DOAnchorPos(Vector3.zero, 0.5f).SetEase(Ease.OutBack);
+        creditCard.DOAnchorPos(Vector3.zero, 0.5f).SetEase(Ease.OutBack).SetUpdate(UpdateType.Normal, true);
     }
     
     public void InactiveCredit() //크레딧 비활성화
