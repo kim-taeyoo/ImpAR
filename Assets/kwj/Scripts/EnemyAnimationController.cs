@@ -67,7 +67,7 @@ public class EnemyAnimationController : MonoBehaviour
 
         if (message.Equals("Attacked"))
         {
-            enemyActionController.AttackTower();
+            enemyActionController.AttackGoal();
         }
 
         if (message.Equals("AttackEnded"))

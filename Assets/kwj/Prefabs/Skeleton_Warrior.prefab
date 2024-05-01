@@ -469,7 +469,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 20
-  attackPower: 2
+  attackPower: 3
+  isDead: 0
   rayPosition: {fileID: 2795444893108408877}
   attackDistance: 0.01
 --- !u!195 &2172400115095519503

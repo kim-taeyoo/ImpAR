@@ -75,20 +75,24 @@ public class EnemyActionController : MonoBehaviour
         }
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackDistance);
-        foreach (Collider c in hitColliders)
+        foreach (Collider hc in hitColliders)
         {
-            if (c.gameObject == goal && GoalCheckRay())
+            if (hc.gameObject == goal && GoalCheckRay())
             {
                 transform.LookAt(goalPosition);
                 animationController.DoAttack(true);
                 agent.destination = transform.position;
                 animationController.IsAttackAnimation = true;
                 break;
+            } else if (hc == GameManager.gm.killingColiider)
+            {
+                animationController.DoDeath(true);
             } else
             {
                 animationController.DoAttack(false);
+
             }
-            
+
         }
     }
 
@@ -133,6 +137,7 @@ public class EnemyActionController : MonoBehaviour
             animationController.DoDeath(true);
             isDead = true;
 
+            UIManager.um.changeEnemyNum();
             int getMoney = Random.Range(200, 300); //적을 죽임으로써 얻을 돈을 랜덤으로 설정 (임시)
             UIManager.um.ChangeMoneyNum(GameManager.gm.money, getMoney); //돈 표시하는 UI의 숫자를 변경.
             GameManager.gm.money += getMoney; //GameManager의 Money 값에 추가. 돈을 얻거나 쓸 때, UI를 반드시 먼저 변경시킨 후 GameManager의 money값을 반영할 것.
@@ -140,7 +145,7 @@ public class EnemyActionController : MonoBehaviour
         }
     }
 
-    public void AttackTower()
+    public void AttackGoal()
     {
         GameManager.gm.GoalDamaged(attackPower);
     }

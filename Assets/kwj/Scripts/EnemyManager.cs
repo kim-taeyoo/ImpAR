@@ -136,7 +136,6 @@ public class EnemyManager : MonoBehaviour
             if (e == g)
             {
                 enemy.Remove(e);
-                UIManager.um.changeEnemyNum();
                 
                 Destroy(e, 3);
                 if(GameManager.gm.enemySpawn == false && enemy.Count == 0) //만약 적 소환이 끊긴 상태에서 적이 전부 죽었다면
