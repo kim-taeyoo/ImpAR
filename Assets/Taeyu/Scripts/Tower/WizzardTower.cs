@@ -5,13 +5,13 @@ using UnityEngine.VFX;
 
 public class WizzardTower : MonoBehaviour
 {
-    //¹ø°³°ü·Ã
-    public VisualEffect visualEffectPrefab; // ºñÁÖ¾ó ÀÌÆåÆ® ÇÁ¸®ÆÕ
-    float spawnInterval = 0.3f; // ÀÌÆåÆ® »ı¼º °£°İ (ÃÊ)
-    int spawnCount = 20; // »ı¼ºÇÒ ÀÌÆåÆ® °³¼ö
-    float spawnRadius = 0.1f; // Áß¾ÓÁ¡À¸·ÎºÎÅÍÀÇ ÃÖ´ë °Å¸®
+    //ë²ˆê°œê´€ë ¨
+    public VisualEffect visualEffectPrefab; // ë¹„ì£¼ì–¼ ì´í™íŠ¸ í”„ë¦¬íŒ¹
+    float spawnInterval = 0.3f; // ì´í™íŠ¸ ìƒì„± ê°„ê²© (ì´ˆ)
+    int spawnCount = 20; // ìƒì„±í•  ì´í™íŠ¸ ê°œìˆ˜
+    float spawnRadius = 0.1f; // ì¤‘ì•™ì ìœ¼ë¡œë¶€í„°ì˜ ìµœëŒ€ ê±°ë¦¬
 
-    //½ÇÁ¦ °ø°İ¹üÀ§
+    //ì‹¤ì œ ê³µê²©ë²”ìœ„
     public GameObject attackRangePrefab;
     public GameObject attackRange;
 
@@ -19,23 +19,46 @@ public class WizzardTower : MonoBehaviour
     public bool isAttack = false;
     public bool seeAttackRange = false;
 
-    //°ø°İ °¡´É ¹üÀ§
+    //ê³µê²© ê°€ëŠ¥ ë²”ìœ„
     public GameObject attackRangeObject;
 
     private Camera mainCamera;
 
-    //ÄğÅ¸ÀÓ Å¸¿ö »ö»ó°ü·Ã
+    //ì¿¨íƒ€ì„ íƒ€ì›Œ ìƒ‰ìƒê´€ë ¨
     private Renderer renderer;
     private MaterialPropertyBlock propBlock;
+
+    //ì  ê´€ë ¨
+    public List<GameObject> enemiesInRange = new List<GameObject>();
 
     void Start()
     {
         mainCamera = Camera.main;
         attackRangeObject = transform.Find("AttackRange").gameObject;
 
-        renderer = GetComponentInChildren<Renderer>(); // Tower ¿ÀºêÁ§Æ®ÀÇ Renderer ÄÄÆ÷³ÍÆ®
+        renderer = GetComponentInChildren<Renderer>(); // Tower ì˜¤ë¸Œì íŠ¸ì˜ Renderer ì»´í¬ë„ŒíŠ¸
         propBlock = new MaterialPropertyBlock();
         StartCoroutine(IncreaseEmissionIntensityAndChangeColor(8, 20));
+    }
+
+    // íŠ¸ë¦¬ê±° ì  ì¶”ê°€
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("ì‘ë™");
+            enemiesInRange.Add(other.gameObject);
+        }
+    }
+
+    // íŠ¸ë¦¬ê±° ì  ì‚­ì œ
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("ë‚˜ê°");
+            enemiesInRange.Remove(other.gameObject);
+        }
     }
 
     void Update()
@@ -47,15 +70,15 @@ public class WizzardTower : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.CompareTag("WizzardAttackRange")) // 'WizzardAttackRange' ÅÂ±×¸¦ °¡Áø ¿ÀºêÁ§Æ®¿¡ ´ê¾Ò´ÂÁö È®ÀÎ
+                if (hit.collider.CompareTag("WizzardAttackRange")) // 'WizzardAttackRange' íƒœê·¸ë¥¼ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ì— ë‹¿ì•˜ëŠ”ì§€ í™•ì¸
                 {
-                    // ´êÀº ¿ÀºêÁ§Æ®ÀÇ À§Ä¡·Î attackRange À§Ä¡ ¼³Á¤ÇÏÁö¸¸, ÃÖ¼Ò °Å¸®µµ °í·Á
+                    // ë‹¿ì€ ì˜¤ë¸Œì íŠ¸ì˜ ìœ„ì¹˜ë¡œ attackRange ìœ„ì¹˜ ì„¤ì •í•˜ì§€ë§Œ, ìµœì†Œ ê±°ë¦¬ë„ ê³ ë ¤
                     setAttackPosition(hit.point);
                 }
                 else
                 {
                     GameObject hitObject = hit.collider.gameObject;
-                    // ·¹ÀÌ¸¦ hitÇÑ ¿ÀºêÁ§Æ®ÀÇ ¹Ù·Î ¾Æ·¡·Î ¹ß»ç (¿¹¸¦ µé¾î, yÃàÀ¸·Î -1)
+                    // ë ˆì´ë¥¼ hití•œ ì˜¤ë¸Œì íŠ¸ì˜ ë°”ë¡œ ì•„ë˜ë¡œ ë°œì‚¬ (ì˜ˆë¥¼ ë“¤ì–´, yì¶•ìœ¼ë¡œ -1)
                     Ray downRay = new Ray(hitObject.transform.position, -Vector3.up);
                     RaycastHit[] hits = Physics.RaycastAll(downRay, Mathf.Infinity);
                     if (hits.Length == 0)
@@ -66,7 +89,7 @@ public class WizzardTower : MonoBehaviour
                     {
                         foreach (var floorHit in hits)
                         {
-                            //ÅÂ±×°¡ WizzardAttackRange¸é
+                            //íƒœê·¸ê°€ WizzardAttackRangeë©´
                             if (floorHit.collider.gameObject.CompareTag("WizzardAttackRange"))
                             {
                                 setAttackPosition(hit.point);
@@ -83,20 +106,20 @@ public class WizzardTower : MonoBehaviour
                 {
                     if (attackRangeObject != null)
                     {
-                        // ½Ç¸°´õÀÇ ¿øÁ¡
+                        // ì‹¤ë¦°ë”ì˜ ì›ì 
                         Vector3 cylinderCenter = attackRangeObject.transform.position;
-                        float maxRadius = 0.35f; // ÃÖ´ë ¹İÁö¸§
-                        float minRadius = 0.16f; // ÃÖ¼Ò ¹İÁö¸§
+                        float maxRadius = 0.35f; // ìµœëŒ€ ë°˜ì§€ë¦„
+                        float minRadius = 0.16f; // ìµœì†Œ ë°˜ì§€ë¦„
 
-                        // ½Ç¸°´õÀÇ ¿øÁ¡¿¡¼­ È÷Æ® Æ÷ÀÎÆ®±îÁöÀÇ °Å¸®¿Í ¹æÇâ °è»ê
+                        // ì‹¤ë¦°ë”ì˜ ì›ì ì—ì„œ íˆíŠ¸ í¬ì¸íŠ¸ê¹Œì§€ì˜ ê±°ë¦¬ì™€ ë°©í–¥ ê³„ì‚°
                         Vector3 directionFromCenter = (targetPoint - cylinderCenter);
-                        directionFromCenter.y = 0; // yÃà ¹æÇâ ¹«½Ã
+                        directionFromCenter.y = 0; // yì¶• ë°©í–¥ ë¬´ì‹œ
                         float distanceFromCenter = directionFromCenter.magnitude;
 
-                        directionFromCenter = directionFromCenter.normalized; // Á¤±ÔÈ­µÈ ¹æÇâ º¤ÅÍ
+                        directionFromCenter = directionFromCenter.normalized; // ì •ê·œí™”ëœ ë°©í–¥ ë²¡í„°
 
-                        // ½Ç¸°´õ ¿ø À§ÀÇ °¡Àå °¡±î¿î ÁöÁ¡ °è»ê
-                        // °Å¸®°¡ ÃÖ¼Ò ¹İÁö¸§º¸´Ù ÀÛÀ¸¸é ÃÖ¼Ò ¹İÁö¸§ »ç¿ë, ±×·¸Áö ¾ÊÀ¸¸é ÃÖ´ë ¹İÁö¸§ »ç¿ë
+                        // ì‹¤ë¦°ë” ì› ìœ„ì˜ ê°€ì¥ ê°€ê¹Œìš´ ì§€ì  ê³„ì‚°
+                        // ê±°ë¦¬ê°€ ìµœì†Œ ë°˜ì§€ë¦„ë³´ë‹¤ ì‘ìœ¼ë©´ ìµœì†Œ ë°˜ì§€ë¦„ ì‚¬ìš©, ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ ìµœëŒ€ ë°˜ì§€ë¦„ ì‚¬ìš©
                         float effectiveRadius = (distanceFromCenter < minRadius) ? minRadius : Mathf.Min(distanceFromCenter, maxRadius);
                         Vector3 nearestPointOnCircle = cylinderCenter + directionFromCenter * effectiveRadius;
 
@@ -107,7 +130,14 @@ public class WizzardTower : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0)) // ¸¶¿ì½º ¿ŞÂÊ ¹öÆ° Å¬¸¯ ½Ã
+        // seeAttackRangeê°€ falseì´ë©´ ì  ëª©ë¡ì—ì„œ ëª¨ë“  ì˜¤ë¸Œì íŠ¸ë¥¼ ì œê±°
+        if (!seeAttackRange)
+        {
+            enemiesInRange.Clear();
+        }
+
+        //í…ŒìŠ¤íŠ¸ìš©(ì‚­ì œí•´ë„ë¨)
+        if (Input.GetMouseButtonDown(0)) // ë§ˆìš°ìŠ¤ ì™¼ìª½ ë²„íŠ¼ í´ë¦­ ì‹œ
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -128,7 +158,21 @@ public class WizzardTower : MonoBehaviour
         }
     }
 
-    //°ø°İ ÄğÅ¸ÆÀ, Å¸¿ö »ö»ó
+    //ê³µê²© í˜¸ì¶œ ë©”ì„œë“œ
+    public void AttackEnemy(int damage)
+    {
+        foreach (GameObject enemy in enemiesInRange)
+        {
+            EnemyActionController enemyActionController = enemy.GetComponent<EnemyActionController>();
+
+            if (enemyActionController != null) // ì»´í¬ë„ŒíŠ¸ê°€ ì¡´ì¬í•  ê²½ìš°
+            {
+                enemyActionController.GetHit(damage);
+            }
+        }
+    }
+
+    //ê³µê²© ì¿¨íƒ€íŒ€, íƒ€ì›Œ ìƒ‰ìƒ
     public IEnumerator IncreaseEmissionIntensityAndChangeColor(float targetIntensity, float duration)
     {
         Color initialColor = new Color(255f / 255f, 13f / 255f, 0f / 255f);
@@ -168,28 +212,33 @@ public class WizzardTower : MonoBehaviour
         isAttack = true;
     }
 
-    //¹ø°³
+    //ë²ˆê°œ
     public IEnumerator SpawnEffectsAt(Vector3 center)
     {
         for (int i = 0; i < spawnCount; i++)
         {
             Vector3 randomPos = Random.insideUnitCircle * spawnRadius;
             randomPos.z = randomPos.y;
-            randomPos.y = 0; // ¿øÇÏ´Â y°ªÀ¸·Î Á¶Á¤
+            randomPos.y = 0; // ì›í•˜ëŠ” yê°’ìœ¼ë¡œ ì¡°ì •
             randomPos += center;
 
             VisualEffect effectInstance = Instantiate(visualEffectPrefab, randomPos, Quaternion.identity);
 
-            // ¿ÀºêÁ§Æ®ÀÇ AudioSource ÄÄÆ÷³ÍÆ®¸¦ °¡Á®¿Â ÈÄ, 0.2ÃÊ µô·¹ÀÌ·Î Àç»ı ½ÃÀÛ
+            // ì˜¤ë¸Œì íŠ¸ì˜ AudioSource ì»´í¬ë„ŒíŠ¸ë¥¼ ê°€ì ¸ì˜¨ í›„, 0.2ì´ˆ ë”œë ˆì´ë¡œ ì¬ìƒ ì‹œì‘
             AudioSource audioSource = effectInstance.GetComponent<AudioSource>();
             if (audioSource != null)
             {
                 StartCoroutine(PlaySoundWithDelay(audioSource, 0.4f));
             }
-
-            yield return new WaitForSeconds(spawnInterval); // ´ÙÀ½ ÀÌÆåÆ® »ı¼º±îÁö ´ë±â
+            //ì ë“¤í•œí…Œ ë°ë¯¸ì§€
+            AttackEnemy(2);
+            Debug.Log(enemiesInRange);
+            yield return new WaitForSeconds(spawnInterval); // ë‹¤ìŒ ì´í™íŠ¸ ìƒì„±ê¹Œì§€ ëŒ€ê¸°
         }
-        Destroy(attackRange);
+       /* foreach (GameObject enemy in enemiesInRange)
+        {
+            Debug.Log(enemy.name);
+        }*/
         attackRangeObject.SetActive(false);
         seeAttackRange = false;
     }
@@ -203,12 +252,12 @@ public class WizzardTower : MonoBehaviour
 
     public void ToggleAttackRange()
     {
-        if (attackRangeObject != null && isAttack) // AttackRange ¿ÀºêÁ§Æ®°¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎ
+        if (attackRangeObject != null && isAttack) // AttackRange ì˜¤ë¸Œì íŠ¸ê°€ ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸
         {
             Destroy(attackRange);
             attackRange = null;
 
-            attackRangeObject.SetActive(!attackRangeObject.activeSelf); // ÇöÀç È°¼ºÈ­ »óÅÂÀÇ ¹İ´ë·Î ¼³Á¤
+            attackRangeObject.SetActive(!attackRangeObject.activeSelf); // í˜„ì¬ í™œì„±í™” ìƒíƒœì˜ ë°˜ëŒ€ë¡œ ì„¤ì •
             seeAttackRange = attackRangeObject.activeSelf;
 
             if (seeAttackRange)

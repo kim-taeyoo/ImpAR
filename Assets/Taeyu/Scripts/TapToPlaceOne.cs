@@ -123,15 +123,15 @@ public class TapToPlaceOne : MonoBehaviour
             //버튼 관련
             GameObject makeMapBtn = FindObject(canvas, "MapButton");
             GameObject selectBtn = FindObject(canvas, "MapSelectButton");
-            GameObject TowerListBtn = FindObject(canvas, "SpawnTurretButton");
+            GameObject TowerListPanel = FindObject(canvas, "TowerSpawnPanel");
             GameObject upgradeBtn = FindObject(canvas, "UpgradeTurretButton");
 
 
-            if (makeMapBtn != null && selectBtn != null && TowerListBtn != null && upgradeBtn != null)
+            if (makeMapBtn != null && selectBtn != null && TowerListPanel != null && upgradeBtn != null)
             {
                 makeMapBtn.SetActive(false);
                 selectBtn.SetActive(false);
-                TowerListBtn.SetActive(true);
+                TowerListPanel.SetActive(true);
                 upgradeBtn.SetActive(true);
             }
             else
@@ -159,14 +159,14 @@ public class TapToPlaceOne : MonoBehaviour
             //버튼 관련
             GameObject makeMapBtn = FindObject(canvas, "MapButton");
             GameObject selectBtn = FindObject(canvas, "MapSelectButton");
-            GameObject TowerListBtn = FindObject(canvas, "SpawnTurretButton");
+            GameObject TowerListPanel = FindObject(canvas, "TowerSpawnPanel");
             GameObject upgradeBtn = FindObject(canvas, "UpgradeTurretButton");
 
-            if (makeMapBtn != null && selectBtn != null && TowerListBtn != null && upgradeBtn != null)
+            if (makeMapBtn != null && selectBtn != null && TowerListPanel != null && upgradeBtn != null)
             {
                 makeMapBtn.SetActive(false);
                 selectBtn.SetActive(true);
-                TowerListBtn.SetActive(false);
+                TowerListPanel.SetActive(false);
                 upgradeBtn.SetActive(false);
             }
             else
