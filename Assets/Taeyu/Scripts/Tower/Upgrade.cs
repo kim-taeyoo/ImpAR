@@ -35,25 +35,25 @@ public class Upgrade : MonoBehaviour
             if (!RaycastWithoutTriggers(ray, out hit)) return;
 
             GameObject hitObject = hit.collider.gameObject;
-            //ÅÍ·¿ÀÌ ¾Æ´Ò¶§
+            //í„°ë ›ì´ ì•„ë‹ë•Œ
             if (!hitObject.CompareTag("Turret"))
             {
-                // ·¹ÀÌ¸¦ hitÇÑ ¿ÀºêÁ§Æ®ÀÇ ¹Ù·Î ¾Æ·¡·Î ¹ß»ç
+                // ë ˆì´ë¥¼ hití•œ ì˜¤ë¸Œì íŠ¸ì˜ ë°”ë¡œ ì•„ë˜ë¡œ ë°œì‚¬
                 Ray downRay = new Ray(hitObject.transform.position, -Vector3.up);
                 RaycastHit[] hits = Physics.RaycastAll(downRay, Mathf.Infinity);
-                //¾Æ·¡¿¡ ¾Æ¹«°Íµµ ¾øÀ¸¸é
+                //ì•„ë˜ì— ì•„ë¬´ê²ƒë„ ì—†ìœ¼ë©´
                 if (hits.Length == 0)
                 {
-                    //¹üÀ§ º¸Á¤À¸·Î ±ÙÃ³¿¡ turret ÀÖ´ÂÁö Ã£°í ÀÖÀ¸¸é ±× ÅÍ·¿À¸·Î ÁöÁ¤
+                    //ë²”ìœ„ ë³´ì •ìœ¼ë¡œ ê·¼ì²˜ì— turret ìˆëŠ”ì§€ ì°¾ê³  ìˆìœ¼ë©´ ê·¸ í„°ë ›ìœ¼ë¡œ ì§€ì •
                     GameObject closeTurret;
                     if (findSurrounding("Turret", hit, out closeTurret))
                     {
-                        //¼±ÅÃÆÄÆ¼Å¬ÀÌ¶û ÁöÁ¤ ÆÄÆ¼Å¬ »ç¿ë
+                        //ì„ íƒíŒŒí‹°í´ì´ë‘ ì§€ì • íŒŒí‹°í´ ì‚¬ìš©
                         selectPaticle.transform.position = closeTurret.transform.position + new Vector3(0, 0.005f, 0);
                         catchPaticle.transform.position = closeTurret.transform.position + new Vector3(0, 0.005f, 0);
                         catchPaticle.Play();
                     }
-                    //¾øÀ¸¸é
+                    //ì—†ìœ¼ë©´
                     else
                     {
                         /*selectPaticle.transform.position = hit.point + new Vector3(0, 0.005f, 0);*/
@@ -62,10 +62,10 @@ public class Upgrade : MonoBehaviour
                 }
                 else
                 {
-                    //¾Æ·¡¿¡ ¿ÀºêÁ§Æ®°¡ ÀÖÀ¸¸é ÀüºÎ °Ë»ç
+                    //ì•„ë˜ì— ì˜¤ë¸Œì íŠ¸ê°€ ìˆìœ¼ë©´ ì „ë¶€ ê²€ì‚¬
                     foreach (var floorHit in hits)
                     {
-                        //TurretÀÌ¸é
+                        //Turretì´ë©´
                         if (floorHit.collider.gameObject.CompareTag("Turret"))
                         {
                             selectPaticle.transform.position = hit.collider.gameObject.transform.position + new Vector3(0, 0.005f, 0);
@@ -92,7 +92,7 @@ public class Upgrade : MonoBehaviour
                     }
                 }
             }
-            //ÅÍ·¿ÀÌ¸é
+            //í„°ë ›ì´ë©´
             else
             {
                 selectPaticle.transform.position = hit.collider.gameObject.transform.position + new Vector3(0, 0.005f, 0);
@@ -112,15 +112,15 @@ public class Upgrade : MonoBehaviour
             yield return null;
         }
 
-        //Äİ¶óÀÌ´õ ÁÖ±â
+        //ì½œë¼ì´ë” ì£¼ê¸°
         BoxCollider boxCollider = obj.AddComponent<BoxCollider>();
         boxCollider.size = new Vector3(0.033f, 0.085f, 0.033f);
         boxCollider.center = new Vector3(0f, 0.0425f, 0f);
 
-        // ÆÄÆ¼Å¬ ½Ã½ºÅÛ Á¤Áö ¹× Á¦°Å
+        // íŒŒí‹°í´ ì‹œìŠ¤í…œ ì •ì§€ ë° ì œê±°
         ParticleSystem particleSystem = particleSystemInstance;
         particleSystem.Stop();
-        Destroy(particleSystemInstance.gameObject, particleSystem.main.startLifetime.constantMax); // ¸ğµç ÆÄÆ¼Å¬ÀÌ »ç¶óÁø ÈÄ¿¡ ÆÄÆ¼Å¬ ½Ã½ºÅÛ °´Ã¼ Á¦°Å
+        Destroy(particleSystemInstance.gameObject, particleSystem.main.startLifetime.constantMax); // ëª¨ë“  íŒŒí‹°í´ì´ ì‚¬ë¼ì§„ í›„ì— íŒŒí‹°í´ ì‹œìŠ¤í…œ ê°ì²´ ì œê±°
     }
 
     private bool RaycastWithoutTriggers(Ray ray, out RaycastHit hit)
@@ -144,7 +144,7 @@ public class Upgrade : MonoBehaviour
 
     public void TurretUpgrade()
     {
-        // Canvas ³»¿¡¼­ SpawnTurretButton ÀÌ¸§À» °¡Áø ¿ÀºêÁ§Æ® Ã£±â
+        // Canvas ë‚´ì—ì„œ SpawnTurretButton ì´ë¦„ì„ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ ì°¾ê¸°
         GameObject upgradeBtn = FindObject(canvas, "UpgradeTurretButton");
         GameObject selectBtn = FindObject(canvas, "UpgradeConfirmButton");
         GameObject cancelBtn = FindObject(canvas, "UpgradeCancelButton");
@@ -155,7 +155,7 @@ public class Upgrade : MonoBehaviour
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
             if (!RaycastWithoutTriggers(ray, out hit)) return;
 
-            //¼±ÅÃ ÆÄÆ¼Å¬ÀÌ¶û ÁöÁ¤ ÆÄÆ¼Å¬ ÀÎ½ºÅÏ½º
+            //ì„ íƒ íŒŒí‹°í´ì´ë‘ ì§€ì • íŒŒí‹°í´ ì¸ìŠ¤í„´ìŠ¤
             selectPaticle = Instantiate(select, hit.point + new Vector3(0, 0.005f, 0), select.transform.rotation);
             selectPaticle.Play();
             catchPaticle = Instantiate(catchTurretEffect, hit.point + new Vector3(0, 0.005f, 0), select.transform.rotation);
@@ -169,7 +169,7 @@ public class Upgrade : MonoBehaviour
                 cancelBtn.SetActive(true);
             }
         }
-        //Ãë¼Ò¹öÆ° ´­·¶À»¶§
+        //ì·¨ì†Œë²„íŠ¼ ëˆŒë €ì„ë•Œ
         else
         {
             turretUpgrade = false;
@@ -190,7 +190,7 @@ public class Upgrade : MonoBehaviour
     }
     public void ConfirmSelect()
     {
-        // Canvas ³»¿¡¼­ SpawnTurretButton ÀÌ¸§À» °¡Áø ¿ÀºêÁ§Æ® Ã£±â
+        // Canvas ë‚´ì—ì„œ SpawnTurretButton ì´ë¦„ì„ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ ì°¾ê¸°
         GameObject upgradeBtn = FindObject(canvas, "UpgradeTurretButton");
         GameObject selectBtn = FindObject(canvas, "UpgradeConfirmButton");
         GameObject cancelBtn = FindObject(canvas, "UpgradeCancelButton");
@@ -200,10 +200,41 @@ public class Upgrade : MonoBehaviour
         if (!RaycastWithoutTriggers(ray, out hit)) return;
 
         GameObject closeTurret;
-        //±ÙÃ³¿¡ ÀÖ´Â ÅÍ·¿Ã¼Å©
+        //ê·¼ì²˜ì— ìˆëŠ” í„°ë ›ì²´í¬
         if (findSurrounding("Turret", hit, out closeTurret))
         {
             if (closeTurret.name == "Turret_v1(Clone)")
+            {
+                if (GameManager.gm.money < 1000)
+                {
+                    return;
+                }
+                int spendMoney = -1000;
+                UIManager.um.ChangeMoneyNum(GameManager.gm.money, spendMoney);
+                GameManager.gm.money += spendMoney;
+            }
+            else if (closeTurret.name == "Turret_v2(Clone)")
+            {
+                if (GameManager.gm.money < 2000)
+                {
+                    return;
+                }
+                int spendMoney = -2000;
+                UIManager.um.ChangeMoneyNum(GameManager.gm.money, spendMoney);
+                GameManager.gm.money += spendMoney;
+            }
+            else if (closeTurret.name == "Turret_v3(Clone)")
+            {
+                if (GameManager.gm.money < 3000)
+                {
+                    return;
+                }
+                int spendMoney = -3000;
+                UIManager.um.ChangeMoneyNum(GameManager.gm.money, spendMoney);
+                GameManager.gm.money += spendMoney;
+            }
+
+                if (closeTurret.name == "Turret_v1(Clone)")
             {
                 focusObs = Instantiate(turretV2, closeTurret.transform.position, closeTurret.transform.rotation);
                 Destroy(closeTurret);
@@ -223,7 +254,7 @@ public class Upgrade : MonoBehaviour
             }
             else
             {
-                Debug.Log("ÃÖ°í·¹º§ µµ´Ş");
+                Debug.Log("ìµœê³ ë ˆë²¨ ë„ë‹¬");
                 return;
             }
 
@@ -244,19 +275,19 @@ public class Upgrade : MonoBehaviour
                 }
                 turretUpgrade = false;
 
-                // ÆÄÆ¼Å¬ ½Ã½ºÅÛ »ı¼º ¹× Àç»ı
+                // íŒŒí‹°í´ ì‹œìŠ¤í…œ ìƒì„± ë° ì¬ìƒ
                 ParticleSystem particleSystemInstance = Instantiate(particlePrefab, closeTurret.transform.position + new Vector3(0, 0.001f, 0), particlePrefab.transform.rotation);
                 particleSystemInstance.Play();
-                // ¼Ò¸® Àç»ı
+                // ì†Œë¦¬ ì¬ìƒ
                 AudioSource audioSource = focusObs.GetComponent<AudioSource>();
                 if (audioSource != null && spawnSound != null)
                 {
                     audioSource.PlayOneShot(spawnSound);
                 }
-                // ÆÄÆ¼Å¬ ½Ã½ºÅÛ ÀÎ½ºÅÏ½º¸¦ ÄÚ·çÆ¾À¸·Î Àü´Ş
-                StartCoroutine(MoveObjectToPosition(focusObs, 2, particleSystemInstance)); // 3ÃÊ µ¿¾È ¸ñÇ¥ À§Ä¡·Î ÀÌµ¿
+                // íŒŒí‹°í´ ì‹œìŠ¤í…œ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ì½”ë£¨í‹´ìœ¼ë¡œ ì „ë‹¬
+                StartCoroutine(MoveObjectToPosition(focusObs, 2, particleSystemInstance)); // 3ì´ˆ ë™ì•ˆ ëª©í‘œ ìœ„ì¹˜ë¡œ ì´ë™
 
-                //focus ¿ÀºêÁ§Æ® È¸¼ö
+                //focus ì˜¤ë¸Œì íŠ¸ íšŒìˆ˜
                 focusObs = null;
             }
         }
@@ -266,7 +297,7 @@ public class Upgrade : MonoBehaviour
         }
     }
 
-    // Àç±ÍÀûÀ¸·Î ¿ÀºêÁ§Æ®¸¦ Ã£´Â ÇÔ¼ö
+    // ì¬ê·€ì ìœ¼ë¡œ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ëŠ” í•¨ìˆ˜
     GameObject FindObject(GameObject parent, string name)
     {
         if (parent.name == name) return parent;
@@ -282,8 +313,8 @@ public class Upgrade : MonoBehaviour
     {
         Vector3 centerPosition = hit.point;
         Collider[] hitColliders = Physics.OverlapSphere(centerPosition, 0.04f);
-        float closestDistance = Mathf.Infinity; // ÃÊ±â °Å¸®´Â ¹«ÇÑ´ë·Î ¼³Á¤
-        GameObject closest = null; // °¡Àå °¡±î¿î °´Ã¼¸¦ ÀúÀåÇÒ º¯¼ö
+        float closestDistance = Mathf.Infinity; // ì´ˆê¸° ê±°ë¦¬ëŠ” ë¬´í•œëŒ€ë¡œ ì„¤ì •
+        GameObject closest = null; // ê°€ì¥ ê°€ê¹Œìš´ ê°ì²´ë¥¼ ì €ì¥í•  ë³€ìˆ˜
 
         foreach (var hitCollider in hitColliders)
         {
@@ -292,13 +323,13 @@ public class Upgrade : MonoBehaviour
                 float distance = Vector3.Distance(centerPosition, hitCollider.transform.position);
                 if (distance < closestDistance)
                 {
-                    closestDistance = distance; // °¡Àå °¡±î¿î °Å¸® ¾÷µ¥ÀÌÆ®
-                    closest = hitCollider.gameObject; // °¡Àå °¡±î¿î °´Ã¼ ¾÷µ¥ÀÌÆ®
+                    closestDistance = distance; // ê°€ì¥ ê°€ê¹Œìš´ ê±°ë¦¬ ì—…ë°ì´íŠ¸
+                    closest = hitCollider.gameObject; // ê°€ì¥ ê°€ê¹Œìš´ ê°ì²´ ì—…ë°ì´íŠ¸
                 }
             }
         }
 
-        closestTurret = closest; // °¡Àå °¡±î¿î ÅÍ·¿À» out ÆÄ¶ó¹ÌÅÍ·Î ¼³Á¤
-        return closest != null; // Ã£Àº °æ¿ì true, ¾Æ´Ï¸é false ¹İÈ¯
+        closestTurret = closest; // ê°€ì¥ ê°€ê¹Œìš´ í„°ë ›ì„ out íŒŒë¼ë¯¸í„°ë¡œ ì„¤ì •
+        return closest != null; // ì°¾ì€ ê²½ìš° true, ì•„ë‹ˆë©´ false ë°˜í™˜
     }
 }
