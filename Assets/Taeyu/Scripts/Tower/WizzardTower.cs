@@ -28,9 +28,6 @@ public class WizzardTower : MonoBehaviour
     private Renderer renderer;
     private MaterialPropertyBlock propBlock;
 
-    //적 관련
-    public List<GameObject> enemiesInRange = new List<GameObject>();
-
     void Start()
     {
         mainCamera = Camera.main;
@@ -39,26 +36,6 @@ public class WizzardTower : MonoBehaviour
         renderer = GetComponentInChildren<Renderer>(); // Tower 오브젝트의 Renderer 컴포넌트
         propBlock = new MaterialPropertyBlock();
         StartCoroutine(IncreaseEmissionIntensityAndChangeColor(8, 20));
-    }
-
-    // 트리거 적 추가
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("작동");
-            enemiesInRange.Add(other.gameObject);
-        }
-    }
-
-    // 트리거 적 삭제
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("나감");
-            enemiesInRange.Remove(other.gameObject);
-        }
     }
 
     void Update()
@@ -131,12 +108,15 @@ public class WizzardTower : MonoBehaviour
         }
 
         // seeAttackRange가 false이면 적 목록에서 모든 오브젝트를 제거
-        if (!seeAttackRange)
+        /*if (!seeAttackRange)
         {
-            enemiesInRange.Clear();
-        }
+            if (attackRange != null)
+            {
+                attackRange.GetComponent<AttackEnemyCheck>().enemiesInRange.Clear();
+            }
+        }*/
 
-        //테스트용(삭제해도됨)
+        /*//테스트용(삭제해도됨)
         if (Input.GetMouseButtonDown(0)) // 마우스 왼쪽 버튼 클릭 시
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -155,19 +135,23 @@ public class WizzardTower : MonoBehaviour
                     StartCoroutine(IncreaseEmissionIntensityAndChangeColor(8, 20));
                 }
             }
-        }
+        }*/
     }
 
     //공격 호출 메서드
     public void AttackEnemy(int damage)
     {
-        foreach (GameObject enemy in enemiesInRange)
+        if (attackRange != null)
         {
-            EnemyActionController enemyActionController = enemy.GetComponent<EnemyActionController>();
-
-            if (enemyActionController != null) // 컴포넌트가 존재할 경우
+            foreach (GameObject enemy in attackRange.GetComponent<AttackEnemyCheck>().enemiesInRange)
             {
-                enemyActionController.GetHit(damage);
+                Debug.Log(enemy.name);
+                EnemyActionController enemyActionController = enemy.GetComponent<EnemyActionController>();
+
+                if (enemyActionController != null) // 컴포넌트가 존재할 경우
+                {
+                    enemyActionController.GetHit(damage);
+                }
             }
         }
     }
@@ -232,15 +216,15 @@ public class WizzardTower : MonoBehaviour
             }
             //적들한테 데미지
             AttackEnemy(2);
-            Debug.Log(enemiesInRange);
             yield return new WaitForSeconds(spawnInterval); // 다음 이펙트 생성까지 대기
         }
-       /* foreach (GameObject enemy in enemiesInRange)
-        {
-            Debug.Log(enemy.name);
-        }*/
+
+        yield return new WaitForSeconds(2);
+
         attackRangeObject.SetActive(false);
         seeAttackRange = false;
+        Destroy(attackRange);
+        attackRange = null;
     }
 
     IEnumerator PlaySoundWithDelay(AudioSource audioSource, float delay)

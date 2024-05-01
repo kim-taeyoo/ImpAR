@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/template.unity
-    guid: 4755b35b590504809a7525fd2109c2e2
   - enabled: 1
-    path: Assets/Scenes/ARPlaneTest.unity
-    guid: e17f11ad5af35fb4dba82bda199ebf11
+    path: Assets/Scenes/Title Scene.unity
+    guid: 5e0018210ada1474d9f76b01468cbc9d
+  - enabled: 1
+    path: Assets/Scenes/GyubinTest.unity
+    guid: c626628fb23d0794a8a8dd14b58294c5
   m_configObjects:
     AR Foundation RemoteARFoundationRemoteLoaderSettings: {fileID: 11400000, guid: 7ceb2daf89593e74d9e140271c418487,
       type: 2}
