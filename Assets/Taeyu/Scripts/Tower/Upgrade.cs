@@ -26,12 +26,12 @@ public class Upgrade : MonoBehaviour
 
     public AudioClip spawnSound;
 
-    GameObject finalTurret; //현재 선택중인 터렛
+    public GameObject finalTurret; //현재 선택중인 터렛
     Text upgradeText;
 
     private void Start()
     {
-        upgradeText = GameObject.Find("UpgradeConfirmButton").transform.GetChild(1).GetChild(0).GetComponent<Text>();
+        upgradeText = canvas.transform.GetChild(6).GetChild(1).GetChild(0).GetComponent<Text>();
     }
 
     void Update()
@@ -129,7 +129,7 @@ public class Upgrade : MonoBehaviour
                 }
                 else
                 {
-                    upgradeText.text = "FULL UPGRADE";
+                    upgradeText.text = "FULL";
                 }
                 
             }

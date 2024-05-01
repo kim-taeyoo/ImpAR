@@ -143,4 +143,9 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void TimeSkip()
+    {
+        GameManager.gm.ReadyTimeSkip();
+    }
+
 }
