@@ -95,6 +95,7 @@
     <Compile Include="Assets\lgb\Scripts\MoneyTextAnimation.cs" />
     <Compile Include="Assets\kwj\Scripts\EnemyActionController.cs" />
     <Compile Include="Assets\Taeyu\Scripts\Tower\Tower.cs" />
+    <Compile Include="Assets\lgb\Scripts\ProjectileGyu.cs" />
     <Compile Include="Assets\kwj\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\lgb\Scripts\TurnManager.cs" />
     <Compile Include="Assets\Taeyu\Prefabs\StylizedAOEVFXwithIndicators\Scripts\EffectManager.cs" />

@@ -144,6 +144,20 @@ public class EnemyActionController : MonoBehaviour
     public void AttackTower()
     {
         GameManager.gm.GoalDamaged(attackPower);
+
+        Vector3 direction = goal.transform.position - transform.position;
+        direction.y = 0;
+        if(gameObject.name == "Skeleton_Rogue")
+        {
+            GameObject proj = Instantiate(GameManager.gm.arrowProjectile, transform.position, Quaternion.identity);
+            proj.GetComponent<ProjectileGyu>().SetDirection(direction);
+        }
+        else
+        {
+            GameObject proj = Instantiate(GameManager.gm.magicProjectile, transform.position, Quaternion.identity);
+            proj.GetComponent<ProjectileGyu>().SetDirection(direction);
+        }
+
     }
 
 }
