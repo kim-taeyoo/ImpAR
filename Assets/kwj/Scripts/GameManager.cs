@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
     public GameObject goal;
+    private int goalHealthPoints = 1000;
+
+    [SerializeField]
+    private Canvas goalUI;
+
+    private Slider hpSlider;
 
     public Collider plane;
 
     public EnemyManager enemyManager;
-
-    private Vector3 planePosition;
 
     public bool enemySpawn = false;
 
@@ -19,7 +25,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject spawnPoints;
     public List<Vector3> spawnPos = new List<Vector3>();
-    
+
+    public Collider killingColiider;
+
     // 이규빈 작성
     public static GameManager gm; //static 게임매니저
     public int stage; //몇번째 스테이지인지
@@ -43,6 +51,9 @@ public class GameManager : MonoBehaviour
             StartCoroutine(StartTimer(50)); //G를 눌러서 남은 시간 무시하고 바로 시작 가능
 
             GetEnemySpawnPoints();
+            hpSlider = goalUI.transform.GetChild(0).GetComponent<Slider>();
+            hpSlider.maxValue = goalHealthPoints;
+            hpSlider.value = goalHealthPoints;
         }
     }
 
@@ -71,7 +82,7 @@ public class GameManager : MonoBehaviour
     IEnumerator StartTimer(int startTimer) //타이머를 작동시키는 코루틴 함수. 매개변수로 받아온 시간만큼 기다린 후 다음 적 턴 실행
     {  //참고로 G를 눌러서 기다리는 시간을 스킵할 수 있다. (디버그용)
         timer = startTimer;
-        while(timer > 0)
+        while (timer > 0)
         {
             yield return new WaitForSeconds(1);
             timer--;
@@ -83,6 +94,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        goalUI.transform.LookAt(Camera.main.transform);
+
         if (Input.GetKeyDown(KeyCode.G))
         {
             timer = 2;
@@ -97,7 +110,14 @@ public class GameManager : MonoBehaviour
 
     public void GoalDamaged(int damage)
     {
-        //goal got damage
+        goalHealthPoints -= damage;
+        if (goalHealthPoints < 0)
+        {
+            goalHealthPoints = 0;
+        }
+
+        hpSlider.value = goalHealthPoints;
+        //Debug.Log("ouch");
     }
 
     private void GetEnemySpawnPoints()
@@ -107,19 +127,19 @@ public class GameManager : MonoBehaviour
             spawnPos.Add(spawnPoints.transform.GetChild(i).transform.position);
         }
     }
-    
+
     IEnumerator SpawnWaves()
     {
-        while(enemySpawn)
+        while (enemySpawn)
         {
             yield return new WaitForSeconds(firstSpawnTime);
             for (int i = 0; i < Random.Range(1, 3); ++i)
             {
                 int temp = Random.Range(0, 15);
 
-                Vector3 pos = planePosition + spawnPos[temp];
-                
-                //Debug.Log(pos);
+                Vector3 pos = spawnPos[temp];
+
+                Debug.Log(temp);
                 Vector3 targetDir = goal.transform.position - pos;
                 float angle = Vector3.SignedAngle(targetDir, transform.forward, Vector3.up);
 
@@ -127,14 +147,14 @@ public class GameManager : MonoBehaviour
                 enemyManager.InstantiateEnemy(pos, angle);
             }
             wave++;
-            if(wave >= stage)
+            if (wave >= stage)
             {
                 StopSpawn();
             }
             yield return new WaitForSeconds(enemySpawnTime);
         }
-        
+
     }
 
- 
+
 }

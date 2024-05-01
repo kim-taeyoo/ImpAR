@@ -75,20 +75,24 @@ public class EnemyActionController : MonoBehaviour
         }
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackDistance);
-        foreach (Collider c in hitColliders)
+        foreach (Collider hc in hitColliders)
         {
-            if (c.gameObject == goal && GoalCheckRay())
+            if (hc.gameObject == goal && GoalCheckRay())
             {
                 transform.LookAt(goalPosition);
                 animationController.DoAttack(true);
                 agent.destination = transform.position;
                 animationController.IsAttackAnimation = true;
                 break;
+            } else if (hc == GameManager.gm.killingColiider)
+            {
+                animationController.DoDeath(true);
             } else
             {
                 animationController.DoAttack(false);
+
             }
-            
+
         }
     }
 
@@ -140,7 +144,7 @@ public class EnemyActionController : MonoBehaviour
         }
     }
 
-    public void AttackTower()
+    public void AttackGoal()
     {
         GameManager.gm.GoalDamaged(attackPower);
     }
