@@ -134,6 +134,7 @@ public class EnemyActionController : MonoBehaviour
 
         if (!(healthPoints > 0))
         {
+            
             animationController.DoDeath(true);
             isDead = true;
 

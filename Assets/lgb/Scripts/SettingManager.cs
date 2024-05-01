@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.Audio;
 
 public class SettingManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class SettingManager : MonoBehaviour
     [SerializeField] private Sprite middleSpeaker;
     [SerializeField] private Sprite lowSpeaker;
     [SerializeField] private Sprite muteSpeaker;
+    public AudioMixer mixer;
         
 
 
@@ -32,6 +34,8 @@ public class SettingManager : MonoBehaviour
     }
     void Start()
     {
+        sound = 10;
+        mixer.SetFloat("MasterVolume", sound * 8);
     }
 
     public void ActiveSetting() //세팅창 활성화
@@ -68,6 +72,7 @@ public class SettingManager : MonoBehaviour
         if (sound > 10) sound = 10;
         soundText.text = "" + sound;
         ChangeSpeakerImage();
+        mixer.SetFloat("MasterVolume", sound * 8);
     }
     public void SoundDown() //소리 1 낮추기
     {
@@ -75,6 +80,7 @@ public class SettingManager : MonoBehaviour
         if (sound < 0) sound = 0;
         soundText.text = "" + sound;
         ChangeSpeakerImage();
+        mixer.SetFloat("MasterVolume", sound * 8);
     }
 
     void ChangeSpeakerImage() //스피커 이미지 바꾸기

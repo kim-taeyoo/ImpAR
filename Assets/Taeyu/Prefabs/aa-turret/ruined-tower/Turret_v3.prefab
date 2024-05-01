@@ -46,7 +46,8 @@ AudioSource:
   m_GameObject: {fileID: 3024409045419711699}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f180e3b130d585742aa588c35c27ef72,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.481
@@ -170,6 +171,8 @@ MonoBehaviour:
   gun: {fileID: 6152272804831022961}
   turningSpeed: 10
   angleTurningAccuracy: 80
+  enemiesInRange: []
+  currentTarget: {fileID: 0}
   projectilePrefab: {fileID: 6018163936743682015, guid: ea7bc2155941942419b7ac3681c0a106,
     type: 3}
   firePoint1: {fileID: 6668393977645275410}
