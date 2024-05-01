@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     public GameObject magicProjectile;
     public GameObject arrowProjectile;
     public GameObject enemyDeadEffect;
+    public AudioClip readyBGM;
+    public AudioClip battleBGM;
+    AudioSource audio;
 
     private void Awake()
     {
@@ -57,6 +60,9 @@ public class GameManager : MonoBehaviour
             hpSlider = goalUI.transform.GetChild(0).GetComponent<Slider>();
             hpSlider.maxValue = goalHealthPoints;
             hpSlider.value = goalHealthPoints;
+            audio = GetComponent<AudioSource>();
+            audio.clip = readyBGM;
+            audio.Play();
         }
     }
 
@@ -66,6 +72,8 @@ public class GameManager : MonoBehaviour
         isEnemyTurn = true; //적 턴중으로 표시
         enemySpawn = true;
         StartCoroutine(SpawnWaves());
+        audio.clip = battleBGM;
+        audio.Play();
     }
     public void StopSpawn()  //소환 중지 (웨이브가 다 됨)
     {
@@ -80,6 +88,8 @@ public class GameManager : MonoBehaviour
         UIManager.um.ChangeStageNum(stage);
         StartCoroutine(UIManager.um.ClearStageAnim()); //스테이지 클리어 애니메이션 작동
         StartCoroutine(StartTimer(5)); //인자로 넣어주는 숫자 초만큼 기다린 후 다음 스테이지를 시작한다.
+        audio.clip = readyBGM;
+        audio.Play();
     }
 
     IEnumerator StartTimer(int startTimer) //타이머를 작동시키는 코루틴 함수. 매개변수로 받아온 시간만큼 기다린 후 다음 적 턴 실행
