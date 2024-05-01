@@ -90,6 +90,7 @@
     <Compile Include="Assets\Taeyu\Scripts\Tower\UIInterface.cs" />
     <Compile Include="Assets\Taeyu\Scripts\Tower\WizzardTower.cs" />
     <Compile Include="Assets\lgb\A lot of useful icons_03\Scripts\dialogs\DialogCall.cs" />
+    <Compile Include="Assets\kwj\Scripts\TitleScreen.cs" />
     <Compile Include="Assets\FeatheredPlane\Scripts\ARFeatheredPlaneMeshVisualizer.cs" />
     <Compile Include="Assets\lgb\Scripts\EnemyUI.cs" />
     <Compile Include="Assets\kwj\Scripts\NavigationBaker.cs" />
