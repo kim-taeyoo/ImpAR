@@ -189,11 +189,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void GoalHPRecovery()
+    public bool GoalHPRecovery()
     {
-        if (money < recoveryMoney)
+        if (money < recoveryMoney || goalHealthPoints >= 1000)
         {
-            return;
+            return false;
         }
 
         int spendMoney = -recoveryMoney;
@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviour
 
         recoveryMoney = recoveryMoney * 2;
         GameObject.Find("CastleHPRecovery").transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "$" + recoveryMoney;
+
+        return true;
     }
-
-
 }
