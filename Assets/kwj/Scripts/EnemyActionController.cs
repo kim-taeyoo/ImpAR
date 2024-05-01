@@ -43,7 +43,7 @@ public class EnemyActionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (animationController.IsDeath)
+        if (isDead)
         {
             EnemyDead();
             return;
@@ -111,16 +111,11 @@ public class EnemyActionController : MonoBehaviour
 
     private void EnemyDead() //적 죽음. 뭐임 이거 왜 ㅈㄴ많이 실행됨?? 디버그 찍어보면 너무 많이 실행되는데
     {
-        if (!isDead)
-        {
-            agent.enabled = false;
-            c.enabled = false;
-            animationController.DoRun(false);
-            animationController.DoAttack(false);
-            animationController.DoHit(false);
-
-            isDead = true;
-        }
+        agent.enabled = false;
+        c.enabled = false;
+        animationController.DoRun(false);
+        animationController.DoAttack(false);
+        animationController.DoHit(false);
     }
 
     public void GetHit(int damage) //대미지 받음
@@ -136,12 +131,18 @@ public class EnemyActionController : MonoBehaviour
         if (!(healthPoints > 0))
         {
             animationController.DoDeath(true);
+            isDead = true;
+
+            int getMoney = Random.Range(200, 300); //적을 죽임으로써 얻을 돈을 랜덤으로 설정 (임시)
+            UIManager.um.ChangeMoneyNum(GameManager.gm.money, getMoney); //돈 표시하는 UI의 숫자를 변경.
+            GameManager.gm.money += getMoney; //GameManager의 Money 값에 추가. 돈을 얻거나 쓸 때, UI를 반드시 먼저 변경시킨 후 GameManager의 money값을 반영할 것.
+
         }
     }
 
     public void AttackTower()
     {
-        enemyManager.TargetDamage(attackPower);
+        GameManager.gm.GoalDamaged(attackPower);
     }
 
 }

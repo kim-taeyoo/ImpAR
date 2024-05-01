@@ -8,10 +8,7 @@ public class CreatePlane : MonoBehaviour
     public GameObject cubePrefab;
     private float planeSize = 2f;
     private int cubesPerLine = 50;
-    public Action onCreationComplete; // ¿Ï·á Äİ¹éÀ» À§ÇÑ ¾×¼Ç Ãß°¡
-
-    public GameObject goal;
-    public Collider plane;
+    public Action onCreationComplete; // ì™„ë£Œ ì½œë°±ì„ ìœ„í•œ ì•¡ì…˜ ì¶”ê°€
 
     void Start()
     {
@@ -32,12 +29,12 @@ public class CreatePlane : MonoBehaviour
                 GameObject cube = Instantiate(cubePrefab, new Vector3(cubePositionX, transform.position.y, cubePositionZ), Quaternion.identity);
                 cube.transform.parent = transform;
                 
-                // °¢ Å¥ºê À§ÂÊÀ¸·Î ·¹ÀÌ¸¦ ½÷¼­ ¿ÀºêÁ§Æ®°¡ ÀÖ´ÂÁö È®ÀÎ
+                // ê° íë¸Œ ìœ„ìª½ìœ¼ë¡œ ë ˆì´ë¥¼ ì´ì„œ ì˜¤ë¸Œì íŠ¸ê°€ ìˆëŠ”ì§€ í™•ì¸
                 CheckForObjectAbove(cube);
             }
         }
         
-        // Å¥ºê »ı¼ºÀÌ ¿Ï·áµÈ ÈÄ Äİ¹é È£Ãâ
+        // íë¸Œ ìƒì„±ì´ ì™„ë£Œëœ í›„ ì½œë°± í˜¸ì¶œ
         onCreationComplete?.Invoke();
     }
 
@@ -48,27 +45,13 @@ public class CreatePlane : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            // ·¹ÀÌ¿¡ ´êÀº ¿ÀºêÁ§Æ®°¡ ÀÖ°í "Plane" ÅÂ±×°¡ ¾Æ´Ï¸é
+            // ë ˆì´ì— ë‹¿ì€ ì˜¤ë¸Œì íŠ¸ê°€ ìˆê³  "Plane" íƒœê·¸ê°€ ì•„ë‹ˆë©´
             if (!hit.collider.CompareTag("Plane"))
             {
-                // ÇØ´ç Å¥ºêÀÇ ÅÂ±×¸¦ "Occupied"·Î º¯°æ
+                // í•´ë‹¹ íë¸Œì˜ íƒœê·¸ë¥¼ "Occupied"ë¡œ ë³€ê²½
                 cube.tag = "Occupied";
             }
         }
     }
 
-    public Vector3 GetPos()
-    {
-        return transform.position;
-    }
-
-    public GameObject GetGoal()
-    {
-        return goal;
-    }
-
-    public Collider GetPlane()
-    {
-        return plane;
-    }
 }
