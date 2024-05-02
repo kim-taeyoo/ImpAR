@@ -65,22 +65,6 @@ public class TapToPlaceOne : MonoBehaviour
                 spawnedArea.transform.rotation = Quaternion.Euler(0, yRotation, 0);
             }
         }
-
-        /* if (raycastManager.Raycast(ray, hitResults, TrackableType.PlaneWithinPolygon))
-         {
-             // 오브젝트를 처음 생성할 때
-             if (spawnedObject == null)
-             {
-                 spawnedObject = Instantiate(prefabToInstantiate, hitResults[0].pose.position + new Vector3(0, 0.01f, 0),
-                     hitResults[0].pose.rotation);
-
-                 // ARPlaneManager 컴포넌트를 비활성화합니다.
-                 if (planeManager != null)
-                 {
-                     planeManager.enabled = false;
-                 }
-             }
-         }*/
     }
 
 
@@ -88,12 +72,13 @@ public class TapToPlaceOne : MonoBehaviour
     {
         if (isSpawnMap)
         {
-            Destroy(spawnedArea);
 
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 
             if (raycastManager.Raycast(ray, hitResults, TrackableType.PlaneWithinPolygon) && hitResults.Count > 0)
             {
+                Destroy(spawnedArea);
+
                 spawnedArea = Instantiate(prefabToPlaneInstantiate, hitResults[0].pose.position + new Vector3(0, 0.001f, 0), Quaternion.identity);
                 // CreatePlane 스크립트에 접근하여 콜백 설정
                 CreatePlane createPlaneScript = spawnedArea.GetComponent<CreatePlane>();
@@ -107,39 +92,40 @@ public class TapToPlaceOne : MonoBehaviour
                 }
 
                 isSpawnMap = false;
-            }
 
-            // ARPlaneManager 컴포넌트를 비활성화합니다.
-            if (planeManager != null)
-            {
-                planeManager.enabled = false;
-                foreach (var plane in planeManager.trackables)
+                // ARPlaneManager 컴포넌트를 비활성화합니다.
+                if (planeManager != null)
                 {
-                    Debug.Log(plane);
-                    plane.gameObject.SetActive(false);
+                    planeManager.enabled = false;
+                    foreach (var plane in planeManager.trackables)
+                    {
+                        Debug.Log(plane);
+                        plane.gameObject.SetActive(false);
+                    }
+                }
+
+                //버튼 관련
+                GameObject makeMapBtn = FindObject(canvas, "MapButton");
+                GameObject selectBtn = FindObject(canvas, "MapSelectButton");
+                GameObject TowerListPanel = FindObject(canvas, "TowerSpawnPanel");
+                GameObject upgradeBtn = FindObject(canvas, "UpgradeTurretButton");
+                GameObject recoveryBtn = FindObject(canvas, "CastleHPRecovery");
+
+
+                if (makeMapBtn != null && selectBtn != null && TowerListPanel != null && upgradeBtn != null && recoveryBtn != null)
+                {
+                    makeMapBtn.SetActive(false);
+                    selectBtn.SetActive(false);
+                    TowerListPanel.SetActive(true);
+                    upgradeBtn.SetActive(true);
+                    recoveryBtn.SetActive(true);
+                }
+                else
+                {
+                    Debug.Log("버튼을 찾을 수 없음");
                 }
             }
-
-            //버튼 관련
-            GameObject makeMapBtn = FindObject(canvas, "MapButton");
-            GameObject selectBtn = FindObject(canvas, "MapSelectButton");
-            GameObject TowerListPanel = FindObject(canvas, "TowerSpawnPanel");
-            GameObject upgradeBtn = FindObject(canvas, "UpgradeTurretButton");
-            GameObject recoveryBtn = FindObject(canvas, "CastleHPRecovery");
-
-
-            if (makeMapBtn != null && selectBtn != null && TowerListPanel != null && upgradeBtn != null && recoveryBtn != null)
-            {
-                makeMapBtn.SetActive(false);
-                selectBtn.SetActive(false);
-                TowerListPanel.SetActive(true);
-                upgradeBtn.SetActive(true);
-                recoveryBtn.SetActive(true);
-            }
-            else
-            {
-                Debug.Log("버튼을 찾을 수 없음");
-            }
+            else { Debug.Log("정확한 위치에서 눌러주세요");  }
         }
     }
 
