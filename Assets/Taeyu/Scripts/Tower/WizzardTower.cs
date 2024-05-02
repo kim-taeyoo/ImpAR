@@ -219,7 +219,7 @@ public class WizzardTower : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval); // 다음 이펙트 생성까지 대기
         }
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         attackRangeObject.SetActive(false);
         seeAttackRange = false;

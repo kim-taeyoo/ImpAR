@@ -114,7 +114,6 @@ public class WizzardTowerSystem : MonoBehaviour
         // activeWizzardTower 참조를 사용하여 해당 객체의 상태와 메서드에 접근
         if (activeWizzardTower.isAttack && activeWizzardTower.seeAttackRange)
         {
-            Debug.Log("타워 작동");
             StartCoroutine(activeWizzardTower.SpawnEffectsAt(activeWizzardTower.attackRange.transform.position));
 
             activeWizzardTower.isAttack = false;
@@ -122,10 +121,6 @@ public class WizzardTowerSystem : MonoBehaviour
             activeWizzardTower.attackRangeObject.SetActive(false);
 
             StartCoroutine(activeWizzardTower.IncreaseEmissionIntensityAndChangeColor(8, 20));
-        }
-        else
-        {
-            Debug.Log("타워 미작동");
         }
 
         GameObject AttackBtn = FindObject(canvas, "AttackButton");
