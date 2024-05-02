@@ -18,35 +18,49 @@ public class WizzardTowerSystem : MonoBehaviour
 
     void Update()
     {
-        // 터치 입력이 있고, 첫 번째 터치의 상태가 화면에 처음 닿은 상태인지 확인
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (GameManager.gm.isEnemyTurn)
         {
-            // 첫 번째 터치 정보 가져오기
-            Touch touch = Input.GetTouch(0);
-
-            // 터치 위치로부터 Ray 생성
-            Ray ray = mainCamera.ScreenPointToRay(touch.position);
-            RaycastHit hit;
-
-            // Ray 발사
-            if (Physics.Raycast(ray, out hit))
+            // 터치 입력이 있고, 첫 번째 터치의 상태가 화면에 처음 닿은 상태인지 확인
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                WizzardTower wizzardTower = hit.collider.GetComponent<WizzardTower>();
-                if (wizzardTower != null && wizzardTower.CompareTag("WizzardTower"))
-                {
-                    // 이미 활성화된 WizzardTower가 있고, 다른 WizzardTower가 클릭되었다면
-                    if (activeWizzardTower != null && activeWizzardTower != wizzardTower)
-                    {
-                        // 이전 WizzardTower의 ToggleAttackRange를 호출하여 비활성화
-                        if (activeWizzardTower.seeAttackRange)
-                        {
-                            activeWizzardTower.ToggleAttackRange();
-                        }
-                    }
+                // 첫 번째 터치 정보 가져오기
+                Touch touch = Input.GetTouch(0);
 
-                    // 새로 클릭된 WizzardTower를 활성화하고 참조 업데이트
-                    wizzardTower.ToggleAttackRange();
-                    activeWizzardTower = wizzardTower;
+                // 터치 위치로부터 Ray 생성
+                Ray ray = mainCamera.ScreenPointToRay(touch.position);
+                RaycastHit hit;
+
+                // Ray 발사
+                if (Physics.Raycast(ray, out hit))
+                {
+                    WizzardTower wizzardTower = hit.collider.GetComponent<WizzardTower>();
+                    if (wizzardTower != null && wizzardTower.CompareTag("WizzardTower"))
+                    {
+                        // 이미 활성화된 WizzardTower가 있고, 다른 WizzardTower가 클릭되었다면
+                        if (activeWizzardTower != null && activeWizzardTower != wizzardTower)
+                        {
+                            // 이전 WizzardTower의 ToggleAttackRange를 호출하여 비활성화
+                            if (activeWizzardTower.seeAttackRange)
+                            {
+                                activeWizzardTower.ToggleAttackRange();
+                            }
+                        }
+
+                        // 새로 클릭된 WizzardTower를 활성화하고 참조 업데이트
+                        wizzardTower.ToggleAttackRange();
+                        activeWizzardTower = wizzardTower;
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (activeWizzardTower != null)
+            {
+                if (activeWizzardTower.seeAttackRange)
+                {
+                    activeWizzardTower.ToggleAttackRange();
+                    activeWizzardTower = null;
                 }
             }
         }

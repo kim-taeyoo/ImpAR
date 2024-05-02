@@ -1,81 +1,88 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\",
+  "WorkspaceRootPath": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\taeyu\\scripts\\tower\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\tower\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\\uAE40\uD0DC\uC720\\documents\\github\\impar\\assets\\taeyu\\scripts\\tower\\wizzardtowersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\tower\\wizzardtowersystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\lgb\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\lgb\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\\uAE40\uD0DC\uC720\\documents\\github\\impar\\assets\\taeyu\\scripts\\tower\\wizzardtower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\tower\\wizzardtower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\kwj\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\kwj\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\kwj\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|c:\\users\\bini4\\githubresi\\impar\\assets\\taeyu\\scripts\\tower\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\taeyu\\scripts\\tower\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\tower\\upgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\lgb\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\lgb\\scripts\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\taeyu\\scripts\\tower\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\tower\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\taeyu\\scripts\\tower\\uiinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\taeyu\\scripts\\tower\\uiinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\tower\\uiinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\lgb\\scripts\\settingmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\lgb\\scripts\\settingmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\lgb\\scripts\\settingmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\taeyu\\scripts\\taptoplaceone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\taeyu\\scripts\\taptoplaceone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\taptoplaceone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\kwj\\scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\kwj\\scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\kwj\\scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\kwj\\scripts\\enemyactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\kwj\\scripts\\enemyactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\kwj\\scripts\\enemyactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\DestroyAfterSec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\DestroyAfterSec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\DestroyAfterSec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\lgb\\scripts\\projectilegyu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\lgb\\scripts\\projectilegyu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\lgb\\scripts\\projectilegyu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\taeyu\\scripts\\map\\createplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\taeyu\\scripts\\map\\createplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\map\\createplane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\kwj\\scripts\\enemyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\kwj\\scripts\\enemyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\kwj\\scripts\\enemyanimationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bini4\\GitHubResi\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Runtime\\Connection\\Connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Runtime\\Connection\\Connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Runtime\\Connection\\Connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5EAF2870-201E-902B-9CC9-040AF517A505}|ARFoundationRemote.Installer.Editor.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\plugins\\arfoundationremoteinstaller\\scripts\\arfoundationremoteinstallerinspector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5EAF2870-201E-902B-9CC9-040AF517A505}|ARFoundationRemote.Installer.Editor.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\plugins\\arfoundationremoteinstaller\\scripts\\arfoundationremoteinstallerinspector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5EAF2870-201E-902B-9CC9-040AF517A505}|ARFoundationRemote.Installer.Editor.csproj|solutionrelative:assets\\plugins\\arfoundationremoteinstaller\\scripts\\arfoundationremoteinstallerinspector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bini4\\GitHubResi\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Editor\\ARFoundationRemoteLoaderSettingsInspector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Editor\\ARFoundationRemoteLoaderSettingsInspector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Editor\\ARFoundationRemoteLoaderSettingsInspector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\lgb\\scripts\\moneytextanimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\lgb\\scripts\\moneytextanimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\lgb\\scripts\\moneytextanimation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\bini4\\GitHubResi\\ImpAR\\assets\\taeyu\\scripts\\projectile\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\assets\\taeyu\\scripts\\projectile\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BFA8134E-E81D-4DB2-C151-19E75300A072}|Assembly-CSharp.csproj|solutionrelative:assets\\taeyu\\scripts\\projectile\\projectile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\bini4\\GitHubResi\\ImpAR\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\ExecuteEvents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\ExecuteEvents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\ExecuteEvents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -85,68 +92,65 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 230,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "WizzardTowerSystem.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\WizzardTowerSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Tower\\WizzardTowerSystem.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\WizzardTowerSystem.cs",
+              "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Tower\\WizzardTowerSystem.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAqwDYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T06:03:56.893Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "UIManager.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\lgb\\Scripts\\UIManager.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\lgb\\Scripts\\UIManager.cs",
               "RelativeDocumentMoniker": "Assets\\lgb\\Scripts\\UIManager.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\lgb\\Scripts\\UIManager.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\lgb\\Scripts\\UIManager.cs",
               "RelativeToolTip": "Assets\\lgb\\Scripts\\UIManager.cs",
               "ViewState": "AQIAADYAAAAAAAAAAAAAAB4AAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T14:20:39.982Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\kwj\\Scripts\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\kwj\\Scripts\\GameManager.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\kwj\\Scripts\\GameManager.cs",
-              "RelativeToolTip": "Assets\\kwj\\Scripts\\GameManager.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAA0wEwAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-30T13:19:54.885Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Tower.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\Tower.cs",
-              "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Tower\\Tower.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\Tower.cs",
-              "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Tower\\Tower.cs",
-              "ViewState": "AQIAAKwAAAAAAAAAAAApwMIAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T08:53:49.953Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Upgrade.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
-              "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
-              "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
-              "ViewState": "AQIAAHEAAAAAAAAAAAA0wIEAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T14:50:48.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-30T14:20:39.982Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Tower.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\Tower.cs",
+              "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Tower\\Tower.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\Tower.cs",
+              "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Tower\\Tower.cs",
+              "ViewState": "AQIAAKwAAAAAAAAAAAApwMIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T08:53:49.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Upgrade.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
+              "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
+              "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Tower\\Upgrade.cs",
+              "ViewState": "AQIAAHIAAAAAAAAAAAAIwIEAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-01T14:50:48.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "SettingManager.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\lgb\\Scripts\\SettingManager.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\lgb\\Scripts\\SettingManager.cs",
               "RelativeDocumentMoniker": "Assets\\lgb\\Scripts\\SettingManager.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\lgb\\Scripts\\SettingManager.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\lgb\\Scripts\\SettingManager.cs",
               "RelativeToolTip": "Assets\\lgb\\Scripts\\SettingManager.cs",
               "ViewState": "AQIAACQAAAAAAAAAAAAUwDgAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -154,11 +158,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "ARFoundationRemoteInstallerInspector.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Plugins\\ARFoundationRemoteInstaller\\Scripts\\ARFoundationRemoteInstallerInspector.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Plugins\\ARFoundationRemoteInstaller\\Scripts\\ARFoundationRemoteInstallerInspector.cs",
               "RelativeDocumentMoniker": "Assets\\Plugins\\ARFoundationRemoteInstaller\\Scripts\\ARFoundationRemoteInstallerInspector.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Plugins\\ARFoundationRemoteInstaller\\Scripts\\ARFoundationRemoteInstallerInspector.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Plugins\\ARFoundationRemoteInstaller\\Scripts\\ARFoundationRemoteInstallerInspector.cs",
               "RelativeToolTip": "Assets\\Plugins\\ARFoundationRemoteInstaller\\Scripts\\ARFoundationRemoteInstallerInspector.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAAwCcAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -166,11 +170,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "ARFoundationRemoteLoaderSettingsInspector.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Editor\\ARFoundationRemoteLoaderSettingsInspector.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Editor\\ARFoundationRemoteLoaderSettingsInspector.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Editor\\ARFoundationRemoteLoaderSettingsInspector.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Editor\\ARFoundationRemoteLoaderSettingsInspector.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Editor\\ARFoundationRemoteLoaderSettingsInspector.cs",
               "RelativeToolTip": "Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Editor\\ARFoundationRemoteLoaderSettingsInspector.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -178,11 +182,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "TapToPlaceOne.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
               "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
               "RelativeToolTip": "Assets\\Taeyu\\Scripts\\TapToPlaceOne.cs",
               "ViewState": "AQIAACAAAAAAAAAAAAAAAMEAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -190,11 +194,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "EnemyManager.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\kwj\\Scripts\\EnemyManager.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\kwj\\Scripts\\EnemyManager.cs",
               "RelativeDocumentMoniker": "Assets\\kwj\\Scripts\\EnemyManager.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\kwj\\Scripts\\EnemyManager.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\kwj\\Scripts\\EnemyManager.cs",
               "RelativeToolTip": "Assets\\kwj\\Scripts\\EnemyManager.cs",
               "ViewState": "AQIAAHgAAAAAAAAAAAA0wIkAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -202,11 +206,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "UIInterface.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\UIInterface.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\UIInterface.cs",
               "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Tower\\UIInterface.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\UIInterface.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\UIInterface.cs",
               "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Tower\\UIInterface.cs",
               "ViewState": "AQIAAAUCAAAAAAAAAAA0wA4CAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -214,11 +218,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "EnemyActionController.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\kwj\\Scripts\\EnemyActionController.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\kwj\\Scripts\\EnemyActionController.cs",
               "RelativeDocumentMoniker": "Assets\\kwj\\Scripts\\EnemyActionController.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\kwj\\Scripts\\EnemyActionController.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\kwj\\Scripts\\EnemyActionController.cs",
               "RelativeToolTip": "Assets\\kwj\\Scripts\\EnemyActionController.cs",
               "ViewState": "AQIAAHcAAAAAAAAAAAA0wIoAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -226,11 +230,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "ProjectileGyu.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\lgb\\Scripts\\ProjectileGyu.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\lgb\\Scripts\\ProjectileGyu.cs",
               "RelativeDocumentMoniker": "Assets\\lgb\\Scripts\\ProjectileGyu.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\lgb\\Scripts\\ProjectileGyu.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\lgb\\Scripts\\ProjectileGyu.cs",
               "RelativeToolTip": "Assets\\lgb\\Scripts\\ProjectileGyu.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -238,22 +242,22 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "DestroyAfterSec.cs",
               "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\DestroyAfterSec.cs",
-              "RelativeDocumentMoniker": "Assets\\DestroyAfterSec.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\bini4\\GitHubResi\\ImpAR\\Assets\\DestroyAfterSec.cs",
               "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\DestroyAfterSec.cs",
-              "RelativeToolTip": "Assets\\DestroyAfterSec.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\bini4\\GitHubResi\\ImpAR\\Assets\\DestroyAfterSec.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-01T12:15:46.944Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "CreatePlane.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
               "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
               "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Map\\CreatePlane.cs",
               "ViewState": "AQIAACoAAAAAAAAAAAAUwDgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -261,11 +265,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Connection.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Runtime\\Connection\\Connection.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Runtime\\Connection\\Connection.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Runtime\\Connection\\Connection.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Runtime\\Connection\\Connection.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Runtime\\Connection\\Connection.cs",
               "RelativeToolTip": "Library\\PackageCache\\com.kyrylokuzyk.arfoundationremote@2130c6556bef\\Runtime\\Connection\\Connection.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAA0wEwAAABUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -273,11 +277,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "EnemyAnimationController.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\kwj\\Scripts\\EnemyAnimationController.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\kwj\\Scripts\\EnemyAnimationController.cs",
               "RelativeDocumentMoniker": "Assets\\kwj\\Scripts\\EnemyAnimationController.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\kwj\\Scripts\\EnemyAnimationController.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\kwj\\Scripts\\EnemyAnimationController.cs",
               "RelativeToolTip": "Assets\\kwj\\Scripts\\EnemyAnimationController.cs",
               "ViewState": "AQIAABoAAAAAAAAAAAAuwDYAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -285,23 +289,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "MoneyTextAnimation.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\lgb\\Scripts\\MoneyTextAnimation.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\lgb\\Scripts\\MoneyTextAnimation.cs",
               "RelativeDocumentMoniker": "Assets\\lgb\\Scripts\\MoneyTextAnimation.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\lgb\\Scripts\\MoneyTextAnimation.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\lgb\\Scripts\\MoneyTextAnimation.cs",
               "RelativeToolTip": "Assets\\lgb\\Scripts\\MoneyTextAnimation.cs",
               "ViewState": "AQIAADYAAAAAAAAAAAAAAE0AAAAuAAAA",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADtSURBVDhPYxgFCHDh4YX/sQtj/6u3qP9XblL\u002BHzk/8j9UiuHtx7f/VZpVwHxkNggwgohLjy79D18SzmAua86QZJbEwM/Bz3D91XWGCNMIRpAGo34jsGJkwMrMynCn9g5YP0PK0pT/3tO9/3/58gVuMjLA5wImEHH68WkGN3U3Bh4eHoiJJACwAb/\u002B/gI7CRuAeeH3398M8g3ycDayKxjC5oX9D54TjNX5IIDPC2Ann7x78n/E4ggGDw0PhgiDCLBrLj2/xJBhl0HQS3AFe67t\u002BT/lyBSGO2/uMHCxcTHYK9szdAd2kxwmIw8wMAAAESl0qwYO77cAAAAASUVORK5CYII=",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEnSURBVFhHYxgFo2AUjHjACKXh4MLDC/9BdO\u002BBXjD/1ONTYPrPvz9g2kzWDEwvT1yOovftx7dgfeaTzMH8O7V3wPK4xGGACUoPGIC75tKjS2CXhi8JB/PNZSEuTjJLAtP8HPxg\u002Bvqr62A6wjQCxYdG/UYgiiBgZWYF07CQGDwhkLI0BeyT55\u002Beg/krY1eCaR4eHpQ4wwWGbBqAO\u002BD049Ng7KbuBsYgnxPre0rA4EkDmq2a4LjKtckF87Pss0iK\u002B6GfC8LmhYF98vffXzB/bcpakuJ/yOYCuGtO3j0JdmnE4ggw30PDA0xHGED4sLi79PwSmM6wyyAphHCBwRMCMLDn2h5wSEw5MgXMv/PmDpjmYuMC0/bK9mC6O7B7eITAKBgFo2CkAwYGANm2e7w/VqGPAAAAAElFTkSuQmCC",
               "WhenOpened": "2024-04-30T14:22:35.353Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Projectile.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Projectile\\Projectile.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Projectile\\Projectile.cs",
               "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Projectile\\Projectile.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Assets\\Taeyu\\Scripts\\Projectile\\Projectile.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Projectile\\Projectile.cs",
               "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Projectile\\Projectile.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -309,15 +313,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "ExecuteEvents.cs",
-              "DocumentMoniker": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\ExecuteEvents.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\ExecuteEvents.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\ExecuteEvents.cs",
-              "ToolTip": "C:\\Users\\bini4\\GitHubResi\\ImpAR\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\ExecuteEvents.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\ExecuteEvents.cs",
               "RelativeToolTip": "Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\ExecuteEvents.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8BAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-30T15:30:51.45Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 170,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\kwj\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\kwj\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\kwj\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\kwj\\Scripts\\GameManager.cs",
+              "ViewState": "AQIAAK8AAAAAAAAAAAAAAGEAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-30T13:19:54.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WizzardTower.cs",
+              "DocumentMoniker": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\WizzardTower.cs",
+              "RelativeDocumentMoniker": "Assets\\Taeyu\\Scripts\\Tower\\WizzardTower.cs",
+              "ToolTip": "C:\\Users\\\uAE40\uD0DC\uC720\\Documents\\GitHub\\ImpAR\\Assets\\Taeyu\\Scripts\\Tower\\WizzardTower.cs",
+              "RelativeToolTip": "Assets\\Taeyu\\Scripts\\Tower\\WizzardTower.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T06:11:24.214Z",
+              "EditorCaption": ""
             }
           ]
         }
