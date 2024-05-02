@@ -51,14 +51,14 @@ public class SettingManager : MonoBehaviour
         ChangeSpeakerImage();
         settingUIs.localScale = Vector3.zero;
         settingUIs.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).SetUpdate(UpdateType.Normal,true);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
 
     public void InactiveSetting() //세팅창 비활성화
     {
         gameObject.SetActive(false);
         InactiveCredit();
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1;
     }
 
     public void ActiveCredit() //크레딧 활성화
