@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
+using static Unity.VisualScripting.Member;
 
 public class UIInterface : MonoBehaviour
 {
@@ -151,9 +152,16 @@ public class UIInterface : MonoBehaviour
         }
     }
 
-    IEnumerator MoveObjectToPosition(GameObject obj, Vector3 targetPosition, float duration, ParticleSystem particleSystemInstance, ParticleSystem particleSystemInstance2)
+    IEnumerator MoveObjectToPosition(GameObject obj, Vector3 targetPosition, float duration, ParticleSystem particleSystemInstance, ParticleSystem particleSystemInstance2, AudioSource audioSource)
     {
-        float time = 0;
+        float delayTime = 0;
+        while (delayTime < 1)
+        {
+            delayTime += Time.deltaTime;
+            yield return null;
+        }
+
+            float time = 0;
         Vector3 startPosition = obj.transform.position;
 
         while (time < duration)
@@ -197,6 +205,7 @@ public class UIInterface : MonoBehaviour
         Destroy(particleSystemInstance.gameObject, particleSystem.main.startLifetime.constantMax); // 모든 파티클이 사라진 후에 파티클 시스템 객체 제거
         Destroy(particleSystemInstance2.gameObject, particleSystem.main.startLifetime.constantMax); // 모든 파티클이 사라진 후에 파티클 시스템 객체 제거
 
+
         //오브젝트 생성이 끝나면 버튼 다시 생김
         GameObject spawnBtn = FindObject(canvas, "SpawnTurretButton");
         if (spawnBtn != null)
@@ -209,6 +218,19 @@ public class UIInterface : MonoBehaviour
         {
             obj.tag = "Turret";
         }
+
+        float currentTime = 0; // 현재 시간 카운터
+        float startVolume = audioSource.volume; // 시작 볼륨 설정
+
+        while (currentTime < 2)
+        {
+            currentTime += Time.deltaTime; // 시간 업데이트
+            audioSource.volume = Mathf.Lerp(startVolume, 0, currentTime / 2);
+            yield return null; // 다음 프레임까지 대기
+        }
+
+        audioSource.Stop(); // 볼륨이 최소가 되면 오디오 정지
+        audioSource.volume = startVolume; // 원래 볼륨으로 복원
     }
 
     private void DisableColliders()
@@ -422,7 +444,7 @@ public class UIInterface : MonoBehaviour
                 focusObs.transform.position = startPosition;
 
                 // 파티클 시스템 인스턴스를 코루틴으로 전달
-                StartCoroutine(MoveObjectToPosition(focusObs, hit.collider.gameObject.transform.position, 11, particleSystemInstance, particleSystemInstance2)); // 3초 동안 목표 위치로 이동
+                StartCoroutine(MoveObjectToPosition(focusObs, hit.collider.gameObject.transform.position, 4, particleSystemInstance, particleSystemInstance2, audioSource)); // 3초 동안 목표 위치로 이동
             }
             //위자드 타워일때
             else if (curType == TowerType.WizzardTower)
@@ -446,7 +468,7 @@ public class UIInterface : MonoBehaviour
                 particleSystemInstance2.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 
                 // 파티클 시스템 인스턴스를 코루틴으로 전달
-                StartCoroutine(MoveObjectToPosition(focusObs, hit.collider.gameObject.transform.position, 11, particleSystemInstance, particleSystemInstance2)); // 3초 동안 목표 위치로 이동
+                StartCoroutine(MoveObjectToPosition(focusObs, hit.collider.gameObject.transform.position, 4, particleSystemInstance, particleSystemInstance2, audioSource)); // 3초 동안 목표 위치로 이동
             }
 
             //정상적으로 

@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
         stage++;
         UIManager.um.ChangeStageNum(stage);
         StartCoroutine(UIManager.um.ClearStageAnim()); //스테이지 클리어 애니메이션 작동
-        StartCoroutine(StartTimer(5)); //인자로 넣어주는 숫자 초만큼 기다린 후 다음 스테이지를 시작한다.
+        StartCoroutine(StartTimer(30)); //인자로 넣어주는 숫자 초만큼 기다린 후 다음 스테이지를 시작한다.
         audio.clip = readyBGM;
         audio.Play();
         buttonCanvas.SetActive(true);
