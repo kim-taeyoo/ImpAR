@@ -18,7 +18,7 @@ public class WizzardTowerSystem : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.gm.isEnemyTurn)
+        if (GameManager.gm != null && GameManager.gm.isEnemyTurn)
         {
             // 터치 입력이 있고, 첫 번째 터치의 상태가 화면에 처음 닿은 상태인지 확인
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
@@ -53,7 +53,7 @@ public class WizzardTowerSystem : MonoBehaviour
                 }
             }
         }
-        else
+        /*else
         {
             if (activeWizzardTower != null)
             {
@@ -63,7 +63,7 @@ public class WizzardTowerSystem : MonoBehaviour
                     activeWizzardTower = null;
                 }
             }
-        }
+        }*/
 
         UpdateAttackButtonStatus(); // AttackButton 상태 업데이트 메서드 호출
     }
@@ -103,24 +103,29 @@ public class WizzardTowerSystem : MonoBehaviour
 
     public void DoAttack()
     {
-        if (activeWizzardTower == null) return;
+        if (activeWizzardTower == null) {
+            Debug.Log("오류");
+            return; 
+        }
 
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        // activeWizzardTower 참조를 사용하여 해당 객체의 상태와 메서드에 접근
+        if (activeWizzardTower.isAttack && activeWizzardTower.seeAttackRange)
         {
-            // activeWizzardTower 참조를 사용하여 해당 객체의 상태와 메서드에 접근
-            if (activeWizzardTower.isAttack && activeWizzardTower.seeAttackRange)
-            {
-                StartCoroutine(activeWizzardTower.SpawnEffectsAt(activeWizzardTower.attackRange.transform.position));
+            Debug.Log("타워 작동");
+            StartCoroutine(activeWizzardTower.SpawnEffectsAt(activeWizzardTower.attackRange.transform.position));
 
-                activeWizzardTower.isAttack = false;
-                activeWizzardTower.seeAttackRange = false;
-                activeWizzardTower.attackRangeObject.SetActive(false);
+            activeWizzardTower.isAttack = false;
+            activeWizzardTower.seeAttackRange = false;
+            activeWizzardTower.attackRangeObject.SetActive(false);
 
-                StartCoroutine(activeWizzardTower.IncreaseEmissionIntensityAndChangeColor(8, 20));
-            }
+            StartCoroutine(activeWizzardTower.IncreaseEmissionIntensityAndChangeColor(8, 20));
+        }
+        else
+        {
+            Debug.Log("타워 미작동");
         }
 
         GameObject AttackBtn = FindObject(canvas, "AttackButton");
